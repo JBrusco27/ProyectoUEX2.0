@@ -33,9 +33,9 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn" type="submit"><ion-icon class="form-button-icon" name="caret-forward"></ion-icon>Sign Up</button>
+            <button id="submit" class="submitBtn" type="submit"><ion-icon class="form-button-icon" name="caret-forward"></ion-icon>Log in</button>
         </form>
-        <p>Not a member? <a href="../SignUp/signUp.php">Log in</a></p>
+        <p>Not a member? <a href="../SignUp/signUp.php">Sign up</a></p>
     </div>
 </body>
 </html>
