@@ -35,7 +35,7 @@
             </div>
             <button id="submit" class="submitBtn" type="submit"><ion-icon class="form-button-icon" name="caret-forward"></ion-icon>Sign Up</button>
         </form>
-        <p>Not a member? <a href="../SignUp/signUp.html">Log in</a></p>
+        <p>Not a member? <a href="../SignUp/signUp.php">Log in</a></p>
     </div>
 </body>
 </html>
