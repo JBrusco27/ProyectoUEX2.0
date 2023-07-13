@@ -1,0 +1,303 @@
+/* DEFAULT */
+
+
+@import url('../Components/defaultCssComp.css');
+
+.departament-orange{
+    color: var(--color-naranja) !important;
+    font-weight: 200;
+    font-size: 40px;
+    line-height: 1.8rem;
+}
+
+.departament-complete-text{
+    color: white;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.page-title{
+    z-index: 100;
+    position: absolute;
+    color: var(--color-verde-oscuro);
+    padding: 0 8%;
+    font-weight: 600;
+    font-size: 40px;
+    transform: translateY(-3.3rem);
+}
+
+input[type=button],input[type=submit]{
+    cursor: pointer;
+}
+
+/* DEFAULT */
+
+/* BODY */
+
+/*Container default*/
+
+.page-title{
+    position: absolute;
+    color: var(--color-verde-oscuro);
+    padding: 0 8%;
+    font-weight: 600;
+    font-size: 40px;
+    top: 20vh;
+}
+
+.container {
+    background-color: var(--color-verde-oscuro);
+    margin-top: 20vh;
+    inset: 0;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container-content{
+    padding:4% 8%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+}
+
+.wrap-container-active{
+    transform:scaleY(0.8)scaleX(0.7)translateX(60%);
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.538);
+}
+
+.wrap-container {
+    transition: all 0.6s;
+    overflow: hidden;
+    background-color: whitesmoke;
+    position: absolute;
+    inset: 0;
+}
+
+/*Container default*/
+
+form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap: 0.5rem;
+    width: 100%;
+    border: 1px #c3c3c36b solid; 
+    box-shadow: var(--box-shadow-1);
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}  
+
+.label-input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+
+
+.form-label{
+    color: var(--color-verde-claro);
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    text-indent: 4px;
+}
+
+option{
+    background-color: var(--color-verde-oscuro);
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 500;
+}
+
+.form-input{
+    background-color:transparent;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    width: 100%;
+    gap: 0;
+    cursor: pointer;
+}
+
+.submitBtn{
+    width: 20%;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: var(--color-naranja);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+}
+
+.submitBtn::after{
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 300%;
+    width: 100%;
+    transform: translateX(-120%) rotate(20deg);
+    transition: all .5s ease-in-out;
+}
+
+.submitBtn::before{
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 300%;
+    width: 10%;
+    transform: translateX(-800%) rotate(20deg);
+    transition: all .5s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.submitBtn:hover::after{
+    transform: translateX(-80%)rotate(20deg);
+}
+
+.submitBtn:hover::before{
+    transform: translateX(-150%)rotate(20deg);
+}
+
+.form-button-icon{
+    transition: 0.5s all ease-in-out;
+}
+
+.submitBtn:hover > .form-button-icon{
+    transform: translateX(0.5rem);
+}
+
+
+.schedules-form-div{
+    display: flex;
+    max-height: 100%;
+    width: 70%;
+    align-self: center;
+    gap: 0.5rem;
+    flex-direction: row;
+}
+
+.departament-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding: 0 2rem;
+}
+
+.departament-title{
+    color: white;
+}
+
+.schedules-content{
+    width: 100%;
+    height: auto;
+}
+
+.schedules-container{
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.dep-left{
+    text-align:left ;
+}
+
+.dep-right{
+    text-align:right ;
+}
+
+.schedule{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    border-bottom: 1px var(--color-naranja) solid;   
+}
+
+.schedule p{
+    color: white;
+}
+
+.departure-arrival-title{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding: 0 2rem;
+}
+.action-icon{
+    right: 0 !important;
+}
+
+@media screen and (max-width:1300px){
+    .schedules-form-div{
+        width: 100%;
+    }
+    .submitBtn{
+        max-width: 70px;
+    }
+    .form-div{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:900px){
+    .page-title{
+        font-size:30px;
+        top: 22vh;
+    }
+}
+
+@media screen and (max-width:700px){
+    .container-content{
+        padding: 8%;
+    }
+    form{
+        width: 100%;
+    }
+    .dep-left{
+        text-align: center;
+    }
+    .dep-right{
+        text-align: center;
+    }
+    .departament-container{
+        padding: 0;
+        align-items: center;
+        gap: 1rem;
+    }
+    .schedules-form-div{
+        width: 100%;
+    }
+}
+
+/* BODY */

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --color-verde-oscuro-2:#293b3a;
+    --color-verde-oscuro:#425C5A;
+    --color-verde-claro:#A2BFBD;
+    --color-naranja:#FFCEA2;
+    --poppins:'Poppins';
+    --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
+}
+
+body{
+    background-color:whitesmoke;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar,.container::-webkit-scrollbar{
+    background-color: white;
+    width: 8px;
+}
+
+html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color: #898989;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Poppins';
+    color:var(--color-verde-oscuro);
+    font-family: var(--poppins);
+    transition: all .3s;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input[type="button"],input[type="submit"],button{
+    cursor: pointer;
+}
