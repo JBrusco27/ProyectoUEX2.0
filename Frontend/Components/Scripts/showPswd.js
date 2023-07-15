@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let formPswd = document.getElementById('form-pswd');
         
         if(formPswd.type=='password'){
-            document.querySelector('#show-pswd-icon').name='eye-off';
+            document.querySelector('#show-pswd-icon').innerHTML='visibility_off';
             formPswd.type='text';
         }else if(formPswd.type=='text'){
-            document.querySelector('#show-pswd-icon').name='eye';
+            document.querySelector('#show-pswd-icon').innerHTML='visibility';
             formPswd.type='password';
         }
         
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let formPswd2 = document.getElementById('form-confPswd');
         
         if(formPswd2.type=='password'){
-            document.querySelector('#show-pswd-icon2').name='eye-off';
+            document.querySelector('#show-pswd-icon2').innerHTML='visibility_off';
             formPswd2.type='text';
         }else if(formPswd2.type=='text'){
-            document.querySelector('#show-pswd-icon2').name='eye';
+            document.querySelector('#show-pswd-icon2').innerHTML='visibility';
             formPswd2.type='password';
         }
         

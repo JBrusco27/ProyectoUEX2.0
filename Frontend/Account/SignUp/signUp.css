@@ -5,20 +5,26 @@
 /* DEFAULT */
 
 /* BODY */
+
 .container{
-    inset: 0;
+
     position: absolute;
+    padding: 3rem;
+    overflow-y: scroll;
+    inset: 0;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
+    box-sizing: border-box;
     background-color: var(--color-verde-oscuro);
 }  
 
 h3{
     color: var(--color-verde-claro);
     font-size: 30px;
+    padding: 1rem;
 }
 
 form{
@@ -26,6 +32,10 @@ form{
     flex-direction: column;
     min-width: 30%;
     gap: 1rem;
+}
+
+form *{
+    text-transform: uppercase;
 }
 
 .form-div{
@@ -37,6 +47,7 @@ form{
     border-bottom: 1px #c3c3c36b solid;
     padding: 0.5rem;
     box-sizing: border-box;
+    position: relative;
 }  
 
 .form-icon{
@@ -181,14 +192,77 @@ form{
     position: relative;
 }
 
+.alreadyAMember a{
+    float: right;
+    margin: 0 0.2rem;
+}
+
+#requirements{
+    display: none;
+}
+
+#form-name{
+    text-transform: capitalize !important;
+}
+
+.warning{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.warning-container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.name-warning-content,.email-warning-content,.pswd-warning-content,.phone-warning-content{
+    background: var(--color-naranja);
+    opacity: 0;
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.3rem;
+    transition: all 0.3s linear;
+}
+
+.warning-title{
+    color: var(--color-verde-2) !important;  
+    font-weight: 700;
+    font-size: 16px !important;  
+}
+
+.form-button-icon{
+    cursor: pointer;
+}
+
 @media screen and (max-width:1300px) {
+    .warning-container{
+        width: 50%;
+    }
     form{
         width: 50%;
     }
 }
 @media screen and (max-width:900px) {
+    .warning-container{
+        width: 70%;
+    }
     form{
         width: 70%;
+    }
+}
+@media screen and (max-width:700px) {
+    .warning-container{
+        width: 100%;
+    }
+    form{
+        width: 100%;
     }
 }
 

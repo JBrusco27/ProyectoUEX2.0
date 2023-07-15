@@ -40,6 +40,7 @@ h3{
 
 .menu-nav-icon{
     color: var(--color-naranja);
+    cursor: pointer;
 }
 
 .menu-nav-content a{
@@ -49,6 +50,15 @@ h3{
 .menu-nav-close-icon{
     color: white;
     font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-nav-close-icon:hover{
+color: var(--color-naranja);
+}
+
+.menu-nav-close{
+    width: fit-content;
 }
 
 /* MENU ( HEADER ) */

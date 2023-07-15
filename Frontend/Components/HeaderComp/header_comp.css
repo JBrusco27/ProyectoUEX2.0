@@ -65,6 +65,11 @@ header{
     box-sizing: border-box; 
 }
 
+.preferences-dropdown-content:hover{
+    transform-origin: right;
+    transform: scaleX(107%);
+}
+
 .preferences-dropdown-content-view{
     width: 100%;
     display: flex;

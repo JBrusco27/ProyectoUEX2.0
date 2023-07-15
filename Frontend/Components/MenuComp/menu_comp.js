@@ -32,25 +32,5 @@ if (active2) {
     }
 });
 
-
-
-
-
-function handleResize() {
-    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    
-    if(screenWidth < 700){
-        document.querySelector(".wrap-container").style.height="";        
-        document.querySelector(".menu-container").style.display="none"; 
-        document.querySelector("#wrap-container").classList.remove("wrap-container-active");       
-        active2 = true;
-    }
-  
-  }
-  
-  window.addEventListener('resize', handleResize);
-  
-  handleResize();
-
 });
 

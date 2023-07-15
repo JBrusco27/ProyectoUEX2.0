@@ -30,6 +30,10 @@ form{
     gap: 1rem;
 }
 
+form *{
+    text-transform: uppercase;
+}
+
 .form-div{
     display: flex;
     flex-direction: row;
@@ -182,6 +186,26 @@ form{
 .input-show-pswd-div{
     display: flex;
     position: relative;
+}
+
+.notAMember a{
+    float: right;
+    margin: 0 0.2rem;
+}
+
+.forgotPaswd{
+    color: var(--color-verde-claro);
+    font-size: 14px;
+    padding: 0.5rem;
+    text-transform: initial;
+}
+
+.forgotPaswd:hover{
+    color: var(--color-naranja);
+}
+
+.login-bottom-info{
+    text-align: center;
 }
 
 @media screen and (max-width:1300px) {

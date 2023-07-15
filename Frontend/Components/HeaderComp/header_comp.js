@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   function togglePreferencesDropDown(){
     if (active) {
       preferencesDropdownContentAction.style.display = "inline-block";
-      
       document.querySelector(".arrow-icon").style.transform = "rotate(90deg)";
       if(screenWidth < 700){
         document.querySelector('.preferences-dropdown-profile-name').style.display='inline-block';
@@ -70,21 +69,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.querySelector('.config-container').style.height="100%";     
     document.querySelector('html').style.overflow="hidden"; 
   });
-
-
-//Hover al preferences dropdown
-document.querySelector('.preferences-dropdown-content').addEventListener('mouseenter',()=>{
-  let preferencesDropDownContent = document.querySelector('.preferences-dropdown-content');
-  if(active && screenWidth > 700){
-    document.querySelector('.preferences-dropdown-content').style.width=preferencesDropDownContent.clientWidth+18+'px';
-  }
-})
-document.querySelector('.preferences-dropdown-content').addEventListener('mouseleave',()=>{
-  let preferencesDropDownContent = document.querySelector('.preferences-dropdown-content');
-  if(active && screenWidth > 700){
-    document.querySelector('.preferences-dropdown-content').style.width=preferencesDropDownContent.clientWidth-18+'px';
-  }
-});
 
 //Cerrar preferences dropdown al clickar fuera
 document.addEventListener('click', ()=>{

@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title class="Trad1"></title>
     <link rel="stylesheet" href="logIn.css">
     <script src="logIn.js"></script>
     <script src="../../Components/Scripts/showPswd.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    
 </head>
 <body>
     <div class="container">
-        <h3>log In</h3> 
+        <h3 class="Trad2"></h3> 
         <form id="form" action="consulta_sign_in.php" method="post">
             <div class="form-div">
-                <ion-icon class="form-icon" name="mail"></ion-icon>
+                <span class="material-symbols-rounded form-icon">email</span>
                 <div class="label-input-div">
-                    <label for="form-email" class="form-label">EMAIL</label>
+                    <label for="form-email" class="form-label Trad3"></label>
                     <input style="text-transform:initial !important;" id="form-email" class="form-input" name="formEmail" type="email" required>
                 </div>
             </div>
             <div class="form-div">
-                <ion-icon class="form-icon" name="lock-closed"></ion-icon>
+            <span class="material-symbols-rounded show-pswd-icon" id='show-pswd-icon'>lock</span>
                 <div class="label-input-div">
-                    <label for="form-pswd" class="form-label">PASSWORD</label>
+                    <label for="form-pswd" class="form-label Trad4"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-pswd" class="form-input" name="formPswd" type="password" required>
                         <div class="show-pswd" id="show-pswd">
-                            <ion-icon class="show-pswd-icon" id='show-pswd-icon' name="eye"></ion-icon>
+                            <span class="material-symbols-rounded show-pswd-icon" id='show-pswd-icon' >visibility</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn" type="submit"><ion-icon class="form-button-icon" name="caret-forward"></ion-icon>Log in</button>
+            <button id="submit" class="submitBtn Trad5" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
         </form>
-        <p>Not a member? <a href="../SignUp/signUp.php">Sign up</a></p>
+        <div class="login-bottom-info">
+            <p class="notAMember Trad6"><a href="../SignUp/signUp.php" class="Trad7"></a></p>
+            <a class="forgotPaswd Trad8" href=""></a>
+        </div>
     </div>
+    <script src="../../Components/Scripts/Translate/LogIn/translateLogin.js"></script>
 </body>
 </html>

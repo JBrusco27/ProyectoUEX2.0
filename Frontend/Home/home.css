@@ -8,15 +8,6 @@
 
 /*Container default*/
 
-.page-title{
-    position: absolute;
-    color: var(--color-verde-oscuro);
-    padding: 0 8%;
-    font-weight: 600;
-    font-size: 40px;
-    top: 20vh;
-}
-
 .container {
     background-color: var(--color-verde-oscuro);
     margin-top: 20vh;
@@ -264,13 +255,6 @@ option{
 @media screen and (max-width:1050px){
     .form-input-container{
         grid-template-columns: repeat(2,1fr);
-    }
-}
-
-@media screen and (max-width:900px){
-    .page-title{
-        font-size:30px;
-        top: 22vh;
     }
 }
 

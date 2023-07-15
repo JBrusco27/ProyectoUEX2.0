@@ -130,5 +130,6 @@
     </section>
     <script src="../Components/Scripts/Translate/Home/translateHome.js"></script>
     <script src="../Components/ConfigComp/config_comp.js"></script>
+    <script src="../Components/Scripts/default.js"></script>
 </body>
 </html>

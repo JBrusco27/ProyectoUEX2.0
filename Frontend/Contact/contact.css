@@ -2,15 +2,6 @@
 
 @import url('../Components/defaultCssComp.css');
 
-.page-title{
-    position: absolute;
-    color: var(--color-verde-oscuro);
-    padding: 0 8%;
-    font-weight: 600;
-    font-size: 40px;
-    transform: translateY(-3.3rem);
-}
-
 input[type=button],input[type=submit],button{
     cursor: pointer;
 }
@@ -20,15 +11,6 @@ input[type=button],input[type=submit],button{
 /* BODY */
 
 /*Container default*/
-
-.page-title{
-    position: absolute;
-    color: var(--color-verde-oscuro);
-    padding: 0 8%;
-    font-weight: 600;
-    font-size: 40px;
-    top: 20vh;
-}
 
 .container {
     background-color: var(--color-verde-oscuro);
@@ -296,10 +278,6 @@ form div{
 @media screen and (max-width:900px){
     .form-top{
         flex-direction: column;
-    }
-    .page-title{
-        font-size:30px;
-        top: 22vh;
     }
 }
 

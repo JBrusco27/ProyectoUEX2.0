@@ -5,6 +5,7 @@
     --color-verde-oscuro:#425C5A;
     --color-verde-claro:#A2BFBD;
     --color-naranja:#FFCEA2;
+    --color-blanco:#FFFFFF;
     --poppins:'Poppins';
     --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
 }
@@ -18,13 +19,13 @@ html{
 }
 
 html::-webkit-scrollbar,.container::-webkit-scrollbar{
-    background-color: white;
+    background-color: var(--color-blanco);
     width: 8px;
 }
 
 html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{
     border-radius: 50px;
-    background-color: #898989;
+    background-color: var(--color-verde-claro);
 }
 
 *{
@@ -42,4 +43,20 @@ html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{
 
 input[type="button"],input[type="submit"],button{
     cursor: pointer;
+}
+
+.page-title{
+    position: absolute;
+    color: var(--color-verde-oscuro);
+    padding: 0 8%;
+    font-weight: 600;
+    font-size: 40px;
+    top: 15vh;
+}
+
+@media screen and (max-width:900px) {
+    .page-title{
+        top: 16vh;
+        font-size: 30px;
+    }
 }

@@ -20,7 +20,6 @@ const head_mostrar_data = (array_resultado, columnNumber) => {
   let position = 0;
   array_resultado.forEach(e => {
     position += 1;
-    console.log(e);
     if (document.querySelector(`.HeadTrad${position}`).tagName.toLowerCase() === "input") {
       document.querySelector(`.HeadTrad${position}`).value += e[columnNumber];
     } else {

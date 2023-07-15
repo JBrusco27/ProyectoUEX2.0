@@ -16,16 +16,6 @@
     font-size: 17px;
 }
 
-.page-title{
-    z-index: 100;
-    position: absolute;
-    color: var(--color-verde-oscuro);
-    padding: 0 8%;
-    font-weight: 600;
-    font-size: 40px;
-    transform: translateY(-3.3rem);
-}
-
 input[type=button],input[type=submit]{
     cursor: pointer;
 }
@@ -35,15 +25,6 @@ input[type=button],input[type=submit]{
 /* BODY */
 
 /*Container default*/
-
-.page-title{
-    position: absolute;
-    color: var(--color-verde-oscuro);
-    padding: 0 8%;
-    font-weight: 600;
-    font-size: 40px;
-    top: 20vh;
-}
 
 .container {
     background-color: var(--color-verde-oscuro);
@@ -270,14 +251,10 @@ option{
     }
 }
 
-@media screen and (max-width:900px){
-    .page-title{
-        font-size:30px;
-        top: 22vh;
-    }
-}
-
 @media screen and (max-width:700px){
+    .schedule p{
+        font-size: 18px;
+    }
     .container-content{
         padding: 8%;
     }

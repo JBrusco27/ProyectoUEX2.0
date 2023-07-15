@@ -1,19 +1,22 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pe3uruguayexpress";
+$servername = "localhost"; // Dirección del servidor de la base de datos
+$username = "root"; // Nombre de usuario de la base de datos
+$password = ""; // Contraseña de la base de datos
+$dbname = "pe3uruguayexpress"; // Nombre de la base de datos
 
 try 
 {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+    // Obtener los valores del formulario de registro
     $nombre_usuario = $_POST['formName'];
     $password_usuario = $_POST['formPswd'];
     $password_usuario_confirm = $_POST['formConfPswd'];
     $correo_usuario = filter_var($_POST['formEmail'], FILTER_SANITIZE_EMAIL);
     $telefono_usuario = filter_var($_POST['formPhone'], FILTER_SANITIZE_NUMBER_INT);
+
+    // Encriptar la contraseña
     $password_usuario_hashed = password_hash($password_usuario, PASSWORD_DEFAULT);
 
     // Validación de nombre
@@ -31,7 +34,7 @@ try
     // Validación de número de teléfono
     $telefono_usuario = str_replace("-", "", $telefono_usuario); // Eliminar guiones del número de teléfono
 
-    if(!preg_match('/^\d{9}$/', $telefono_usuario))
+    if(!preg_match('/^[0-9]{9}$/', $telefono_usuario))
     {
         echo "Ingrese un número de teléfono válido de 9 dígitos";
         exit;
@@ -71,11 +74,11 @@ try
     $stmt_insertar->bindParam(':nombre', $nombre_usuario);
     $stmt_insertar->bindParam(':password', $password_usuario_hashed);
     $stmt_insertar->bindParam(':correo', $correo_usuario);
-    $stmt_insertar->bindParam(':telefono', $telefono_usuario, PDO::PARAM_INT);
+    $stmt_insertar->bindParam(':telefono', $telefono_usuario, PDO::PARAM_STR);
 
     $stmt_insertar->execute();
 
-    echo "Inserción exitosa";
+    header("Location: ../LogIn/logIn.php");
 } 
 catch(PDOException $e) 
 {

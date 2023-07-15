@@ -1,3 +1,4 @@
 <footer>
-    <p>Copyright 2023 - UruguayExpress - All rights reserved.</p>
+    <p class="footerTrad1"></p>
+    <script src="../Components/Scripts/Translate/Footer/translateFooter.js"></script>
 </footer>
