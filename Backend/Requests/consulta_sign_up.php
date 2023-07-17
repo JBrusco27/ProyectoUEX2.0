@@ -15,7 +15,7 @@ try
     $password_usuario_hashed = password_hash($password_usuario, PASSWORD_DEFAULT);
 
     // Validación de nombre
-    if(strlen($nombre_usuario) < 10 || strlen($nombre_usuario) > 40) 
+    if(strlen($nombre_usuario) < 4 || strlen($nombre_usuario) > 40) 
     {
         //echo "El nombre debe tener entre 10 y 40 caracteres";
         exit;
@@ -27,7 +27,7 @@ try
         exit;
     }
     // Validación de número de teléfono
-    $telefono_usuario = str_replace("-", "", $telefono_usuario); // Eliminar guiones del número de teléfono
+    $telefono_usuario = str_replace(" ", "", $telefono_usuario); // Eliminar guiones del número de teléfono
 
     if(!preg_match('/^[0-9]{9}$/', $telefono_usuario))
     {
@@ -57,11 +57,17 @@ try
 
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
 
- if($resultado['count'] > 0) 
-{
-    $email_exists = true;
-    exit;
-}
+    if ($resultado['count'] > 0) {
+        $email_exists = true;
+        header('Content-Type: application/json');
+        echo json_encode(['email_exists' => $email_exists]);
+        exit;
+    } else {
+        $email_exists = false;
+        header('Content-Type: application/json');
+        echo json_encode(['email_exists' => $email_exists]);
+    }
+
 
     // Si el correo electrónico no existe, realizar la inserción en la base de datos
     $sql_insertar = "INSERT INTO usuario (ID_Rol, Nombre_Usu, Contraseña_Usu, Correo_Usu, Telefono_Usu) VALUES (1, :nombre, :password, :correo, :telefono)";
@@ -74,7 +80,6 @@ try
     $stmt_insertar->execute();
 
     include "./consulta_sign_in.php";
-
 } 
 catch(PDOException $e) 
 {

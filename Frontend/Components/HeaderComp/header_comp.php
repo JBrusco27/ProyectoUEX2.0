@@ -4,6 +4,9 @@
 <!-- Logica de configuración -->
 <script src="../Components/ConfigComp/config_comp.js"></script>
 
+<!-- Enlace para cerrar sesión -->
+<script src="../Components/HeaderComp/del_cookie.js"></script>
+
 <!-- Datos del usuario ( con Cookies ) -->
 <?php include "../../Backend/user_cookie.php"?>
 
@@ -29,7 +32,8 @@
                 <div class="HeadTrad5" id="header-profile-action"><span class="material-symbols-rounded action-icon">person</span></div>
                 <div class="HeadTrad6" id="header-myTickets-action"><span class="material-symbols-rounded action-icon">local_activity</span></div>
                 <div class="HeadTrad7" id="header-config-action"><span class="material-symbols-rounded action-icon">settings</span></div>
-                <a href="../Account/SignUp/signUp.php"><div class="HeadTrad8"><span class="material-symbols-rounded action-icon">login</span></div></a> 
+                <a href="../Account/SignUp/signUp.php" id="header-login-action"><div class="HeadTrad8 a-preferences-item"><span class="material-symbols-rounded action-icon">login</span></div></a> 
+                <div class="HeadTrad9" id="header-logout-action"><span class="material-symbols-rounded action-icon">power_settings_new</span></div>
             </div>
         </div>
         <div class="preferences-dropdown-container-decoration"></div>

@@ -75,6 +75,37 @@ document.addEventListener('DOMContentLoaded', ()=> {
       toggleNavMenuMobile();
   });  
 
+
+  let opciones = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+  fetch('../../Backend/user_cookie.php', opciones)
+  .then(function (response) {
+    // Verificar si la solicitud fue exitosa
+    if (response.ok) {
+      return response.json(); // Parsear la respuesta como JSON
+    }
+  })
+  .then(function (data) {
+    // Acceder a la variable log dentro del objeto data
+    let log = data.log;
+    if(log){
+      document.getElementById('header-logout-action').style.display="flex";
+      document.getElementById('header-login-action').style.display="none";
+    }else{
+      document.getElementById('header-logout-action').style.display="none";
+      document.getElementById('header-login-action').style.display="flex";
+    }
+  })
+  .catch(function (error) {
+    console.error('Error:', error);
+  });
+
+
 });
 
 

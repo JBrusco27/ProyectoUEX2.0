@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="form-div">
-                <span class="material-symbols-rounded show-pswd-icon" id='show-pswd-icon'>lock</span>
+                <span class="material-symbols-rounded show-pswd-icon">lock</span>
                 <div class="label-input-div">
                     <label for="form-pswd" class="form-label Trad8"></label>
                     <div class="input-show-pswd-div">

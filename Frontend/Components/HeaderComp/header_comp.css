@@ -86,14 +86,14 @@ header{
     box-sizing: border-box;
 }
 
-.preferences-dropdown-content-action div{
+.preferences-dropdown-content-action > div,.preferences-dropdown-content-action > a{
     margin-bottom: 0.5rem;
     padding:0.5rem  1rem;
     display: flex;
     align-items: center;
 }
 
-.preferences-dropdown-content-action div:hover{
+.preferences-dropdown-content-action > div:hover,.preferences-dropdown-content-action > a:hover{
     background-color: whitesmoke;
 }
 
@@ -103,9 +103,15 @@ header{
     position: relative;
 }
 
-.preferences-dropdown-content-action div{
+.preferences-dropdown-content-action > div,.preferences-dropdown-content-action > a{
     align-items: center;
     display: flex;
+    gap: 15px;
+}
+
+.a-preferences-item{
+    display: flex;
+    align-items: center;
     gap: 15px;
 }
 

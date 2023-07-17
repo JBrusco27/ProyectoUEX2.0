@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+      
   // Lógica para dar formato al número de teléfono
   let phoneInput = document.getElementById('form-phone');
   phoneInput.addEventListener('input', () => {
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 200);
     }
 
-    // Validación de contraseñasiguales
+    // Validación de contraseñas iguales
     if (pswd !== confPswd) {
       document.querySelector('.difPswds-warning-content').style.display = 'flex';
       setTimeout(() => {
@@ -110,13 +111,46 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.phone-warning-content').style.display = 'none';
       }, 200);
     }
+    
 
+    // Verificar email ya existente
+    let opciones = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    
+    fetch('../../../Backend/Requests/consulta_sign_up.php', opciones)
+      .then(function (response) {
+        // Verificar si la solicitud fue exitosa
+        if (response.ok) {
+          return response.json(); // Parsear la respuesta como JSON
+        } else {
+          throw new Error('Error en la solicitud');
+        }
+      })
+      .then(function (data) {
+        // Acceder a la variable email_exists dentro del objeto data
+        let email_exists = data.email_exists;
+        if (email_exists) {
+          alert('El correo electrónico ya está registrado. Por favor, elige otro.');
+          hasError = true;
+        } else {
+          alert('Todo está bien. Continúa con el registro.');
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
+  
     // No enviar formulario en presencia de errores
     if (hasError) {
       event.preventDefault();
     }
+
   });
-  
+    
   // Lógica para cerrar los mensajes de advertencia
   document.querySelectorAll('.close-warning').forEach(element => {
     element.addEventListener('click', () => {
