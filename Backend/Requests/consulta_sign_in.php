@@ -1,12 +1,8 @@
 <?php
-$servername = "localhost"; // Dirección del servidor de la base de datos
-$username = "root"; // Nombre de usuario de la base de datos
-$password = ""; // Contraseña de la base de datos
-$dbname = "pe3uruguayexpress"; // Nombre de la base de datos
+
+include_once "../connect.php";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Obtener los valores del formulario de inicio de sesión
     $correo_usuario = filter_var($_POST['formEmail'], FILTER_SANITIZE_EMAIL); // Filtrar y sanitizar el correo electrónico
@@ -31,7 +27,7 @@ try {
             $nombre_usuario = $resultado['Nombre_Usu']; // Obtener el nombre de usuario desde la base de datos
             $expiry = time() + (30 * 24 * 60 * 60); // Calcula la fecha y hora de expiración en 1 mes (30 días)
             setcookie('nombre_usuario', $nombre_usuario, $expiry, '/');
-            header("Location: ../../Home/index.php"); // Redirigir al usuario a la página de inicio
+            header("Location: ../../Frontend/Home/index.php"); // Redirigir al usuario a la página de inicio
             exit; // Finalizar la ejecución del script
         } 
     } 

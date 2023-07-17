@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Lógica para validar el formulario antes del envío
   document.getElementById('form').addEventListener('submit', (event) => {
-    let nameLastnameTest = /^[A-Za-z]{5,20}\s[A-Za-z]{5,20}$/;
+    let nameLastnameTest = /^[A-Za-z]{2,20}\s[A-Za-z]{2,20}$/;
     let emailTest = /^[A-Za-z0-9._%+-]{1,30}@[A-Za-z0-9-]{1,20}\.[A-Za-z]{2,8}$/;
     let pswdTest = /^(?=.*[!@#$%^&*()-_=+])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,30}$/;
     let phoneTest = /^[\d ]{11,11}$/;
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Validación de las contraseñas
-    if (!pswdTest.test(pswd) || !pswdTest.test(confPswd) || pswd !== confPswd) {
+    if (!pswdTest.test(pswd) || !pswdTest.test(confPswd)) {
       document.querySelector('.pswd-warning-content').style.display = 'flex';
       setTimeout(() => {
         document.querySelector('.pswd-warning-content').style.opacity='0.6';
@@ -83,6 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 200);
     }
 
+    // Validación de contraseñasiguales
+    if (pswd !== confPswd) {
+      document.querySelector('.difPswds-warning-content').style.display = 'flex';
+      setTimeout(() => {
+        document.querySelector('.difPswds-warning-content').style.opacity='0.6';
+      }, 100);
+      hasError = true;
+    } else {
+      document.querySelector('.difPswds-warning-content').style.opacity='0';
+      setTimeout(() => {
+        document.querySelector('.difPswds-warning-content').style.display = 'none';
+      }, 200);
+    }
+    
     // Validación del teléfono
     if (!phoneTest.test(phone)) {
       document.querySelector('.phone-warning-content').style.display = 'flex';

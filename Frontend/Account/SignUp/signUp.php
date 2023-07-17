@@ -29,73 +29,66 @@
     <div class="container">
         <h3 class="Trad2"></h3>
         <!-- Contariner de restricciones -->
-        <div class="warning-container">
-            
+        <div class="warning-container">   
             <div class="name-warning-content warning">
-                <div class="warning-content">
-                    <p class="warning-title">Nombre & Apellido</p>
-                    &#9679 Debe tener entre 10 y 40 caracteres.
+                <div class="Trad3">
+                    <p class="warning-title Trad4"></p>      
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-name">close</span>
             </div>
-
             <div class="email-warning-content warning">
-                <div>
-                    <p class="warning-title">Email</p>
-                    &#9679 Ingrese un correo electronico valido.
+                <div class="Trad5">
+                    <p class="warning-title Trad6"></p>
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-email">close</span>
-            </div>
-            
+            </div> 
             <div class="phone-warning-content warning">
-                <div>
-                    <p class="warning-title">Phone Number</p>
-                    &#9679 Ingrese un número de telefono válido de 9 dígitos.
+                <div class="Trad7">
+                    <p class="warning-title Trad8"></p>
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-phone">close</span>
             </div>
-
             <div class="pswd-warning-content warning">
-                <div>
-                    <p class="warning-title">Password</p>
-                    &#9679 Las dos contraseñas deben ser iguales.<br>
-                    &#9679 Entre 8 y 30 caracteres.<br>
-                    &#9679 Al menos un carácter especial.<br>
-                    &#9679 Al menos una letra minúscula.<br>
-                    &#9679 Al menos una letra mayúscula.<br>
-                    &#9679 Al menos un número.
+                <div class="Trad9">
+                    <p class="warning-title Trad10"></p>
+                </div>
+                <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-pswd">close</span>
+            </div>
+            <div class="difPswds-warning-content warning">
+                <div class="Trad11">
+                    <p class="warning-title Trad12"></p>
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-pswd">close</span>
             </div>
         </div>
         <!-- Contariner de restricciones -->
         <!-- Formulario -->
-        <form id="form" action="consulta_sign_up.php" method="post">
+        <form id="form" action="../../../Backend/Requests/consulta_sign_up.php" method="post">
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">person</span>
                 <div class="label-input-div">
-                    <label for="form-name" class="form-label Trad3"></label>
+                    <label for="form-name" class="form-label Trad13"></label>
                     <input id="form-name" class="form-input" name="formName" type="text" maxlength="40" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">phone</span>
                 <div class="label-input-div">
-                    <label for="form-phone" class="form-label Trad4"></label>
+                    <label for="form-phone" class="form-label Trad14"></label>
                     <input id="form-phone" class="form-input" name="formPhone" type="text" maxlength="11" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">email</span>
                 <div class="label-input-div">
-                    <label for="form-email" class="form-label Trad5"></label>
+                    <label for="form-email" class="form-label Trad15"></label>
                     <input style="text-transform:initial !important;" id="form-email" class="form-input" name="formEmail" type="email" maxlength="100" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">lock</span>
                 <div class="label-input-div">
-                    <label for="form-pswd" class="form-label Trad6"></label>
+                    <label for="form-pswd" class="form-label Trad16"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-pswd" class="form-input" name="formPswd" type="password" maxlength="32" required>
                         <div class="show-pswd" id="show-pswd">
@@ -107,7 +100,7 @@
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">lock</span>
                 <div class="label-input-div">
-                    <label for="form-confP  swd" class="form-label Trad7"></label>
+                    <label for="form-confP  swd" class="form-label Trad17"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-confPswd" class="form-input" name="formConfPswd" type="password" maxlength="32" required>
                         <div class="show-pswd" id="show-pswd2">
@@ -116,11 +109,11 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn Trad8" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+            <button id="submit" class="submitBtn Trad18" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
         </form>
         <!-- Formulario -->
-        <p class="alreadyAMember Trad9">
-            <a href="../LogIn/logIn.php" class="Trad10"></a>
+        <p class="alreadyAMember Trad19">
+            <a href="../LogIn/logIn.php" class="Trad20"></a>
         </p>
     </div>
     <!-- Container -->

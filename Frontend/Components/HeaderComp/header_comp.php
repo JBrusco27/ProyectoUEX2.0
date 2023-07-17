@@ -5,7 +5,7 @@
 <script src="../Components/ConfigComp/config_comp.js"></script>
 
 <!-- Datos del usuario ( con Cookies ) -->
-<?php include "user_cookie.php"?>
+<?php include "../../Backend/user_cookie.php"?>
 
 <!-- Header -->
 <header>
