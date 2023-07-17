@@ -1,3 +1,4 @@
+// Conseguir datos del archivo csv
 const translateFunc = async (columnNumber) => {
   try {
     const response = await fetch('../Components/Scripts/Translate/Contact/languageContact.csv');
@@ -15,11 +16,11 @@ const translateFunc = async (columnNumber) => {
   }
 };
 
+// Traducir pagina
 const mostrar_data = (array_resultado, columnNumber) => {
   let position = 0;
   array_resultado.forEach(e => {
     position += 1;
-    console.log(e);
     if (document.querySelector(`.Trad${position}`).tagName.toLowerCase() === "input") {
       document.querySelector(`.Trad${position}`).value = e[columnNumber];
     } else {
@@ -28,22 +29,20 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-
 let columnNumber = localStorage.getItem('columnNumber');
 
+// Traduccion predeterminada ( Español )
 const defaultTranslate = async ()=>{
   if(columnNumber == undefined){
     localStorage.setItem('columnNumber', 1);
-    console.log(columnNumber);
     await translateFunc(columnNumber);
   }
   await translateFunc(columnNumber);
 }      
 document.addEventListener('DOMContentLoaded', defaultTranslate);
 
-
-
-document.querySelector('#spanishTranslateAction').addEventListener('click', async () => {
+//Se ejecuta la funcion al español
+document.getElementById('spanishTranslateAction').addEventListener('click', async () => {
   if (columnNumber == 1){
     console.log('Language already setted');
   }else{
@@ -53,7 +52,8 @@ document.querySelector('#spanishTranslateAction').addEventListener('click', asyn
   }
 });
 
-document.querySelector('#englishTranslateAction').addEventListener('click', async () => {
+//Se ejecuta la funcion al ingles
+document.getElementById('englishTranslateAction').addEventListener('click', async () => {
   if (columnNumber == 0){
     console.log('Language already setted');
   }else{
@@ -63,7 +63,8 @@ document.querySelector('#englishTranslateAction').addEventListener('click', asyn
   }
 });
 
-document.querySelector('#portugueseTranslateAction').addEventListener('click', async () => {
+//Se ejecuta la funcion al portugues
+document.getElementById('portugueseTranslateAction').addEventListener('click', async () => {
   if (columnNumber == 2){
     console.log('Language already setted');
   }else{

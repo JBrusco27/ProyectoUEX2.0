@@ -246,7 +246,6 @@ option{
     transform: translateX(-150%)rotate(20deg);
 }
 
-
 .form-submit-btn:hover{
     transition: all 0.2s;
     padding: 0.9rem 3.6rem;

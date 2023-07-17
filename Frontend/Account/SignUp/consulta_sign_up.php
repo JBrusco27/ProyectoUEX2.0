@@ -22,13 +22,13 @@ try
     // Validación de nombre
     if(strlen($nombre_usuario) < 10 || strlen($nombre_usuario) > 40) 
     {
-        echo "El nombre debe tener entre 10 y 40 caracteres";
+        //echo "El nombre debe tener entre 10 y 40 caracteres";
         exit;
     }
     // Validación de formato de correo electrónico
     if(!filter_var($correo_usuario, FILTER_VALIDATE_EMAIL)) 
     {
-        echo "Ingrese un correo electrónico válido";
+        //echo "Ingrese un correo electrónico válido";
         exit;
     }
     // Validación de número de teléfono
@@ -36,7 +36,7 @@ try
 
     if(!preg_match('/^[0-9]{9}$/', $telefono_usuario))
     {
-        echo "Ingrese un número de teléfono válido de 9 dígitos";
+        //echo "Ingrese un número de teléfono válido de 9 dígitos";
         exit;
     }
     // Validación de contraseña
@@ -46,12 +46,12 @@ try
     !preg_match("/[A-Z]/", $password_usuario) ||
     !preg_match("/[0-9]/", $password_usuario)) 
     {
-        echo "La contraseña debe cumplir los siguientes requisitos:";
-        echo "- Tener entre 8 y 30 caracteres";
-        echo "- Contener al menos un carácter especial";
-        echo "- Contener al menos una letra minúscula";
-        echo "- Contener al menos una letra mayúscula";
-        echo "- Contener al menos un número";
+        //echo "La contraseña debe cumplir los siguientes requisitos:";
+        //echo "- Tener entre 8 y 30 caracteres";
+        //echo "- Contener al menos un carácter especial";
+        //echo "- Contener al menos una letra minúscula";
+        //echo "- Contener al menos una letra mayúscula";
+        //echo "- Contener al menos un número";
         exit;
     }
     // Verificar si el correo electrónico ya existe en la base de datos
@@ -62,11 +62,11 @@ try
 
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
 
-    if($resultado['count'] > 0) 
-    {
-        echo "El correo electrónico ya está registrado";
-        exit;
-    }
+ if($resultado['count'] > 0) 
+{
+    $email_exists = true;
+    exit;
+}
 
     // Si el correo electrónico no existe, realizar la inserción en la base de datos
     $sql_insertar = "INSERT INTO usuario (ID_Rol, Nombre_Usu, Contraseña_Usu, Correo_Usu, Telefono_Usu) VALUES (1, :nombre, :password, :correo, :telefono)";
@@ -78,12 +78,12 @@ try
 
     $stmt_insertar->execute();
 
-    header("Location: ../LogIn/logIn.php");
+    header("Location: ../../Home/index.php");
 } 
 catch(PDOException $e) 
 {
-    echo "Error en la consulta: " . $e->getMessage();
-    echo "Código de error: " . $e->getCode();
+    //echo "Error en la consulta: " . $e->getMessage();
+    //echo "Código de error: " . $e->getCode();
 }
 $conn = null;
 ?>

@@ -2,10 +2,6 @@
 
 @import url('../Components/defaultCssComp.css');
 
-input[type=button],input[type=submit],button{
-    cursor: pointer;
-}
-
 /* DEFAULT */
 
 /* BODY */
@@ -236,6 +232,7 @@ form div{
     color: var(--color-verde-oscuro);
     transition: 0.5s all ease-in-out;
 }
+
 @media screen and (max-width:1300px){
     form{
         width: 90%;
@@ -243,11 +240,10 @@ form div{
 }
 
 @media screen and (max-width:1050px){
-    
     form{
         flex-direction: column;
         align-items: center;
-    }s
+    }
     
     .form-left-div{
         align-items: start;
@@ -273,7 +269,6 @@ form div{
         width: 100%;
     }
 }
-
 
 @media screen and (max-width:900px){
     .form-top{

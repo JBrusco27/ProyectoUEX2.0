@@ -1,3 +1,4 @@
+// Conseguir datos del archivo csv
 const translateFunc = async (columnNumber) => {
     try {
       const response = await fetch('../../Components/Scripts/Translate/LogIn/languageLogin.csv');
@@ -15,6 +16,7 @@ const translateFunc = async (columnNumber) => {
     }
   };
   
+  // Traducir pagina
   const mostrar_data = (array_resultado, columnNumber) => {
     let position = 0;
     array_resultado.forEach(e => {
@@ -29,10 +31,10 @@ const translateFunc = async (columnNumber) => {
   
   let columnNumber = localStorage.getItem('columnNumber');
 
+  // Traduccion predeterminada ( Español )
   const defaultTranslate = async ()=>{
     if(columnNumber == undefined){
       localStorage.setItem('columnNumber', 1);
-      console.log(columnNumber);
       await translateFunc(columnNumber);
     }
     await translateFunc(columnNumber);

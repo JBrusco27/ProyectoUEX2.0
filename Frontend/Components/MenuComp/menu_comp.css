@@ -1,4 +1,4 @@
-/* MENU ( HEADER ) */
+/* MENU NAV MOBILE */
 
 .menu-container{
     padding: 2rem;
@@ -61,4 +61,8 @@ color: var(--color-naranja);
     width: fit-content;
 }
 
-/* MENU ( HEADER ) */
+.menu-user-name{
+    float: right;
+}
+
+/* MENU NAV MOBILE */

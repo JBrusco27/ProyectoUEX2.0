@@ -1,4 +1,4 @@
-//Traducir configer
+//Conseguir datos del archivo csv
 const configTranslateFunc = async (columnNumber) => {
     try {
       const response = await fetch('../Components/Scripts/Translate/Config/languageConfig.csv');
@@ -16,11 +16,11 @@ const configTranslateFunc = async (columnNumber) => {
     }
   };
   
+  // Traducir pagina
   const config_mostrar_data = (array_resultado, columnNumber) => {
     let position = 0;
     array_resultado.forEach(e => {
       position += 1;
-      console.log(e);
       if (document.querySelector(`.configTrad${position}`).tagName.toLowerCase() === "input") {
         document.querySelector(`.configTrad${position}`).value += e[columnNumber];
       } else {
@@ -29,12 +29,12 @@ const configTranslateFunc = async (columnNumber) => {
     });
   };
   
-  //no se redeclara la variable debido a que ya se declara en la respectiva pagina donde se ejecuta este codigo
+  // No se redeclara la variable debido a que ya se declara en la respectiva pagina donde se ejecuta este codigo
   columnNumber = localStorage.getItem('columnNumber');  
   configTranslateFunc(columnNumber);
   
   
-  //Cambiar icono de seleccion de idioma segun la columna de idioma
+  // Cambiar icono de seleccion segun la columna de idioma
   const configDefaultTranslate = async ()=>{
       let columnNumber = localStorage.getItem('columnNumber');
       switch (parseInt(columnNumber)) {
@@ -58,4 +58,4 @@ const configTranslateFunc = async (columnNumber) => {
       }
       
     }      
-    configDefaultTranslate()
+    configDefaultTranslate();

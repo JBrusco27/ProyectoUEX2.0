@@ -7,8 +7,7 @@
 /* BODY */
 
 .container{
-
-    position: absolute;
+    position: fixed;
     padding: 3rem;
     overflow-y: scroll;
     inset: 0;

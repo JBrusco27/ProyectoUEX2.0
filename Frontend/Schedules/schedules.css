@@ -1,24 +1,6 @@
 /* DEFAULT */
 
-
 @import url('../Components/defaultCssComp.css');
-
-.departament-orange{
-    color: var(--color-naranja) !important;
-    font-weight: 200;
-    font-size: 40px;
-    line-height: 1.8rem;
-}
-
-.departament-complete-text{
-    color: white;
-    font-weight: 400;
-    font-size: 17px;
-}
-
-input[type=button],input[type=submit]{
-    cursor: pointer;
-}
 
 /* DEFAULT */
 
@@ -46,6 +28,7 @@ input[type=button],input[type=submit]{
     flex-direction: column;
     align-items: center;
     height: max-content;
+    gap: 3rem;
 }
 
 .wrap-container-active{
@@ -63,6 +46,19 @@ input[type=button],input[type=submit]{
 }
 
 /*Container default*/
+
+.departament-orange{
+    color: var(--color-naranja) !important;
+    font-weight: 200;
+    font-size: 40px;
+    line-height: 1.8rem;
+}
+
+.departament-complete-text{
+    color: white;
+    font-weight: 400;
+    font-size: 17px;
+}
 
 form{
     width: 70%;
@@ -90,8 +86,6 @@ form{
     gap: 0.4rem;
     width: 100%;
 }
-
-
 
 .form-label{
     color: var(--color-verde-claro);
@@ -177,7 +171,6 @@ option{
     transform: translateX(0.5rem);
 }
 
-
 .schedules-form-div{
     display: flex;
     max-height: 100%;
@@ -199,7 +192,7 @@ option{
 }
 
 .schedules-content{
-    width: 100%;
+    width: 70%;
     height: auto;
 }
 
@@ -273,6 +266,9 @@ option{
         gap: 1rem;
     }
     .schedules-form-div{
+        width: 100%;
+    }
+    .schedules-content{
         width: 100%;
     }
 }

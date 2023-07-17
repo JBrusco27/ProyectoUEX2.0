@@ -1,4 +1,4 @@
-//Traducir header
+// Conseguir datos del archivo csv
 const footerTranslateFunc = async (columnNumber) => {
     try {
       const response = await fetch('../Components/Scripts/Translate/Footer/languageFooter.csv');
@@ -16,6 +16,7 @@ const footerTranslateFunc = async (columnNumber) => {
     }
   };
   
+  // Traducir pagina
   const footer_mostrar_data = (array_resultado, columnNumber) => {
     let position = 0;
     array_resultado.forEach(e => {
@@ -28,7 +29,7 @@ const footerTranslateFunc = async (columnNumber) => {
     });
   };
   
-  //no se redeclara la variable debido a que ya se declara en la respectiva pagina donde se ejecuta este codigo
+  // No se redeclara la variable debido a que ya se declara en la respectiva pagina donde se ejecuta este codigo
   columnNumber = localStorage.getItem('columnNumber');  
   footerTranslateFunc(columnNumber);
   

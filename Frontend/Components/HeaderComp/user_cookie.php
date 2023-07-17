@@ -6,6 +6,6 @@
     } 
     else 
     {
-        $nombre_usuario = "Bienvenido!"; // Valor por defecto si no se encuentra la cookie
+        $nombre_usuario = "User"; // Valor por defecto si no se encuentra la cookie
     }
 ?>

@@ -1,11 +1,23 @@
+<!-- Enlace para traducir header -->
+<script src="../Components/Scripts/Translate/Header/translateHeader.js"></script>
+
+<!-- Logica de configuración -->
+<script src="../Components/ConfigComp/config_comp.js"></script>
+
+<!-- Datos del usuario ( con Cookies ) -->
 <?php include "user_cookie.php"?>
+
+<!-- Header -->
 <header>
+    <!-- Navegación -->
     <nav class="nav-container">
-    <span class="material-symbols-rounded menu-icon">menu</span>
+        <span class="material-symbols-rounded menu-icon">menu</span>
         <div class="nav-elements"><a href="../Home/index.php" class="HeadTrad1"></a></div>
         <div class="nav-elements"><a href="../Contact/contact.php" class="HeadTrad2"></a></div>
         <div class="nav-elements"><a href="../Schedules/schedules.php" class="HeadTrad3"></a></div>
     </nav>
+    <!-- Navegación -->
+    <!-- Menu de preferencias y usuario -->
     <section class="preferences-dropdown-container">
         <div class="preferences-dropdown-content" id="preferences-dropdown-content">
             <div class="preferences-dropdown-content-view" id="preferences-dropdown-content-view">
@@ -22,6 +34,6 @@
         </div>
         <div class="preferences-dropdown-container-decoration"></div>
     </section>
-    <script src="../Components/Scripts/Translate/Header/translateHeader.js"></script>
-    <script src="../Components/ConfigComp/config_comp.js"></script>
+    <!-- Menu de preferencias y usuario -->
 </header> 
+<!-- Header -->

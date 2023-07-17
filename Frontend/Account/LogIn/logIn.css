@@ -6,21 +6,23 @@
 
 /* BODY */
 .container{
-    overflow: hidden;
     position: fixed;
+    padding: 3rem;
+    overflow-y: scroll;
     inset: 0;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--color-verde-oscuro);
     gap: 1.5rem;
-    z-index:1000000;
+    box-sizing: border-box;
+    background-color: var(--color-verde-oscuro);
 }  
 
 h3{
     color: var(--color-verde-claro);
     font-size: 30px;
+    padding: 1rem;
 }
 
 form{
