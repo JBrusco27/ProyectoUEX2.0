@@ -57,18 +57,16 @@ try
 
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
 
-    if ($resultado['count'] > 0) {
-        $email_exists = true;
-        header('Content-Type: application/json');
-        echo json_encode(['email_exists' => $email_exists]);
-        exit;
-    } else {
-        $email_exists = false;
-        header('Content-Type: application/json');
-        echo json_encode(['email_exists' => $email_exists]);
-    }
-
-
+if ($resultado['count'] > 0) {
+    $email_exists = true;
+    header('Content-Type: application/json');
+    echo json_encode(['email_exists' => $email_exists]);
+    exit;
+} else {
+    $email_exists = false;
+    header('Content-Type: application/json');
+    echo json_encode(['email_exists' => $email_exists]);
+    
     // Si el correo electrónico no existe, realizar la inserción en la base de datos
     $sql_insertar = "INSERT INTO usuario (ID_Rol, Nombre_Usu, Contraseña_Usu, Correo_Usu, Telefono_Usu) VALUES (1, :nombre, :password, :correo, :telefono)";
     $stmt_insertar = $conn->prepare($sql_insertar);
@@ -76,10 +74,14 @@ try
     $stmt_insertar->bindParam(':password', $password_usuario_hashed);
     $stmt_insertar->bindParam(':correo', $correo_usuario);
     $stmt_insertar->bindParam(':telefono', $telefono_usuario, PDO::PARAM_STR);
-
+    
     $stmt_insertar->execute();
-
+    
     include "./consulta_sign_in.php";
+}
+
+
+
 } 
 catch(PDOException $e) 
 {

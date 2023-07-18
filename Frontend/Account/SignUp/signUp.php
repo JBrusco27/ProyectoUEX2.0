@@ -58,7 +58,13 @@
                 <div class="Trad11">
                     <p class="warning-title Trad12"></p>
                 </div>
-                <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-pswd">close</span>
+                <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-dif-pswd">close</span>
+            </div>
+            <div class="emailExists-warning-content warning">
+                <div class="Trad13">
+                    <p class="warning-title Trad14"></p>
+                </div>
+                <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-email-exists">close</span>
             </div>
         </div>
         <!-- Contariner de restricciones -->
@@ -67,28 +73,28 @@
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">person</span>
                 <div class="label-input-div">
-                    <label for="form-name" class="form-label Trad13"></label>
+                    <label for="form-name" class="form-label Trad15"></label>
                     <input id="form-name" class="form-input" name="formName" type="text" maxlength="40" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">phone</span>
                 <div class="label-input-div">
-                    <label for="form-phone" class="form-label Trad14"></label>
+                    <label for="form-phone" class="form-label Trad16"></label>
                     <input id="form-phone" class="form-input" name="formPhone" type="text" maxlength="11" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">email</span>
                 <div class="label-input-div">
-                    <label for="form-email" class="form-label Trad15"></label>
+                    <label for="form-email" class="form-label Trad17"></label>
                     <input style="text-transform:initial !important;" id="form-email" class="form-input" name="formEmail" type="email" maxlength="100" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">lock</span>
                 <div class="label-input-div">
-                    <label for="form-pswd" class="form-label Trad16"></label>
+                    <label for="form-pswd" class="form-label Trad18"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-pswd" class="form-input" name="formPswd" type="password" maxlength="32" required>
                         <div class="show-pswd" id="show-pswd">
@@ -100,7 +106,7 @@
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">lock</span>
                 <div class="label-input-div">
-                    <label for="form-confP  swd" class="form-label Trad17"></label>
+                    <label for="form-confPswd" class="form-label Trad19"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-confPswd" class="form-input" name="formConfPswd" type="password" maxlength="32" required>
                         <div class="show-pswd" id="show-pswd2">
@@ -109,11 +115,11 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn Trad18" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+            <button id="submit" class="submitBtn Trad20" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
         </form>
         <!-- Formulario -->
-        <p class="alreadyAMember Trad19">
-            <a href="../LogIn/logIn.php" class="Trad20"></a>
+        <p class="alreadyAMember Trad21">
+            <a href="../LogIn/logIn.php" class="Trad22"></a>
         </p>
     </div>
     <!-- Container -->

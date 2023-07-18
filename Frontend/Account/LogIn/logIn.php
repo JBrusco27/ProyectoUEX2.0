@@ -44,6 +44,12 @@
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-pswd">close</span>
             </div>
+            <div class="pswd-bd-valid-warning-content warning">
+                <div class="Trad7">
+                    <p class="warning-title Trad8"></p>
+                </div>
+                <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-pswd-bd-valid">close</span>
+            </div>
         </div>
         <!-- Contariner de restricciones -->
         <!-- Formulario -->
@@ -51,14 +57,14 @@
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">email</span>
                 <div class="label-input-div">
-                    <label for="form-email" class="form-label Trad7"></label>
+                    <label for="form-email" class="form-label Trad9"></label>
                     <input style="text-transform:initial !important;" id="form-email" class="form-input" name="formEmail" type="email" required>
                 </div>
             </div>
             <div class="form-div">
                 <span class="material-symbols-rounded show-pswd-icon">lock</span>
                 <div class="label-input-div">
-                    <label for="form-pswd" class="form-label Trad8"></label>
+                    <label for="form-pswd" class="form-label Trad10"></label>
                     <div class="input-show-pswd-div">
                         <input style="text-transform:initial !important;" id="form-pswd" class="form-input" name="formPswd" type="password" required>
                         <div class="show-pswd" id="show-pswd">
@@ -67,12 +73,12 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn Trad9" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+            <button id="submit" class="submitBtn Trad11" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
         </form>
         <!-- Formulario -->
         <div class="login-bottom-info">
-            <p class="notAMember Trad10"><a href="../SignUp/signUp.php" class="Trad11"></a></p>
-            <a class="forgotPaswd Trad12" href=""></a>
+            <p class="notAMember Trad12"><a href="../SignUp/signUp.php" class="Trad13"></a></p>
+            <a class="forgotPaswd Trad14" href=""></a>
         </div>
     </div>
     <!-- Container -->

@@ -22,15 +22,21 @@ try {
 
         // Verificar si la contraseña proporcionada coincide con la contraseña almacenada en la base de datos.
         if(password_verify($password_usuario, $contraseña_hash)) 
-        {
+        {          
             echo "Inicio de sesión exitoso";
             $nombre_usuario = $resultado['Nombre_Usu']; // Obtener el nombre de usuario desde la base de datos
             $expiry = time() + (30 * 24 * 60 * 60); // Calcula la fecha y hora de expiración en 1 mes (30 días)
             setcookie('nombre_usuario', $nombre_usuario, $expiry, '/');
             header("Location: ../../Frontend/Home/index.php"); // Redirigir al usuario a la página de inicio
             exit; // Finalizar la ejecución del script
-        } 
-    } 
+        } else{
+            $pswd_valid = false;
+            echo json_encode($pswd_valid);
+        }
+    }else{
+        $pswd_valid = false;
+        echo json_encode($pswd_valid);
+    }
 } 
 catch (PDOException $e) 
 {

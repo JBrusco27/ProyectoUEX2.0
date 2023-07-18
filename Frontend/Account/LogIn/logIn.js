@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
 
     //Verificar datos y mostrar restricciones
-    document.getElementById('form').addEventListener('submit', ()=>{
-
+    document.getElementById('form').addEventListener('submit',async (event) =>{
     let email = document.getElementById('form-email').value;
     let pswd = document.getElementById('form-pswd').value;
     let emailTest = new RegExp('^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if (!emailTest.test(email)) {
         document.querySelector('.email-warning-content').style.display = 'flex';
         setTimeout(() => {
-          document.querySelector('.email-warning-content').style.opacity='0.6';
+          document.querySelector('.email-warning-content').style.opacity='0.8';
         }, 100);
         hasError = true;
       } else {
@@ -28,10 +27,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
   
       // Validación de las contraseñas
-      if (!pswdTest.test(pswd) || !pswdTest.test(confPswd)) {
+      if (!pswdTest.test(pswd)) {
         document.querySelector('.pswd-warning-content').style.display = 'flex';
         setTimeout(() => {
-          document.querySelector('.pswd-warning-content').style.opacity='0.6';
+          document.querySelector('.pswd-warning-content').style.opacity='0.8';
         }, 100);
         hasError = true;
       } else {
@@ -41,11 +40,59 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }, 200);
       }
 
-    // No enviar formulario en presencia de errores
-    if (hasError) {
-        event.preventDefault();
-    }
 
-});
+  // Aquí puedes acceder directamente a la variable pswd_valid
+  if(!hasError){
+    let formData = new FormData();
+    formData.append('formEmail', email);
+    formData.append('formPswd', pswd);
+    
+    let opciones = {
+      method: 'POST',
+      body: formData
+    };
+    
+    fetch('../../../Backend/Requests/consulta_sign_in.php', opciones)
+    .then(function (response) {
+      // Verificar si la solicitud fue exitosa
+      if (response.ok) {
+        return response.json(); // Parsear la respuesta como JSON
+      }
+    })
+    .then(function (data) {
+      // Acceder a la variable log dentro del objeto data
+      if(!data ){
+        event.preventDefault();
+        document.querySelector('.pswd-bd-valid-warning-content').style.display = 'flex';
+        setTimeout(() => {
+          document.querySelector('.pswd-bd-valid-warning-content').style.opacity='0.8';
+        }, 100);
+      }else{
+        document.querySelector('.pswd-bd-valid-warning-content').style.opacity='0';
+        setTimeout(() => {
+          document.querySelector('.pswd-bd-valid-warning-content').style.display = 'none';
+        }, 200);
+      }
+    })
+    .catch(function (error) {
+      console.error('Error:', error);
+    });
+  }else{
+    event.preventDefault();
+  }
+  
+  });
+      
+  // Lógica para cerrar los mensajes de advertencia
+  document.querySelectorAll('.close-warning').forEach(element => {
+    element.addEventListener('click', () => {
+      const warningContent = element.parentNode;
+      warningContent.style.opacity = '0';
+      setTimeout(() => {
+        warningContent.style.display = 'none';
+      }, 200);
+    });
+  });
+
 
 });

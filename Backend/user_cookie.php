@@ -12,8 +12,6 @@
         $log = false; // Asignar el valor de la cookie a la variable $nombre_usuario
     }
 
-
-
     echo json_encode(['log' => $log]);
 
 

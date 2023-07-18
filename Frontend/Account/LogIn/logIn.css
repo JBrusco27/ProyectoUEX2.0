@@ -239,6 +239,10 @@ form *{
     font-size: 16px !important;  
 }
 
+.form-button-icon{
+    cursor: pointer;
+}
+
 @media screen and (max-width:1300px) {
     form{
         width: 50%;
