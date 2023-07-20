@@ -113,49 +113,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
-// PIIIPIPIPIPIPIPIPIPIIPI
-// Aquí puedes acceder directamente a la variable pswd_valid
-if(!hasError){
-  let formData = new FormData();
-  formData.append('formName', nameLastname);
-  formData.append('formPswd', pswd);
-  formData.append('formEmail', email);
-  formData.append('formConfPswd', confPswd);
-  formData.append('formPhone', phone);
-  
-  let opciones = {
-    method: 'POST',
-    body: formData
-  };
-  
-  fetch('../../../Backend/Requests/consulta_sign_up.php', opciones)
-  .then(function (response) {
-    // Verificar si la solicitud fue exitosa
-    if (response.ok) {
-      return response.json(); // Parsear la respuesta como JSON
-    }
-  })
-  .then(function (data) {
-    // Acceder a la variable log dentro del objeto data
-    if(data.email_exists){
+    // Si no hay errores en el formulario se hace el fetch
+    if(hasError){
       event.preventDefault();
-      document.querySelector('.emailExists-warning-content').style.display = 'flex';
-      setTimeout(() => {
-        document.querySelector('.emailExists-warning-content').style.opacity='0.6';
-      }, 100);
     }else{
-      document.querySelector('.emailExists-warning-content').style.opacity='0';
-      setTimeout(() => {
-        document.querySelector('.emailExists-warning-content').style.display = 'none';
-      }, 200);
+
+      let formData = new FormData();
+      formData.append('formName', nameLastname);
+      formData.append('formPswd', pswd);
+      formData.append('formEmail', email);
+      formData.append('formConfPswd', confPswd);
+      formData.append('formPhone', phone);
+      
+      let opciones = {
+        method: 'POST',
+        body: formData
+      };
+
+      // Este fetch se hace para traer la variable email_exists que contiene la verficiacion de si el email ya existe o no
+      fetch('../../../Backend/Requests/consulta_sign_up.php', opciones)
+      .then(function (response) {
+        if (response.ok) {
+          // Se pasa la respuesta a formato JSON
+          return response.json();
+        }
+      })
+      .then(function (data) {
+        // Se accede a la variable email_exists de data para hacer la verificacion.
+        if(data.email_exists){
+          // Previene el envio del formulario
+          event.preventDefault();
+          document.querySelector('.emailExists-warning-content').style.display = 'flex';
+          setTimeout(() => {
+            document.querySelector('.emailExists-warning-content').style.opacity='0.6';
+          }, 100);
+        }else{
+          document.querySelector('.emailExists-warning-content').style.opacity='0';
+          setTimeout(() => {
+            document.querySelector('.emailExists-warning-content').style.display = 'none';
+          }, 200);
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
     }
-  })
-  .catch(function (error) {
-    console.error('Error:', error);
-  });
-}else{
-  event.preventDefault();
-}
 
 
   });
