@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   }
 };
 
-  fetch('../../Backend/user_cookie.php', opciones)
+  fetch('../../Backend/log_status.php', opciones)
   .then(function (response) {
     // Verificar si la solicitud fue exitosa
     if (response.ok) {
@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   .catch(function (error) {
     console.error('Error:', error);
   });
-
 
 });
 

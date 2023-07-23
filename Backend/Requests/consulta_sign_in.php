@@ -32,14 +32,12 @@ try {
         } else{
             $pswd_valid = false;
             echo json_encode($pswd_valid);
-
             // Solucion provisoria
             header("Location: ../../Frontend/Account/LogIn/logIn.php");
         }
     }else{
         $pswd_valid = false;
         echo json_encode($pswd_valid);
-
         // Solucion provisoria
         header("Location: ../../Frontend/Account/LogIn/logIn.php");
     }

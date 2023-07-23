@@ -4,7 +4,7 @@ header{
     z-index: 10000;
     position: relative;
     inset: 0;
-    padding: 1.8rem 1%;
+    padding: 1.5rem;
     height:7.5rem;
     display: flex;
     justify-content: space-between;
@@ -13,15 +13,18 @@ header{
 .nav-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 10%;
+    justify-content: space-between;
     flex: 1;
+    align-items: center;
+    margin: 0 10%;
+
 }
 
 .nav-container div a{
     text-decoration: none;
     font-weight: 600;
     position: relative;
+    margin: 0 0.2rem;
 }
 
 .nav-container div a::after{
@@ -45,14 +48,14 @@ header{
 
 .preferences-dropdown-container{
     border-radius: 100px;
-    position: absolute;
+    position: initial;
     top: 0;
     right: 0;
 }
 
 .preferences-dropdown-content{
     box-shadow: var(--box-shadow-1);
-    margin: 1.1rem 2rem;
+    margin: 0 2rem;
     background-color: white;
     width: fit-content;
     display: flex;
@@ -154,26 +157,17 @@ header{
     color: var(--color-verde-oscuro);
 }
 
-@media screen and (max-width:1050px){
-    
-    header{
-        padding: 1.5rem;
-    }
-    
-    .preferences-dropdown-container {
-        position: initial;   
-    }
+.user-name-span{
+    color: var(--color-verde-oscuro);
+}
+
+@media screen and (min-width:1300px){
     .nav-container{
-        gap: 12%;
-        align-items: center;
-    }
-    .preferences-dropdown-content{
-        margin: 0 2rem;
+        margin: 0 20%;
     }
 }
 
-
-@media screen and (max-width:700px){
+@media screen and (max-width:900px){
     .menu-icon{
         display: inline-block;
     }

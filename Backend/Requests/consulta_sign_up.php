@@ -58,8 +58,8 @@ try
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
     
     if ($resultado['count'] > 0) {
-        $email_exists = true;
-        echo json_encode(['email_exists' => $email_exists]);
+        //$email_exists = true;
+        //echo json_encode(['email_exists' => $email_exists]);
 
         // Solucion provisoria
         header("Location: ../../Frontend/Account/SignUp/signUp.php");

@@ -118,45 +118,45 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
     }else{
 
-      let formData = new FormData();
-      formData.append('formName', nameLastname);
-      formData.append('formPswd', pswd);
-      formData.append('formEmail', email);
-      formData.append('formConfPswd', confPswd);
-      formData.append('formPhone', phone);
+      // let formData = new FormData();
+      // formData.append('formName', nameLastname);
+      // formData.append('formPswd', pswd);
+      // formData.append('formEmail', email);
+      // formData.append('formConfPswd', confPswd);
+      // formData.append('formPhone', phone);
       
-      let opciones = {
-        method: 'POST',
-        body: formData
-      };
+      // let opciones = {
+      //   method: 'POST',
+      //   body: formData
+      // };
 
-      // Este fetch se hace para traer la variable email_exists que contiene la verficiacion de si el email ya existe o no
-      fetch('../../../Backend/Requests/consulta_sign_up.php', opciones)
-      .then(function (response) {
-        if (response.ok) {
-          // Se pasa la respuesta a formato JSON
-          return response.json();
-        }
-      })
-      .then(function (data) {
-        // Se accede a la variable email_exists de data para hacer la verificacion.
-        if(data.email_exists){
-          // Previene el envio del formulario
-          event.preventDefault();
-          document.querySelector('.emailExists-warning-content').style.display = 'flex';
-          setTimeout(() => {
-            document.querySelector('.emailExists-warning-content').style.opacity='0.6';
-          }, 100);
-        }else{
-          document.querySelector('.emailExists-warning-content').style.opacity='0';
-          setTimeout(() => {
-            document.querySelector('.emailExists-warning-content').style.display = 'none';
-          }, 200);
-        }
-      })
-      .catch(function (error) {
-        console.error('Error:', error);
-      });
+      // // Este fetch se hace para traer la variable email_exists que contiene la verficiacion de si el email ya existe o no
+      // fetch('../../../Backend/Requests/consulta_sign_up.php', opciones)
+      // .then(function (response) {
+      //   if (response.ok) {
+      //     // Se pasa la respuesta a formato JSON
+      //     return response.json();
+      //   }
+      // })
+      // .then(function (data) {
+      //   // Se accede a la variable email_exists de data para hacer la verificacion.
+      //   if(data.email_exists){
+      //     // Previene el envio del formulario
+      //     event.preventDefault();
+      //     document.querySelector('.emailExists-warning-content').style.display = 'flex';
+      //     setTimeout(() => {
+      //       document.querySelector('.emailExists-warning-content').style.opacity='0.6';
+      //     }, 100);
+      //   }else{
+      //     document.querySelector('.emailExists-warning-content').style.opacity='0';
+      //     setTimeout(() => {
+      //       document.querySelector('.emailExists-warning-content').style.display = 'none';
+      //     }, 200);
+      //   }
+      // })
+      // .catch(function (error) {
+      //   console.error('Error:', error);
+      // });
     }
 
 

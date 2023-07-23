@@ -9,7 +9,7 @@
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="schedules.css">
 
-    <!-- Dependencia para archivos manejar archivos csv -->
+    <!-- Dependencia para manejar archivos csv -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
     <!-- Dependencia para iconos (MaterialIcons) -->

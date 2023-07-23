@@ -9,7 +9,7 @@
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="contact.css">
 
-    <!-- Dependencia para archivos manejar archivos csv -->
+    <!-- Dependencia para manejar archivos csv -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     
     <!-- Dependencia para iconos (MaterialIcons) -->
@@ -20,7 +20,7 @@
     <script src="../Components/Scripts/default.js"></script>
 
     <!-- Logica de contact -->
-    <script src="../Contact/contact.js"></script>
+    <script src="./contact.js"></script>
         
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js"></script>
@@ -55,22 +55,22 @@
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon">person</span>
                                 <div class="label-input-div">
-                                    <label for="form-name" class="form-label Trad3"></label>
-                                    <input id="form-name" class="form-input" name="formName" type="text" required>
+                                    <label for="form-name" class="form-label form-label-left Trad3"></label>
+                                    <input id="form-name" class="form-input form-input-right" name="formName" type="text" required>
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon">mail</span>
                                 <div class="label-input-div">
-                                    <label for="form-email" class="form-label Trad4"></label>
-                                    <input id="form-email" class="form-input" name="formEmail" type="text" required>
+                                    <label for="form-email" class="form-label form-label-left Trad4"></label>
+                                    <input id="form-email" class="form-input form-input-right" name="formEmail" type="text" required>
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon">phone</span>
                                 <div class="label-input-div">
-                                    <label for="form-name" class="form-label Trad5"></label>
-                                    <input id="form-name" class="form-input" name="formName" type="text" required>
+                                    <label for="form-name" class="form-label form-label-left Trad5"></label>
+                                    <input id="form-name" class="form-input form-input-right" name="formName" type="text" required>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +79,12 @@
                                 <span class="material-symbols-rounded form-icon">chat</span>
                                 <div class="right-label-input-div">
                                     <label for="form-from-dep" class="form-label Trad6"></label>
-                                    <textarea id="form-message" class="form-input" name="formFromDep" type="text"></textarea>
+                                    <textarea id="form-message" class="form-input message-text-area" name="formFromDep" type="text"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button id="submit" class="submitBtn" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+                    <button id="submit" class="submitBtn" type="submit"><span class="material-symbols-rounded form-button-icon">send</span></button>
                 </form>
                 <!-- Formulario -->
             </div>

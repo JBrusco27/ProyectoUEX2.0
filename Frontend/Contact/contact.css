@@ -231,6 +231,11 @@ form div{
 .form-button-icon{
     color: var(--color-verde-oscuro);
     transition: 0.5s all ease-in-out;
+    font-size: 30px !important;
+}
+
+.message-text-area{
+    color: var(--color-sepia);
 }
 
 @media screen and (max-width:1300px){

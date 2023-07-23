@@ -1,12 +1,11 @@
-<!-- Datos del usuario ( con Cookies ) -->
-<?php include "../../Backend/user_cookie.php"?>
+
 <!-- Menu container -->
 <section class="menu-container">
     <div class="menu-content">
         <div class="menu-nav-close" id="nav-close-icon"><span class="material-symbols-rounded menu-nav-close-icon">close</span></div>
         <div>
             <h3 class="welcome-text menuTrad1"></h3>
-            <h3><?php echo $nombre_usuario; ?></h3>
+            <h3><?php include "../../Backend/user_cookie.php"?></h3>
         </div>
         <nav class="menu-nav-container">
             <div class="menu-nav-content" id="menu-nav-home"><span class="material-symbols-rounded menu-nav-icon">home</span><a href="../Home/index.php" class="menuTrad2"></a></div>

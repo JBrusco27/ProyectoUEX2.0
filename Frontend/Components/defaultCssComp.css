@@ -4,8 +4,10 @@
     --color-verde-oscuro-2:#293b3a;
     --color-verde-oscuro:#425C5A;
     --color-verde-claro:#A2BFBD;
+    --color-verde-claro-2:#d9e8e7;
     --color-naranja:#FFCEA2;
     --color-blanco:#FFFFFF;
+    --color-sepia: #d4b08c;
     --poppins:'Poppins';
     --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
 }
@@ -51,12 +53,24 @@ input[type="button"],input[type="submit"],button{
     padding: 0 8%;
     font-weight: 600;
     font-size: 40px;
-    top: 15vh;
+    top: 14.6vh;
 }
 
 @media screen and (max-width:900px) {
     .page-title{
         top: 16vh;
+        font-size: 30px;
+    }
+}
+@media screen and (max-height:900px) {
+    .page-title{
+        top: 14.8vh;
+        font-size: 30px;
+    }
+}
+@media screen and (max-height:700px) {
+    .page-title{
+        top: 13vh;
         font-size: 30px;
     }
 }
