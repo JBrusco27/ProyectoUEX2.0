@@ -1,5 +1,7 @@
-const configTranslateFunc = (columnNumber) => {
-  return fetch('../Components/Scripts/Translate/Config/languageConfig.csv')
+setTimeout(() => {
+  
+  const configTranslateFunc = (columnNumber) => {
+    return fetch('/Frontend/Components/Scripts/Translate/Config/languageConfig.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {
@@ -13,13 +15,13 @@ const configTranslateFunc = (columnNumber) => {
     .catch((error) => {
       console.error('Error al cargar el archivo CSV:', error);
     });
-};
-
-const config_mostrar_data = (array_resultado, columnNumber) => {
-  let position = 0;
-  array_resultado.forEach((e) => {
-    position += 1;
-    if (document.querySelector(`.configTrad${position}`).tagName.toLowerCase() === "input") {
+  };
+  
+  const config_mostrar_data = (array_resultado, columnNumber) => {
+    let position = 0;
+    array_resultado.forEach((e) => {
+      position += 1;
+      if (document.querySelector(`.configTrad${position}`).tagName.toLowerCase() === "input") {
       document.querySelector(`.configTrad${position}`).value += e[columnNumber];
     } else {
       document.querySelector(`.configTrad${position}`).innerHTML += e[columnNumber];
@@ -38,19 +40,20 @@ const configDefaultTranslate = () => {
       document.querySelector('#spanishIcon').style.display='none';
       document.querySelector('#portugueseIcon').style.display='none';
       break;
-    case 1:
+      case 1:
       document.querySelector('#spanishIcon').style.display='inline-block';
       document.querySelector('#englishIcon').style.display='none';
       document.querySelector('#portugueseIcon').style.display='none';
       break;
-    case 2:
+      case 2:
       document.querySelector('#portugueseIcon').style.display='inline-block';
       document.querySelector('#englishIcon').style.display='none';
       document.querySelector('#spanishIcon').style.display='none';
       break;
-    default:
-      break;
-  }
-};
-
-configDefaultTranslate();
+      default:
+        break;
+      }
+    };
+    
+    configDefaultTranslate();
+  }, 500);

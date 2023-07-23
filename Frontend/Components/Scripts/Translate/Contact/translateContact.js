@@ -27,7 +27,7 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-let columnNumber = localStorage.getItem('columnNumber');
+ columnNumber = localStorage.getItem('columnNumber');
 
 const defaultTranslate = () => {
   if (columnNumber == undefined) {

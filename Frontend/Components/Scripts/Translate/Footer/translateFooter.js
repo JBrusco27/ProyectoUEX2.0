@@ -1,5 +1,7 @@
-const footerTranslateFunc = (columnNumber) => {
-  return fetch('../Components/Scripts/Translate/Footer/languageFooter.csv')
+setTimeout(() => {
+  
+  const footerTranslateFunc = (columnNumber) => {
+    return fetch('/Frontend/Components/Scripts/Translate/Footer/languageFooter.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {
@@ -13,21 +15,21 @@ const footerTranslateFunc = (columnNumber) => {
     .catch((error) => {
       console.error('Error al cargar el archivo CSV:', error);
     });
-};
-
-const footer_mostrar_data = (array_resultado, columnNumber) => {
-  let position = 0;
-  array_resultado.forEach((e) => {
-    position += 1;
-    if (document.querySelector(`.footerTrad${position}`).tagName.toLowerCase() === "input") {
-      document.querySelector(`.footerTrad${position}`).value += e[columnNumber];
-    } else {
-      document.querySelector(`.footerTrad${position}`).innerHTML += e[columnNumber];
-    }
+  };
+  
+  const footer_mostrar_data = (array_resultado, columnNumber) => {
+    let position = 0;
+    array_resultado.forEach((e) => {
+      position += 1;
+      if (document.querySelector(`.footerTrad${position}`).tagName.toLowerCase() === "input") {
+        document.querySelector(`.footerTrad${position}`).value += e[columnNumber];
+      } else {
+        document.querySelector(`.footerTrad${position}`).innerHTML += e[columnNumber];
+      }
+    });
+  };
+  
+  columnNumber = localStorage.getItem('columnNumber');
+  footerTranslateFunc(columnNumber).then(() => {
   });
-};
-
-columnNumber = localStorage.getItem('columnNumber');
-footerTranslateFunc(columnNumber).then(() => {
-  // Do something after the translation is done (if needed)
-});
+}, 500);

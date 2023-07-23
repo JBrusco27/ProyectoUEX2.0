@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
+    
+    <?php $raiz = __DIR__; ?>
 
     <!-- Enlace a estilos -->
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="./Frontend/Home/home.css">
 
     <!-- Dependencia para manejar archivos csv -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -17,36 +19,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     
     <!-- Logica predeterminada -->
-    <script src="../Components/Scripts/default.js"></script>
+    <script src="./Frontend/Components/Scripts/default.js"></script>
     
     <!-- Logica de header -->
-    <script src="../Components/HeaderComp/header_comp.js"></script>
+    <script src="./Frontend/Components/HeaderComp/header_comp.js"></script>
     
     <!-- Logica de menu -->
-    <script src="../Components/MenuComp/menu_comp.js"></script>
+    <script src="./Frontend/Components/MenuComp/menu_comp.js"></script>
     
     <!-- Estilos ( dependencias ) -->
-    <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
-    <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
-    <link rel="stylesheet" href="../Components/FooterComp/footer_comp.css">
-    <link rel="stylesheet" href="../Components/MenuComp/menu_comp.css">
+    <link rel="stylesheet" href="./Frontend/Components/ConfigComp/config_comp.css">
+    <link rel="stylesheet" href="./Frontend/Components/HeaderComp/header_comp.css">
+    <link rel="stylesheet" href="./Frontend/Components/FooterComp/footer_comp.css">
+    <link rel="stylesheet" href="./Frontend/Components/MenuComp/menu_comp.css">
 </head>
 <body>
 
     <!-- Sección configuración -->
-    <?php include "../Components/ConfigComp/config_comp.php" ?>
+    <?php include "./Frontend/Components/ConfigComp/config_comp.php" ?>
 
     <!-- Sección menu mobile -->
-    <?php include "../Components/MenuComp/menu_comp.php" ?>
+    <?php include "./Frontend/Components/MenuComp/menu_comp.php" ?>
 
     <!-- Container -->
     <section id="wrap-container" class="wrap-container">
         <!-- Header -->
-        <?php include "../Components/HeaderComp/header_comp.php" ?>
+        <?php include "./Frontend/Components/HeaderComp/header_comp.php" ?>
         <h3 class="page-title Trad2"></h3>
         <section class="container">
             <div class="container-content">
-                <img class="container-content-img" src="../Resources/viauyLogoNoBack.png" alt="">
+                <img class="container-content-img" src="./Frontend/Resources/viauyLogoNoBack.png" alt="">
                 <h2 class="Trad3"></h2>
                 <!-- Formulario -->
                 <form action="">
@@ -146,16 +148,16 @@
                 <!-- Formulario -->
             </div>
             <!-- Footer -->
-            <?php include "../Components/FooterComp/footer_comp.php" ?>
+            <?php include "./Frontend/Components/FooterComp/footer_comp.php" ?>
         </section>
     </section>
     <!-- Container -->
     
     <!-- Logica de Configuración -->
-    <script src="../Components/ConfigComp/config_comp.js"></script>
+    <script src="./Frontend/Components/ConfigComp/config_comp.js"></script>
     
     <!-- Enlace para traducir home -->
-    <script src="../Components/Scripts/Translate/Home/translateHome.js"></script>
+    <script src="./Frontend/Components/Scripts/Translate/Home/translateHome.js"></script>
 
 </body>
 </html>

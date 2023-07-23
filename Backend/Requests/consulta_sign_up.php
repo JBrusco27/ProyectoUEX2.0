@@ -62,7 +62,7 @@ try
         //echo json_encode(['email_exists' => $email_exists]);
 
         // Solucion provisoria
-        header("Location: ../../Frontend/Account/SignUp/signUp.php");
+        header("Location: /Frontend/Account/SignUp/signUp.php");
         exit;
     }else{
         // Si el correo electrónico no existe, realizar la inserción en la base de datos

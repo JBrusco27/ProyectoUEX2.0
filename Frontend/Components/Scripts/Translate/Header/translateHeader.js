@@ -1,5 +1,7 @@
-const headTranslateFunc = (columnNumber) => {
-  return fetch('../Components/Scripts/Translate/Header/languageHeader.csv')
+setTimeout(() => {
+  
+  const headTranslateFunc = (columnNumber) => {
+    return fetch('/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {
@@ -13,21 +15,21 @@ const headTranslateFunc = (columnNumber) => {
     .catch((error) => {
       console.error('Error al cargar el archivo CSV:', error);
     });
-};
-
-const head_mostrar_data = (array_resultado, columnNumber) => {
-  let position = 0;
-  array_resultado.forEach((e) => {
-    position += 1;
-    if (document.querySelector(`.HeadTrad${position}`).tagName.toLowerCase() === "input") {
-      document.querySelector(`.HeadTrad${position}`).value += e[columnNumber];
-    } else {
-      document.querySelector(`.HeadTrad${position}`).innerHTML += e[columnNumber];
+  };
+  
+  const head_mostrar_data = (array_resultado, columnNumber) => {
+    let position = 0;
+    array_resultado.forEach((e) => {
+      position += 1;
+      if (document.querySelector(`.HeadTrad${position}`).tagName.toLowerCase() === "input") {
+        document.querySelector(`.HeadTrad${position}`).value += e[columnNumber];
+      } else {
+        document.querySelector(`.HeadTrad${position}`).innerHTML += e[columnNumber];
     }
   });
 };
 
 columnNumber = localStorage.getItem('columnNumber');
 headTranslateFunc(columnNumber).then(() => {
-  // Do something after the translation is done (if needed)
 });
+}, 500);

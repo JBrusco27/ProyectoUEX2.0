@@ -1,5 +1,6 @@
-const translateFunc = (columnNumber) => {
-  return fetch('../Components/Scripts/Translate/Home/languagesHome.csv')
+
+  const translateFunc = (columnNumber) => {
+    return fetch('/Frontend/Components/Scripts/Translate/Home/languagesHome.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {
@@ -13,9 +14,9 @@ const translateFunc = (columnNumber) => {
     .catch((error) => {
       console.error('Error al cargar el archivo CSV:', error);
     });
-};
-
-const mostrar_data = (array_resultado, columnNumber) => {
+  };
+  
+  const mostrar_data = (array_resultado, columnNumber) => {
   let position = 0;
   array_resultado.forEach((e) => {
     position += 1;
@@ -27,7 +28,7 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-let columnNumber = localStorage.getItem('columnNumber');
+columnNumber = localStorage.getItem('columnNumber');
 
 const defaultTranslate = () => {
   if (columnNumber == undefined) {

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('form').addEventListener('submit',async (event) =>{
     let email = document.getElementById('form-email').value;
     let pswd = document.getElementById('form-pswd').value;
-    let emailTest = new RegExp('^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+    let emailTest = /^[A-Za-z0-9._%+-áéíóúÁÉÍÓÚ]{1,30}@[A-Za-z0-9-]{1,20}\.[A-Za-záéíóúÁÉÍÓÚ]{2,8}$/;
     let pswdTest = new RegExp('^[a-zA-Z0-9!@#$%^&*()-=+]{8,30}$');
     if(emailTest.test(email) && pswdTest.test(pswd)){
         console.log("Nice!");

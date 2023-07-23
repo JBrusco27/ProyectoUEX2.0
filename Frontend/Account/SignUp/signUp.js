@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Lógica para validar el formulario antes del envío
   document.getElementById('form').addEventListener('submit', (event) => {
-    let nameLastnameTest = /^[A-Za-z]{2,20}\s[A-Za-z]{2,20}$/;
-    let emailTest = /^[A-Za-z0-9._%+-]{1,30}@[A-Za-z0-9-]{1,20}\.[A-Za-z]{2,8}$/;
+    let nameLastnameTest = /^[A-Za-záéíóúÁÉÍÓÚ]{2,20}\s[A-Za-záéíóúÁÉÍÓÚ]{2,20}$/;
+    let emailTest = /^[A-Za-z0-9._%+-áéíóúÁÉÍÓÚ]{1,30}@[A-Za-z0-9-]{1,20}\.[A-Za-záéíóúÁÉÍÓÚ]{2,8}$/;
     let pswdTest = /^(?=.*[!@#$%^&*()-_=+])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,30}$/;
     let phoneTest = /^[\d ]{11,11}$/;
 
