@@ -1,25 +1,23 @@
-// Conseguir datos del archivo csv
-const translateFunc = async (columnNumber) => {
-  try {
-    const response = await fetch('../../Components/Scripts/Translate/SignUp/languageSignup.csv');
-    const csvData = await response.text();
-    const result = Papa.parse(csvData, {
-      header: false,
-      skipEmptyLines: true,
-      encoding: 'UTF-8',
-      delimiter: ';'
+const translateFunc = (columnNumber) => {
+  return fetch('../../Components/Scripts/Translate/SignUp/languageSignup.csv')
+    .then((response) => response.text())
+    .then((csvData) => {
+      const result = Papa.parse(csvData, {
+        header: false,
+        skipEmptyLines: true,
+        encoding: 'UTF-8',
+        delimiter: ';'
+      });
+      mostrar_data(result.data, columnNumber);
+    })
+    .catch((error) => {
+      console.error('Error al cargar el archivo CSV:', error);
     });
-    
-    mostrar_data(result.data, columnNumber);
-  } catch (error) {
-    console.error('Error al cargar el archivo CSV:', error);
-  }
 };
 
-// Traducir pagina
 const mostrar_data = (array_resultado, columnNumber) => {
   let position = 0;
-  array_resultado.forEach(e => {
+  array_resultado.forEach((e) => {
     position += 1;
     if (document.querySelector(`.Trad${position}`).tagName.toLowerCase() === "input") {
       document.querySelector(`.Trad${position}`).value = e[columnNumber];
@@ -31,13 +29,17 @@ const mostrar_data = (array_resultado, columnNumber) => {
 
 let columnNumber = localStorage.getItem('columnNumber');
 
-// Traduccion predeterminada ( Español )
-const defaultTranslate = async ()=>{
-  if(columnNumber == undefined){
+const defaultTranslate = () => {
+  if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
     console.log(columnNumber);
-    await translateFunc(columnNumber);
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
+  } else {
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
   }
-  await translateFunc(columnNumber);
-}      
+};
 document.addEventListener('DOMContentLoaded', defaultTranslate);

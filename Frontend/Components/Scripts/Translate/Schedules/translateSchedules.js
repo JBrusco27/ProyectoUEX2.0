@@ -1,25 +1,23 @@
-// Conseguir datos del archivo csv
-const translateFunc = async (columnNumber) => {
-  try {
-    const response = await fetch('../Components/Scripts/Translate/Schedules/languageSchedules.csv');
-    const csvData = await response.text();
-    const result = Papa.parse(csvData, {
-      header: false,
-      skipEmptyLines: true,
-      encoding: 'UTF-8',
-      delimiter: ';'
+const translateFunc = (columnNumber) => {
+  return fetch('../Components/Scripts/Translate/Schedules/languageSchedules.csv')
+    .then((response) => response.text())
+    .then((csvData) => {
+      const result = Papa.parse(csvData, {
+        header: false,
+        skipEmptyLines: true,
+        encoding: 'UTF-8',
+        delimiter: ';'
+      });
+      mostrar_data(result.data, columnNumber);
+    })
+    .catch((error) => {
+      console.error('Error al cargar el archivo CSV:', error);
     });
-    
-    mostrar_data(result.data, columnNumber);
-  } catch (error) {
-    console.error('Error al cargar el archivo CSV:', error);
-  }
 };
 
-// Traducir pagina
 const mostrar_data = (array_resultado, columnNumber) => {
   let position = 0;
-  array_resultado.forEach(e => {
+  array_resultado.forEach((e) => {
     position += 1;
     if (document.querySelector(`.Trad${position}`).tagName.toLowerCase() === "input") {
       document.querySelector(`.Trad${position}`).value = e[columnNumber];
@@ -29,47 +27,58 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-// Traduccion predeterminada ( Español )
-const defaultTranslate = async ()=>{
+let columnNumber = localStorage.getItem('columnNumber');
+
+const defaultTranslate = () => {
   let columnNumber = localStorage.getItem('columnNumber');
-  if(columnNumber == undefined){
+  if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
-    await translateFunc(columnNumber);
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
+  } else {
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
   }
-  await translateFunc(columnNumber);
-}      
+};
 document.addEventListener('DOMContentLoaded', defaultTranslate);
 
-//Se ejecuta la funcion al español
-document.getElementById('spanishTranslateAction').addEventListener('click', async () => {
-  if (columnNumber == 1){
-    console.log('Language already setted');
-  }else{
+document.getElementById('spanishTranslateAction').addEventListener('click', () => {
+  let columnNumber = localStorage.getItem('columnNumber');
+  if (columnNumber == 1) {
+    console.log('Language already set');
+  } else {
     localStorage.setItem('columnNumber', 1);
     location.reload();
-    await translateFunc(columnNumber);
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
   }
 });
 
-//Se ejecuta la funcion al ingles
-document.getElementById('englishTranslateAction').addEventListener('click', async () => {
-  if (columnNumber == 0){
-    console.log('Language already setted');
-  }else{
+document.getElementById('englishTranslateAction').addEventListener('click', () => {
+  let columnNumber = localStorage.getItem('columnNumber');
+  if (columnNumber == 0) {
+    console.log('Language already set');
+  } else {
     localStorage.setItem('columnNumber', 0);
     location.reload();
-    await translateFunc(columnNumber);
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
   }
-  });
-  
-//Se ejecuta la funcion al portugues
-document.getElementById('portugueseTranslateAction').addEventListener('click', async () => {
-  if (columnNumber == 2){
-    console.log('Language already setted');
-  }else{
+});
+
+document.getElementById('portugueseTranslateAction').addEventListener('click', () => {
+  let columnNumber = localStorage.getItem('columnNumber');
+  if (columnNumber == 2) {
+    console.log('Language already set');
+  } else {
     localStorage.setItem('columnNumber', 2);
     location.reload();
-    console.log(columnNumber)
-    await translateFunc(columnNumber);
+    translateFunc(columnNumber).then(() => {
+      // Do something after the translation is done (if needed)
+    });
   }
 });
