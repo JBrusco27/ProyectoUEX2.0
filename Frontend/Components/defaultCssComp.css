@@ -12,6 +12,54 @@
     --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
 }
 
+:root.theme2{
+    --color-verde-oscuro-2: #331D2C; 
+    --color-verde-oscuro: #3F2E3E;
+    --color-verde-claro: #e0d9c8;
+    --color-verde-claro-2: #d9e8e7;
+    --color-naranja: #A78295;
+    --color-blanco: #FFFFFF;
+    --color-sepia: #f4a460;
+    --poppins:'Poppins';
+    --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
+}
+
+:root.theme3{
+    --color-verde-oscuro: #581818; 
+    --color-verde-oscuro-2: #310B0B;
+    --color-verde-claro: #e0d9c8;
+    --color-verde-claro-2: #d9e8e7;
+    --color-naranja: #E2703A;
+    --color-blanco: #FFFFFF;
+    --color-sepia: #EEB76B;
+    --poppins:'Poppins';
+    --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
+}
+
+:root.theme4{
+    --color-verde-oscuro: #434f9d; 
+    --color-verde-oscuro-2: #252e65;
+    --color-verde-claro: #e0d9c8;
+    --color-verde-claro-2: #d9e8e7;
+    --color-naranja: #FCCD00;
+    --color-blanco: #FFFFFF;
+    --color-sepia: #EEB76B;
+    --poppins:'Poppins';
+    --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
+}
+
+:root.theme5{
+    --color-verde-oscuro: #a76324; 
+    --color-verde-oscuro-2: #804309;
+    --color-verde-claro: #e0d9c8;
+    --color-verde-claro-2: #d9e8e7;
+    --color-naranja: #ffc289;
+    --color-blanco: #FFFFFF;
+    --color-sepia: #EEB76B;
+    --poppins:'Poppins';
+    --box-shadow-1:0 0 10px rgba(0, 0, 0, 0.30) ;
+}
+
 body{
     background-color:whitesmoke;
 }
@@ -37,10 +85,17 @@ html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{
     color:var(--color-verde-oscuro);
     font-family: var(--poppins);
     transition: all .3s;
-    text-transform: capitalize;
     text-decoration: none;
     outline: none;
+    border: none;
     box-sizing: border-box;
+}
+
+/* Para navegadores basados en WebKit (Google Chrome, Safari, entre otros) */
+input:-webkit-autofill {
+    -webkit-background-clip: text; /* Hace que el fondo se aplique solo al texto */
+    background-color: transparent !important; /* Establece el fondo como transparente */
+    -webkit-text-fill-color: var(--color-verde-claro) !important;
 }
 
 input[type="button"],input[type="submit"],button{

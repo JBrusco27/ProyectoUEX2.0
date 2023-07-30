@@ -7,6 +7,13 @@
         <!-- Sección Theme -->
         <div class="theme-right-side right-side-item">
             <h1 class="right-side-title configTrad1"></h1>
+            <div class="theme-content">
+                <div class="theme-item" id="theme1Action"></div>
+                <div class="theme-item" id="theme2Action"></div>
+                <div class="theme-item" id="theme3Action"></div>
+                <div class="theme-item" id="theme4Action"></div>
+                <div class="theme-item" id="theme5Action"></div>
+            </div>
         </div>
         <!-- Sección Theme -->
         <!-- Sección Language -->

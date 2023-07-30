@@ -23,6 +23,9 @@
     
     <!-- Logica de header -->
     <script src="./Frontend/Components/HeaderComp/header_comp.js"></script>
+
+    <!-- Logica de footer -->
+    <script src="./Frontend/Components/FooterComp/footer_comp.js"></script>
     
     <!-- Logica de menu -->
     <script src="./Frontend/Components/MenuComp/menu_comp.js"></script>
@@ -56,7 +59,7 @@
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">home</span>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad4"></label>
+                                <label for="form-from-div" class="form-label Trad4"></label>
                             <select id="form-from-div" class="form-input" name="formFromDep">
                                 <option disabled selected hidden class="Trad5"></option>
                                 <option class="Trad6"></option>
@@ -69,7 +72,7 @@
                     <div class="form-cont-div">
                         <span class="material-symbols-rounded form-icon">home</span>
                         <div class="label-input-div">
-                            <label for="form-from-dep" class="form-label Trad10"></label>
+                            <label for="form-from-div" class="form-label Trad10"></label>
                             <select id="form-from-div" class="form-input" name="formFromDep">
                                 <option disabled selected hidden class="Trad11"></option>
                                 <option class="Trad12"></option>
@@ -82,7 +85,7 @@
                     <div class="form-cont-div">
                         <span class="material-symbols-rounded form-icon">home_pin</span>
                         <div class="label-input-div">
-                            <label for="form-from-dep" class="form-label Trad16"></label>
+                            <label for="form-from-div" class="form-label Trad16"></label>
                             <select id="form-from-div" class="form-input" name="formFromDep">
                                 <option disabled selected hidden class="Trad17"></option>
                                 <option class="Trad18"></option>
@@ -95,7 +98,7 @@
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">home_pin</span>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad22"></label>
+                                <label for="form-from-div" class="form-label Trad22"></label>
                                 <select id="form-from-div" class="form-input" name="formFromDep">
                                     <option disabled selected hidden class="Trad23"></option>
                                     <option class="Trad24"></option>
@@ -109,7 +112,7 @@
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">calendar_month</span>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad28"></label>
+                                <label for="form-from-div" class="form-label Trad28"></label>
                                 <input id="form-from-div" class="form-input" name="formFromDep" type="date">
                             </div>
                         </div>
@@ -117,14 +120,14 @@
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">calendar_month</span>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad29"></label>
+                                <label for="form-from-div" class="form-label Trad29"></label>
                                 <input id="form-from-div" class="form-input" name="formFromDep" type="date">
                             </div>
                         </div>
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">airline_seat_recline_extra</span>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad30"></label>
+                                <label for="form-from-div" class="form-label Trad30"></label>
                                 <select id="form-from-div" class="form-input" name="formFromDep">
                                     <option disabled selected>1</option>
                                     <option>2</option>
@@ -146,6 +149,40 @@
                     <button type="submit" class="submitBtn"><span class="Trad33"></span></button>
                 </form>
                 <!-- Formulario -->
+                <section class="section-benefits">
+                    <div class="section-benefits-item">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-1.svg" alt="">
+                        <h3 class="section-subtitle Trad34"></h3>
+                        <p class="section-text Trad35"></p>
+                    </div>
+                    <div class="section-benefits-item">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-2.svg" alt="">
+                        <h3 class="section-subtitle Trad36"></h3>
+                        <p class="section-text Trad37"></p>
+                    </div>
+                    <div class="section-benefits-item">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-3.svg" alt="">
+                        <h3 class="section-subtitle Trad38"></h3>
+                        <p class="section-text Trad39"></p>
+                    </div>
+                </section>
+                <!-- <section class="section-how-to-buy">
+                    <div class="section-how-to-buy-item section-how-to-buy-item-1">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-1.svg" alt="">
+                        <h3 class="section-subtitle">Compare cheap flights and train tickets with buses</h3>
+                        <p class="section-text">With Omio, you can compare airline tickets with train tickets and Greyhound bus tickets.</p>
+                    </div>
+                    <div class="section-how-to-buy-item section-how-to-buy-item-1">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-1.svg" alt="">
+                        <h3 class="section-subtitle">Compare cheap flights and train tickets with buses</h3>
+                        <p class="section-text">With Omio, you can compare airline tickets with train tickets and Greyhound bus tickets.</p>
+                    </div>
+                    <div class="section-how-to-buy-item section-how-to-buy-item-1">
+                        <img class="section-image" src="./Frontend/Resources/Marketing/section-image-1.svg" alt="">
+                        <h3 class="section-subtitle">Compare cheap flights and train tickets with buses</h3>
+                        <p class="section-text">With Omio, you can compare airline tickets with train tickets and Greyhound bus tickets.</p>
+                    </div>
+                </section> -->
             </div>
             <!-- Footer -->
             <?php include "./Frontend/Components/FooterComp/footer_comp.php" ?>

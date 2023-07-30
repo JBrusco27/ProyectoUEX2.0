@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded',()=>{
   //Se oculta configuración
-  document.querySelector('.close-config').addEventListener('click', ()=>{
+  document.querySelector('.icon-close-config').addEventListener('click', ()=>{
     document.querySelector('.config-container').style.height="0";
     document.querySelector('html').style.overflow="initial";
   });

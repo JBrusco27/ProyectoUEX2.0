@@ -47,6 +47,26 @@
 
 /*Container default*/
 
+.title-description-div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.title{
+    line-height:2.6rem;
+    font-size: 40px;
+    color: var(--color-verde-claro);
+}
+
+.title-description{
+    font-size: 20px;
+    color: var(--color-verde-claro);
+    margin:0 0 2rem 0 ;
+}
+
 .departament-orange{
     color: var(--color-naranja) !important;
     font-weight: 200;
@@ -233,44 +253,71 @@ option{
 }
 
 @media screen and (max-width:1300px){
+
     .schedules-form-div{
         width: 100%;
     }
+
     .submitBtn{
         max-width: 70px;
     }
+
     .form-div{
         flex-direction: column;
     }
 }
 
+@media  screen and (max-width:900px) {
+    .title{
+        font-size: 30px;
+    }
+    .title-description{
+        font-size: 16px;
+        margin: 0;
+    }
+    .title-description-div{
+        padding: 0;
+        margin-top: 2rem;
+    }
+
+}
+
 @media screen and (max-width:700px){
+
     .schedule p{
         font-size: 18px;
     }
+
     .container-content{
         padding: 8%;
     }
+
     form{
         width: 100%;
     }
+
     .dep-left{
         text-align: center;
     }
+
     .dep-right{
         text-align: center;
     }
+
     .departament-container{
         padding: 0;
         align-items: center;
         gap: 1rem;
     }
+
     .schedules-form-div{
         width: 100%;
     }
+
     .schedules-content{
         width: 100%;
     }
+
 }
 
 /* BODY */

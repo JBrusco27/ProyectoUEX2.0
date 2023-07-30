@@ -1,21 +1,19 @@
-setTimeout(() => {
-  
-  const headTranslateFunc = (columnNumber) => {
-    return fetch('/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
-    .then((response) => response.text())
-    .then((csvData) => {
-      const result = Papa.parse(csvData, {
-        header: false,
-        skipEmptyLines: true,
-        encoding: 'UTF-8',
-        delimiter: ';'
-      });
-      head_mostrar_data(result.data, columnNumber);
-    })
-    .catch((error) => {
-      console.error('Error al cargar el archivo CSV:', error);
+const headTranslateFunc = (columnNumber) => {
+  return fetch('/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
+  .then((response) => response.text())
+  .then((csvData) => {
+    const result = Papa.parse(csvData, {
+      header: false,
+      skipEmptyLines: true,
+      encoding: 'UTF-8',
+      delimiter: ';'
     });
-  };
+    head_mostrar_data(result.data, columnNumber);
+  })
+  .catch((error) => {
+    console.error('Error al cargar el archivo CSV:', error);
+  });
+};
   
   const head_mostrar_data = (array_resultado, columnNumber) => {
     let position = 0;
@@ -32,4 +30,3 @@ setTimeout(() => {
 columnNumber = localStorage.getItem('columnNumber');
 headTranslateFunc(columnNumber).then(() => {
 });
-}, 500);

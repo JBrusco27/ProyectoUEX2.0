@@ -18,14 +18,17 @@ document.addEventListener('DOMContentLoaded', ()=> {
   function togglePreferencesDropDown(){
     if (active) {
       PREFERENCES_DROPDOWN_CONTENT_ACTION.style.display = "inline-block";
+
       document.querySelector(".arrow-icon").style.transform = "rotate(90deg)";
       if(screenWidth < 700){
+        PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="35px 20px 20px 20px";
         document.querySelector('.preferences-dropdown-profile-name').style.display='inline-block';
       }
       active = false;
     } else {
       PREFERENCES_DROPDOWN_CONTENT_ACTION.style.display = "none";
       PREFERENCES_DROPDOWN_CONTENT.style.width = "";
+      PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="";
       document.querySelector(".arrow-icon").style.transform = "rotate(0deg)";
       if(screenWidth < 700){
         document.querySelector('.preferences-dropdown-profile-name').style.display='none';

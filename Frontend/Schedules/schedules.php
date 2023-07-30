@@ -21,6 +21,9 @@
 
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js"></script>
+    
+    <!-- Logica de footer -->
+    <script src="../Components/FooterComp/footer_comp.js"></script>
 
     <!-- Logica de menu -->
     <script src="../Components/MenuComp/menu_comp.js"></script>
@@ -46,6 +49,10 @@
         <h3 class="page-title Trad2"></h3>
         <div class="container">
             <div class="container-content">
+                <div class="title-description-div">
+                    <h2 class="title Trad21"></h2>
+                    <p class="title-description Trad22"></p>
+                </div>
                 <!-- Formulario -->
                 <form action="">
                     <div class="schedules-form-div"> 

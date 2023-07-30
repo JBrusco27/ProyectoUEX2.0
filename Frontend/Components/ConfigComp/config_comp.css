@@ -1,6 +1,7 @@
 
 .right-side-title{
     color: var(--color-verde-claro);
+    margin-bottom: 1.5rem;
 }
 
 .icon{
@@ -25,7 +26,7 @@
     height: 100%;
     overflow-x: hidden;
     width: 60%;
-    padding: 5rem 1.5rem;
+    padding: 5rem 1rem;
 }
 
 .config-content::-webkit-scrollbar{
@@ -60,6 +61,7 @@
     background-color: var(--color-verde-oscuro-2);
     position: relative;
 }
+
 .language-item:hover > .language-item-content{
     width: 95%;
 }
@@ -87,13 +89,18 @@
 .language-name{
     padding-left: 10px;
     font-size: 19px;
+    color: var(--color-verde-claro);
 }
 
 .close-config{
     align-self:flex-start;
     left: 0;
-    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0 0 50px 0;
+    background-color: var(--color-verde-oscuro);
     position: absolute;
+    z-index: 999999;
+    box-shadow: var(--box-shadow-1);
 }
 
 .icon-close-config{
@@ -111,16 +118,113 @@
     color: var(--color-verde-oscuro-2);
 }
 
+.theme-content{
+    align-items:right;
+    flex: 1;
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    background-color: var(--color-verde-oscuro-2);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.theme-item{
+    min-height:200px;
+    flex: 1;
+    background-color: var(--color-verde-oscuro-2);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-1);
+    cursor: pointer;
+}
+
+.theme-item:hover::after{
+    transform:translateY(180px);
+    filter: brightness(1.2);
+}
+
+.theme-item::after{
+    position: absolute;
+    content: "";
+    rotate: 140deg;
+    height: 110%;
+    width: 140%;
+    transform: translateX(40px) translateY(160px);
+    transition: 0.3s all linear;
+}
+
+#theme1Action{
+    background-color: #425C5A;
+}
+
+#theme2Action{
+    background-color: #3F2E3E;
+}
+
+#theme3Action{
+    background-color: #581818;
+}
+
+#theme4Action{
+    background-color: #434f9d;
+}
+
+#theme5Action{
+    background-color: #a76324;
+}
+
+
+
+#theme1Action::after{
+    background-color: #293b3a;
+}
+
+#theme2Action::after{
+    background-color: #331D2C;
+}
+
+#theme3Action::after{
+    background-color: #310B0B;
+}
+
+#theme4Action::after{
+    background-color: #252e65;
+}
+
+#theme5Action::after{
+    background-color: #804309;
+}
+
+
+
+@media screen and (max-width:1300px) {
+    .theme-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 @media screen and (max-width:1050px){
     .language-right-side{
         width: 100%;
-        padding: 3rem 1rem;
+        padding: 3rem 0;
     }
     .config-content{
         width: 90%;
     }
     .close-config{
-        margin: 1.5rem 3rem;
+        background-color: var(--color-verde-oscuro-2);
+    }
+    .theme-item::after{
+        rotate: 158deg;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .theme-content{
+        grid-template-columns: repeat(1, 1fr);
     }
 }

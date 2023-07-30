@@ -33,13 +33,9 @@ const defaultTranslate = () => {
   let columnNumber = localStorage.getItem('columnNumber');
   if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   } else {
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   }
 };
 document.addEventListener('DOMContentLoaded', defaultTranslate);
@@ -51,9 +47,7 @@ document.getElementById('spanishTranslateAction').addEventListener('click', () =
   } else {
     localStorage.setItem('columnNumber', 1);
     location.reload();
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   }
 });
 
@@ -64,9 +58,7 @@ document.getElementById('englishTranslateAction').addEventListener('click', () =
   } else {
     localStorage.setItem('columnNumber', 0);
     location.reload();
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   }
 });
 
@@ -77,8 +69,6 @@ document.getElementById('portugueseTranslateAction').addEventListener('click', (
   } else {
     localStorage.setItem('columnNumber', 2);
     location.reload();
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   }
 });

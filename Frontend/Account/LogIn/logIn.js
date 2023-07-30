@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', ()=>{
 
+  function handleInputFocus(input, label) {
+    input.addEventListener('focus', () => {
+      label.style.transform = 'translateY(-25px)';
+      label.style.fontSize = '13px';
+    });
+  
+    input.addEventListener('blur', () => {
+      if (input.value.trim() === "") {
+        label.style.transform = 'translateY(0px)';
+        label.style.fontSize = '16px';
+      }
+    });
+  }
+  
+
+  const emailForm = document.getElementById('form-email');
+  const pswdForm = document.getElementById('form-pswd');
+
+  const labelEmailForm = document.querySelector(`label[for="form-email"]`);
+  const labelPswdForm = document.querySelector(`label[for="form-pswd"]`);
+  
+  handleInputFocus(emailForm, labelEmailForm);
+  handleInputFocus(pswdForm, labelPswdForm);
+
     //Verificar datos y mostrar restricciones
     document.getElementById('form').addEventListener('submit',async (event) =>{
     let email = document.getElementById('form-email').value;

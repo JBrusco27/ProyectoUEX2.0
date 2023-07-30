@@ -20,6 +20,9 @@
     
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js"></script>
+        
+    <!-- Logica de footer -->
+    <script src="../Components/FooterComp/footer_comp.js"></script>
     
     <!-- Logica de menu -->
     <script src="../Components/MenuComp/menu_comp.js"></script>
@@ -44,15 +47,15 @@
         <h3 class="page-title Trad2"></h3>
         <div class="container">
             <div class="container-content">
-                <div>
-                    <h2 class="Trad3 title-company"></h2>
+                <div class="company-about inclined-container">
+                    <h2 class="Trad3 title"></h2>
                     <p class="company-text Trad4"></p>
                 </div>
-                <div>
+                <div class="mision-about">
                     <h3 class="Trad5 title"></h3>
                     <p class="company-text Trad6"></p>
                 </div>
-                <div>
+                <div class="vision-about inclined-container">
                     <h3 class="Trad7 title"></h3>
                     <p class="company-text Trad8"></p>
                 </div>
@@ -64,7 +67,7 @@
                     <p class="company-text Trad13"></p>
                     <p class="company-text Trad14"></p>
                 </div>
-                <div>
+                <div class="goals-about inclined-container">
                     <h3 class="Trad15 title"></h3>
                     <p class="company-text Trad16"></p>
                     <p class="company-text Trad17"></p>

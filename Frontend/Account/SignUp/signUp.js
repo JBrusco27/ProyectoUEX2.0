@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  function handleInputFocus(input, label) {
+    input.addEventListener('focus', () => {
+      label.style.transform = 'translateY(-25px)';
+      label.style.fontSize = '13px';
+    });
+  
+    input.addEventListener('blur', () => {
+      if (input.value.trim() === "") {
+        label.style.transform = 'translateY(0px)';
+        label.style.fontSize = '16px';
+      }
+    });
+  }
+  
+  const nameForm = document.getElementById('form-name');
+  const phoneForm = document.getElementById('form-phone');
+  const emailForm = document.getElementById('form-email');
+  const pswdForm = document.getElementById('form-pswd');
+  const confPswdForm = document.getElementById('form-confPswd');
+  const labelNameForm = document.querySelector(`label[for="form-name"]`);
+  const labelPhoneForm= document.querySelector(`label[for="form-phone"]`);
+  const labelEmailForm = document.querySelector(`label[for="form-email"]`);
+  const labelPswdForm = document.querySelector(`label[for="form-pswd"]`);
+  const labelConfPswdForm = document.querySelector(`label[for="form-confPswd"]`);
+  
+  handleInputFocus(nameForm, labelNameForm);
+  handleInputFocus(phoneForm, labelPhoneForm);
+  handleInputFocus(emailForm, labelEmailForm);
+  handleInputFocus(pswdForm, labelPswdForm);
+  handleInputFocus(confPswdForm, labelConfPswdForm);
       
   // Lógica para dar formato al número de teléfono
   let phoneInput = document.getElementById('form-phone');

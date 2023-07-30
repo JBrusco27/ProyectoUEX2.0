@@ -18,7 +18,7 @@
             <div class="menu-nav-content" id="menu-nav-home"><span class="material-symbols-rounded menu-nav-icon">home</span><a href="/index.php" class="menuTrad2"></a></div>
             <div class="menu-nav-content" id="menu-nav-contact"><span class="material-symbols-rounded menu-nav-icon">phone</span><a href="/Frontend/Contact/contact.php" class="menuTrad3"></a></div>
             <div class="menu-nav-content" id="menu-nav-schedules"><span class="material-symbols-rounded menu-nav-icon">calendar_month</span><a href="/Frontend/Schedules/schedules.php" class="menuTrad4"></a></div>
-            <div class="menu-nav-content" id="menu-nav-schedules"><span class="material-symbols-rounded menu-nav-icon">login</span><a href="/Frontend/AboutUs/aboutUs.php" class="menuTrad5"></a></div>
+            <div class="menu-nav-content" id="menu-nav-schedules"><span class="material-symbols-rounded menu-nav-icon">groups</span><a href="/Frontend/AboutUs/aboutUs.php" class="menuTrad5"></a></div>
         </nav>
     </div>
     <!-- Enlace para traducir menu mobile -->

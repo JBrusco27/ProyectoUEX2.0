@@ -11,6 +11,9 @@
     <!-- Logica de validación -->
     <script src="logIn.js"></script>
 
+    <!-- Logica predeterminada -->
+    <script src="../../Components/Scripts/default.js"></script>
+
     <!-- Enlace para mostrar contraseñas -->
     <script src="../../Components/Scripts/showPswd.js"></script>
     

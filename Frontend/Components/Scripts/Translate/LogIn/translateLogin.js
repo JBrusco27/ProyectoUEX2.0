@@ -32,13 +32,9 @@ let columnNumber = localStorage.getItem('columnNumber');
 const defaultTranslate = () => {
   if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   } else {
-    translateFunc(columnNumber).then(() => {
-      // Do something after the translation is done (if needed)
-    });
+    translateFunc(columnNumber);
   }
 };
 document.addEventListener('DOMContentLoaded', defaultTranslate);

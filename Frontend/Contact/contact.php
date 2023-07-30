@@ -25,6 +25,9 @@
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js"></script>
     
+    <!-- Logica de footer -->
+    <script src="../Components/FooterComp/footer_comp.js"></script>
+    
     <!-- Logica de menu -->
     <script src="../Components/MenuComp/menu_comp.js"></script>
     
@@ -48,6 +51,10 @@
         <h3 class="page-title Trad2"></h3>
         <section class="container">
             <div class="container-content">
+                <div class="title-description-div">
+                    <h2 class="title Trad7"></h2>
+                    <p class="title-description Trad8"></p>
+                </div>
                 <!-- Formulario -->
                 <form action="">
                     <div class="form-top">
@@ -56,21 +63,21 @@
                                 <span class="material-symbols-rounded form-icon">person</span>
                                 <div class="label-input-div">
                                     <label for="form-name" class="form-label form-label-left Trad3"></label>
-                                    <input id="form-name" class="form-input form-input-right" name="formName" type="text" required>
+                                    <input id="form-name" class="form-input" name="formName" type="text" required>
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon">mail</span>
                                 <div class="label-input-div">
                                     <label for="form-email" class="form-label form-label-left Trad4"></label>
-                                    <input id="form-email" class="form-input form-input-right" name="formEmail" type="text" required>
+                                    <input id="form-email" class="form-input" name="formEmail" type="text" required>
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon">phone</span>
                                 <div class="label-input-div">
-                                    <label for="form-name" class="form-label form-label-left Trad5"></label>
-                                    <input id="form-name" class="form-input form-input-right" name="formName" type="text" required>
+                                    <label for="form-phone" class="form-label form-label-left Trad5"></label>
+                                    <input id="form-phone" class="form-input" name="formName" type="text" required>
                                 </div>
                             </div>
                         </div>
@@ -78,8 +85,8 @@
                             <div class="form-right-div">
                                 <span class="material-symbols-rounded form-icon">chat</span>
                                 <div class="right-label-input-div">
-                                    <label for="form-from-dep" class="form-label Trad6"></label>
-                                    <textarea id="form-message" class="form-input message-text-area" name="formFromDep" type="text"></textarea>
+                                    <label for="form-message" class="form-label-right Trad6"></label>
+                                    <textarea id="form-message" class="form-input-right message-text-area" name="formFromDep" type="text"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -87,6 +94,23 @@
                     <button id="submit" class="submitBtn" type="submit"><span class="material-symbols-rounded form-button-icon">send</span></button>
                 </form>
                 <!-- Formulario -->
+                <!-- <section class="section-assistence">
+                    <div class="assistence-item">
+                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
+                        <h3 class="assistence-item-title">Guidance Tailored for You</h3>
+                        <p class="assistence-item-description">Personalized assistance at every step. Your satisfaction is our priority.</p>
+                    </div>
+                    <div class="assistence-item">
+                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
+                        <h3 class="assistence-item-title">Expert Tech Suppor</h3>
+                        <p class="assistence-item-description">Tech experts ready to help. We've got you covered.</p>
+                    </div>
+                    <div class="assistence-item">
+                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
+                        <h3 class="assistence-item-title">Instant Answers</h3>
+                        <p class="assistence-item-description">Common questions, clear solutions. Check our FAQ or contact us.</p>
+                    </div>
+                </section> -->
             </div>
             <!-- Footer -->
             <?php include "../Components/FooterComp/footer_comp.php" ?>
