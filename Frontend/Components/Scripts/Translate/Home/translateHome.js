@@ -1,4 +1,3 @@
-
 const translateFunc = (columnNumber) => {
   return fetch('/Frontend/Components/Scripts/Translate/Home/languagesHome.csv')
   .then((response) => response.text())

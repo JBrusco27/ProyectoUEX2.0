@@ -1,13 +1,11 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-
-let opciones = {
+let opcionesFooter = {
 method: 'POST',
 headers: {
     'Content-Type': 'application/json'
 }
 };
-
-fetch('../../Backend/log_status.php', opciones)
+// Se hace una solicitud a log_status para saber si hay un usuario logeado o no
+fetch('../../Backend/log_status.php', opcionesFooter)
 .then(function (response) {
     // Verificar si la solicitud fue exitosa
     if (response.ok) {
@@ -29,6 +27,4 @@ fetch('../../Backend/log_status.php', opciones)
 })
 .catch(function (error) {
     console.error('Error:', error);
-});
-
 });

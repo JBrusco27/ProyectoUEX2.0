@@ -1,5 +1,5 @@
-Viauy | Sign Up;Viauy | Inscribirse;Viauy | Registro
-Sign Up;Inscribirse;Registro
+Viauy | Sign up;Viauy | Inscribirse;Viauy | Registro
+Sign up;Registro;Registro
 &#9679 Must be between 4 and 40 characters.;&#9679 Debe tener entre 4 y 40 caracteres.;&#9679 Deve ter entre 4 e 40 caracteres.;
 Name & Lastname;Nombre y Apellido;Nome e Sobrenome
 &#9679 Please enter a valid email address.;&#9679 Ingrese un correo electrónico valido.;&#9679 Insira um endereço de e-mail válido.
@@ -13,10 +13,10 @@ Password;Contraseña;Senha
 &#9679 Email already exists;&#9679 Ese e-mail ya existe;&#9679 Esse e-mail já existe
 E-mail;E-mail;E-mail
 Name & Lastname;Nombre y Apellido;Nome e Sobrenome
-Phone Number;Número de Teléfono;Número de Telefone
+Phone number;Número de teléfono;Número de telefone
 E-mail;E-mail;E-mail
 Password;Contraseña;Senha
-Confirm Password;Confirmar contraseña;Confirme sua senha
-Sign Up;Inscribirse;Registro
+Confirm password;Confirmar contraseña;Confirme sua senha
+Sign up;Registrese;Registro
 Already a member?;Ya eres usuario?;Já é um membro?
-Log In;Iniciar Sesión;Iniciar Sessão
+Log in;Iniciar sesión;Iniciar sessão

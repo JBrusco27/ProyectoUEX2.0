@@ -4,15 +4,7 @@
         <div class="menu-nav-close" id="nav-close-icon"><span class="material-symbols-rounded menu-nav-close-icon">close</span></div>
         <div>
             <h3 class="welcome-text menuTrad1"></h3>
-            <h3>
-                <?php
-                    if(isset($raiz)){
-                        include ($raiz . "/Backend/user_cookie.php");
-                    }else{
-                        include ("../../Backend/user_cookie.php");
-                    }
-                ?>
-                </h3>
+            <h3 class="menu-nav-user-name"></h3>
         </div>
         <nav class="menu-nav-container">
             <div class="menu-nav-content" id="menu-nav-home"><span class="material-symbols-rounded menu-nav-icon">home</span><a href="/index.php" class="menuTrad2"></a></div>

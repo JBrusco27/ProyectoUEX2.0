@@ -17,29 +17,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     
     <!-- Logica predeterminada -->
-    <script src="../Components/Scripts/default.js"></script>
+    <script src="../Components/Scripts/default.js" defer></script>
 
     <!-- Logica de contact -->
     <script src="./contact.js"></script>
         
     <!-- Logica de header -->
-    <script src="../Components/HeaderComp/header_comp.js"></script>
+    <script src="../Components/HeaderComp/header_comp.js" defer></script>
     
     <!-- Logica de footer -->
-    <script src="../Components/FooterComp/footer_comp.js"></script>
+    <script src="../Components/FooterComp/footer_comp.js" defer></script>
     
     <!-- Logica de menu -->
-    <script src="../Components/MenuComp/menu_comp.js"></script>
+    <script src="../Components/MenuComp/menu_comp.js" defer></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="../Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
     <link rel="stylesheet" href="../Components/FooterComp/footer_comp.css">
     <link rel="stylesheet" href="../Components/MenuComp/menu_comp.css">
+    <link rel="stylesheet" href="../Components/BannerComp/banner_comp.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <!-- Sección configuración -->
     <?php include "../Components/ConfigComp/config_comp.php" ?>
+    
+    <!-- Sección perfil -->
+    <?php include "../Components/ProfileComp/profile_comp.php" ?>
 
     <!-- Sección menu mobile -->
     <?php include "../Components/MenuComp/menu_comp.php" ?>
@@ -48,69 +55,56 @@
     <section class="wrap-container" id="wrap-container">
         <!-- Header -->
         <?php include "../Components/HeaderComp/header_comp.php" ?>
-        <h3 class="page-title Trad2"></h3>
+        <!-- Banner -->
+        <?php include "../Components/BannerComp/banner_comp.php" ?>
+
         <section class="container">
             <div class="container-content">
                 <div class="title-description-div">
-                    <h2 class="title Trad7"></h2>
-                    <p class="title-description Trad8"></p>
+                    <h2 class="title Trad6"></h2>
+                    <p class="title-description Trad7"></p>
                 </div>
                 <!-- Formulario -->
                 <form action="">
                     <div class="form-top">
                         <div class="form-left">
                             <div class="form-left-div">
-                                <span class="material-symbols-rounded form-icon">person</span>
+                                <span class="material-symbols-rounded form-icon form-icon-left">person</span>
                                 <div class="label-input-div">
-                                    <label for="form-name" class="form-label form-label-left Trad3"></label>
-                                    <input id="form-name" class="form-input" name="formName" type="text" required>
+                                    <label for="form-name" class="form-label form-label-left Trad2"></label>
+                                    <input id="form-name" class="form-input" name="formName" type="text" required maxlength="40">
                                 </div>
                             </div>
                             <div class="form-left-div">
-                                <span class="material-symbols-rounded form-icon">mail</span>
+                                <span class="material-symbols-rounded form-icon form-icon-left">mail</span>
                                 <div class="label-input-div">
-                                    <label for="form-email" class="form-label form-label-left Trad4"></label>
-                                    <input id="form-email" class="form-input" name="formEmail" type="text" required>
+                                    <label for="form-email" class="form-label form-label-left Trad3"></label>
+                                    <input id="form-email" class="form-input" name="formEmail" type="text" required maxlength="50">
                                 </div>
                             </div>
                             <div class="form-left-div">
-                                <span class="material-symbols-rounded form-icon">phone</span>
+                                <span class="material-symbols-rounded form-icon form-icon-left">phone</span>
                                 <div class="label-input-div">
-                                    <label for="form-phone" class="form-label form-label-left Trad5"></label>
-                                    <input id="form-phone" class="form-input" name="formName" type="text" required>
+                                    <label for="form-phone" class="form-label form-label-left Trad4"></label>
+                                    <input id="form-phone" class="form-input" name="formName" type="text" required maxlength="10">
                                 </div>
                             </div>
                         </div>
                         <div class="form-right">
                             <div class="form-right-div">
-                                <span class="material-symbols-rounded form-icon">chat</span>
                                 <div class="right-label-input-div">
-                                    <label for="form-message" class="form-label-right Trad6"></label>
-                                    <textarea id="form-message" class="form-input-right message-text-area" name="formFromDep" type="text"></textarea>
+                                    <div>
+                                        <span class="material-symbols-rounded form-icon">chat</span>
+                                        <label for="form-message" class="form-label-right Trad5"></label>
+                                    </div>
+                                    <textarea id="form-message" class="form-input-right message-text-area" name="formFromDep" type="text" maxlength="1000"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button id="submit" class="submitBtn" type="submit"><span class="material-symbols-rounded form-button-icon">send</span></button>
+                    <p id="submit" class="submitBtn" type="submit"><span class="material-symbols-rounded form-button-icon">send</span></p>
                 </form>
                 <!-- Formulario -->
-                <!-- <section class="section-assistence">
-                    <div class="assistence-item">
-                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
-                        <h3 class="assistence-item-title">Guidance Tailored for You</h3>
-                        <p class="assistence-item-description">Personalized assistance at every step. Your satisfaction is our priority.</p>
-                    </div>
-                    <div class="assistence-item">
-                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
-                        <h3 class="assistence-item-title">Expert Tech Suppor</h3>
-                        <p class="assistence-item-description">Tech experts ready to help. We've got you covered.</p>
-                    </div>
-                    <div class="assistence-item">
-                        <img class="assistence-image" src="/Frontend/Resources/Marketing/help-center.svg" alt="">
-                        <h3 class="assistence-item-title">Instant Answers</h3>
-                        <p class="assistence-item-description">Common questions, clear solutions. Check our FAQ or contact us.</p>
-                    </div>
-                </section> -->
             </div>
             <!-- Footer -->
             <?php include "../Components/FooterComp/footer_comp.php" ?>

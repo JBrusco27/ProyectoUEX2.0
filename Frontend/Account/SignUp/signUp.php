@@ -7,12 +7,15 @@
 
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="signUp.css">
+
+    <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="/Frontend/Components/VerifyWasSend/verifyWasSend.css">
     
     <!-- Logica de validación -->
     <script src="signUp.js"></script>
 
     <!-- Logica predeterminada -->
-    <script src="../../Components/Scripts/default.js"></script>
+    <script src="../../Components/Scripts/default.j" defer></script>
     
     <!-- Enlace para mostrar contraseñas -->
     <script src="../../Components/Scripts/showPswd.js"></script>
@@ -28,8 +31,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>
+<?php include "../../Components/VerifyWasSend/verifyWasSend.php" ?>
     <!-- Container -->
     <div class="container">
+        <a href="/" class="login-logo-div"><img src="/Frontend/Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>
         <h3 class="Trad2"></h3>
         <!-- Contariner de restricciones -->
         <div class="warning-container">   
@@ -72,7 +77,7 @@
         </div>
         <!-- Contariner de restricciones -->
         <!-- Formulario -->
-        <form id="form" action="../../../Backend/Requests/consulta_sign_up.php" method="post">
+        <form id="form">
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">person</span>
                 <div class="label-input-div">
@@ -118,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn Trad20" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+            <p id="submit" class="submitBtn Trad20"><span class="material-symbols-rounded form-button-icon">play_arrow</span></p>
         </form>
         <!-- Formulario -->
         <p class="alreadyAMember Trad21">

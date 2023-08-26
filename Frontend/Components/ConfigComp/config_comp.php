@@ -13,6 +13,7 @@
                 <div class="theme-item" id="theme3Action"></div>
                 <div class="theme-item" id="theme4Action"></div>
                 <div class="theme-item" id="theme5Action"></div>
+                <div class="theme-item" id="theme6Action"></div>
             </div>
         </div>
         <!-- Sección Theme -->
@@ -44,11 +45,7 @@
             </div>
         </div>
         <!-- Sección Language -->
-        <!-- Sección Account -->
-        <div class="account-right-side right-side-item">
-            <h1 class="right-side-title configTrad6"></h1>
-        </div>
-        <!-- Sección Account -->
+
     </div>
 </div>
 <!-- Config Container -->

@@ -9,13 +9,13 @@
 /*Container default*/
 
 .container {
-    padding:4% 0 0 0;
+    padding: 4% 0 0 0;
     background-color: var(--color-verde-oscuro);
     margin-top: 20vh;
     inset: 0;
-    border-radius: 50px 50px 0 0;
     position: absolute;
     overflow-y: auto;
+    overflow-x: hidden;
     flex: 1;
     display: flex;
     justify-content: space-between;
@@ -42,6 +42,17 @@
     background-color: whitesmoke;
     position: absolute;
     inset: 0;
+}
+
+.wrap-container::before{
+    background-repeat: repeat;
+    background-size: 40px 40px;
+    background-image:url('/Frontend/Resources/Backgrounds/difuminar.png');
+    content: "";
+    inset: -100vh;
+    opacity: 0.03;
+    position: absolute;
+    rotate: 25deg;
 }
 
 /*Container default*/
@@ -96,13 +107,13 @@ form div{
     border-bottom: 1px #c3c3c36b solid;
     padding: 0.5rem;
     box-sizing: border-box;
-    background-color: var(--color-verde-oscuro);
 }  
 
 .form-left{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-height: 13.5rem;
 }
 
 .form-right-div{
@@ -145,10 +156,20 @@ form div{
     height: 100%;
 }
 
+.right-label-input-div > div{
+    display: flex;
+    gap: 0.7rem;
+}
+
 .form-icon{
     color: var(--color-naranja);
     font-size: 22px;
-    padding-bottom: 5px;
+}
+
+.form-icon-left{
+    height: 100%;
+    display: flex !important;
+    align-items: center;
 }
 
 .form-icon:hover,.rightform-icon:hover{
@@ -190,6 +211,7 @@ form div{
     text-indent: 1rem;
     flex-direction: column;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 .form-input{
@@ -219,6 +241,7 @@ form div{
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 .form-input-right{
@@ -332,6 +355,21 @@ form div{
     width: 60%;
 }
 
+#nav-element-contact a{
+    position: relative;
+}
+
+#nav-element-contact a::before{
+    content: '';
+    left: 0;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    border-radius: 50px;
+    background-color: var(--color-verde-oscuro);
+    bottom: -4px;
+}
+
 @media screen and (max-width:1300px){
     form{
         width: 90%;
@@ -380,6 +418,10 @@ form div{
     }
     .form-top{
         flex-direction: column;
+        height: 100%;
+    }
+    .form-left{
+        height: 100%;
     }
 
     .title-description-div{
@@ -388,6 +430,12 @@ form div{
     }
 
 }
+
+@media screen and (max-width:700px){
+
+}
+
+
 
 
 /* BODY */

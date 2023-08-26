@@ -1,0 +1,73 @@
+.verifyWasSend-container{
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+    height: 0;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-verde-oscuro-2);
+    z-index: 1000000;
+}       
+
+.verifyWasSend-submitBtn{
+    width: 17rem;
+    height: 3.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin: 1.5rem 0;
+    outline: none;
+    border: none;
+    background-color: var(--color-naranja);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.verifyWasSend-submitBtn::after{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 300%;
+    width: 100%;
+    transform: translateX(-120%) rotate(20deg);
+    transition: all .5s ease-in-out;
+}
+
+.verifyWasSend-submitBtn::before{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 300%;
+    width: 10%;
+    transform: translateX(-800%) rotate(20deg);
+    transition: all .5s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.verifyWasSend-submitBtn:hover::after{
+    transform: translateX(-80%)rotate(20deg);
+}
+
+.verifyWasSend-submitBtn:hover::before{
+    transform: translateX(-150%)rotate(20deg);
+}
+
+.form-submit-btn:hover{
+    transition: all 0.2s;
+    padding: 0.9rem 3.6rem;
+}
+
+.verifyWasSend-container h1, .verifyWasSend-container p{
+    color: var(--color-verde-claro);
+}

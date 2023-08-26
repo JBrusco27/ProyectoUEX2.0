@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', ()=> {
-
 let action = true;
 
 // [ FUNCTION ] Cierra el menu de navegación mobile
@@ -30,5 +28,19 @@ document.getElementById("nav-close-icon").addEventListener('click', ()=> {
     closeMenuNavMobile();
 });
 
-});
 
+fetch('/Backend/user_cookie.php')
+.then(function (response) {
+    // Verificar si la solicitud fue exitosa
+    if (response.ok) {
+    return response.json(); // Parsear la respuesta como JSON
+    }
+})
+.then(function (data) {
+    // Acceder a la variable log dentro del objeto data
+    let nombre = data.nombre_usuario;
+    document.querySelector('.menu-nav-user-name').innerHTML=nombre;
+})
+.catch(function (error) {
+    console.error('Error:', error);
+});

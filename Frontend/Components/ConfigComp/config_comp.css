@@ -11,21 +11,23 @@
 .config-container{
     overflow: hidden;
     position: fixed;
-    inset: 0;
-    height: 0;
+    height: 100%;
+    width: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color-verde-oscuro-2);
+    box-shadow: var(--box-shadow-1);
     z-index: 1000000;
 }
 
 .config-content{
     background-color: var(--color-verde-oscuro);
-    overflow-y: scroll;
+    overflow-y: hidden;
     height: 100%;
     overflow-x: hidden;
-    width: 60%;
+    width: 100%;
     padding: 5rem 1rem;
 }
 
@@ -60,6 +62,7 @@
     padding:0.5rem;
     background-color: var(--color-verde-oscuro-2);
     position: relative;
+    cursor: pointer;
 }
 
 .language-item:hover > .language-item-content{
@@ -97,7 +100,7 @@
     left: 0;
     padding: 1.5rem;
     border-radius: 0 0 50px 0;
-    background-color: var(--color-verde-oscuro);
+    background-color: var(--color-verde-oscuro-2);
     position: absolute;
     z-index: 999999;
     box-shadow: var(--box-shadow-1);
@@ -132,28 +135,28 @@
 }
 
 .theme-item{
-    min-height:200px;
+    min-height:70px;
     flex: 1;
     background-color: var(--color-verde-oscuro-2);
-    border-radius: 15px;
+    border-radius: 50px;
     position: relative;
     overflow: hidden;
     box-shadow: var(--box-shadow-1);
     cursor: pointer;
 }
 
-.theme-item:hover::after{
-    transform:translateY(180px);
+.theme-item:hover::after {
+    transform: translateY(120px);
     filter: brightness(1.2);
 }
 
-.theme-item::after{
+.theme-item::after {
     position: absolute;
     content: "";
     rotate: 140deg;
-    height: 110%;
+    height: 170%;
     width: 140%;
-    transform: translateX(40px) translateY(160px);
+    transform: translateX(40px) translateY(90px);
     transition: 0.3s all linear;
 }
 
@@ -177,6 +180,9 @@
     background-color: #a76324;
 }
 
+#theme6Action{
+    background-color: #10093d;
+}
 
 
 #theme1Action::after{
@@ -199,7 +205,9 @@
     background-color: #804309;
 }
 
-
+#theme6Action::after{
+    background-color: #09032B;
+}
 
 @media screen and (max-width:1300px) {
     .theme-content{
@@ -222,8 +230,7 @@
         rotate: 158deg;
     }
 }
-
-@media screen and (max-width:700px) {
+@media screen and (max-width:600px) {
     .theme-content{
         grid-template-columns: repeat(1, 1fr);
     }

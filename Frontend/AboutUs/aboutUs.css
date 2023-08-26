@@ -13,14 +13,13 @@
     background-color: var(--color-verde-oscuro);
     margin-top: 20vh;
     inset: 0;
-    border-radius: 50px 50px 0 0;
     position: absolute;
     overflow-y: auto;
+    overflow-x: hidden;
     flex: 1;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    overflow-x: hidden;
 }
 
 .container-content{
@@ -45,6 +44,17 @@
     background-color: whitesmoke;
     position: absolute;
     inset: 0;
+}
+
+.wrap-container::before{
+    background-repeat: repeat;
+    background-size: 40px 40px;
+    background-image:url('/Frontend/Resources/Backgrounds/difuminar.png');
+    content: "";
+    inset: -100vh;
+    opacity: 0.03;
+    position: absolute;
+    rotate: 25deg;
 }
 
 /*Container default*/
@@ -112,7 +122,6 @@
     transform-origin: left top;
   }
 
-
 .title{
     font-size:40px;
     color: var(--color-verde-claro-2) !important;
@@ -130,6 +139,9 @@
     .company-text{
         font-size: 18px;
     }
+}
+
+@media screen and (max-width:700px){
 }
 
 /* BODY */

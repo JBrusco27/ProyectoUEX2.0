@@ -4,21 +4,24 @@ header{
     z-index: 10000;
     position: relative;
     inset: 0;
-    padding: 1.5rem;
-    height:7.5rem;
+    padding: 1.5rem 2%;
     display: flex;
     justify-content: space-between;
+    gap: 4rem;
 }    
 
 .nav-container{
     display: flex;
+    border-radius: 50px;
     flex-direction: row;
     justify-content: space-around;
     gap: 10%;
     flex: 1;
-    margin: 0 10%;
+    min-height: 4rem;
+    height: 100%;
     align-items: center;
-
+    background: #f5f5f580;
+    backdrop-filter: blur(25px);
 }
 
 .nav-container div a{
@@ -50,6 +53,9 @@ header{
 .preferences-dropdown-container{
     border-radius: 100px;
     position: initial;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
     top: 0;
     right: 0;
     z-index: 10000;
@@ -58,22 +64,18 @@ header{
 .preferences-dropdown-content{
     box-shadow: var(--box-shadow-1);
     margin: 0 2rem;
-    background-color: white;
+    background-color:#f5f5f5b3;
+    backdrop-filter: blur(25px);
     width: fit-content;
     min-width: 15rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    border-radius: 30px;
-    height: auto;
+    border-radius: 50px;
+    height: fit-content;
     cursor: pointer;
     box-sizing: border-box; 
-}
-
-.preferences-dropdown-content:hover{
-    transform-origin: right;
-    transform: scaleX(107%);
 }
 
 .preferences-dropdown-content-view{
@@ -81,7 +83,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.2rem;
+    padding: 0.3rem;
     gap: 1rem;
 }
 
@@ -89,8 +91,16 @@ header{
     display: none;
     width: 100%;
     overflow: hidden;
-    padding: 1rem 0;
+    margin-top: 6rem;
+    background-color: #f5f5f5ed;
+    backdrop-filter: blur(25px);
+    border-radius: 20px 20px 30px 30px;
+    position: absolute;
+    box-shadow: var(--box-shadow-1);
     box-sizing: border-box;
+
+    transition: 0.3s all linear;
+    opacity: 0;
 }
 
 .preferences-dropdown-content-action > div,.preferences-dropdown-content-action > a{
@@ -101,7 +111,15 @@ header{
 }
 
 .preferences-dropdown-content-action > div:hover,.preferences-dropdown-content-action > a:hover{
-    background-color: whitesmoke;
+    background-color: var(--color-verde-oscuro-2);
+    color: white;
+}
+
+.preferences-dropdown-content-action > a:hover > div{
+    color: white;
+}
+.preferences-dropdown-content-action > div:hover > .action-icon,.preferences-dropdown-content-action > a:hover > div > .action-icon{
+    color: white;
 }
 
 .action-icon{
@@ -123,21 +141,10 @@ header{
 }
 
 .preferences-dropdown-profile-img{
-    height: 63px;   
-    width: 63px;
+    height: 57px;   
+    width: 57px;
     aspect-ratio: 1/1;
     border-radius: 30px;
-}
-
-.preferences-dropdown-container-decoration{
-    position: absolute;
-    inset: 0 0 auto auto;
-    height: 104px;
-    width: 90px;
-    background-color: var(--color-verde-claro);
-    border-radius: 0 0 0 20px;
-    opacity: 20%;
-    z-index: -1;
 }
 
 .arrow-icon,.menu-icon{
@@ -166,6 +173,12 @@ header{
     color: var(--color-verde-oscuro);
 }
 
+.nav-elements{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width:1300px){
     .nav-container{
         justify-content: center;
@@ -175,31 +188,32 @@ header{
 @media screen and (max-width:900px){
     .menu-icon{
         display: inline-block;
+        right: auto !important;
     }
 
     header{
-        height: 110px;
         padding: 1rem;
+        gap: 1rem;
     }
 
     .nav-container{
         gap: 12%;
         align-items: center;
-        justify-content: left;
-        padding-left: 2rem;
+        justify-content: center;
+        padding: 1rem;
         margin: 0;
-    }
-    
-    .preferences-dropdown-container {
-        position: absolute;   
+        flex: none;
+        aspect-ratio: 1/1;
     }
     
     .preferences-dropdown-content{
-        margin: 1rem 1rem;
-        border-radius: 50px 20px 20px 50px;
         width: fit-content;
         padding: 0;
-        min-width: 8rem;
+        min-width: fit-content;
+    }
+
+    .arrow-icon{
+        display: none;
     }
     
     .preferences-dropdown-profile-img{

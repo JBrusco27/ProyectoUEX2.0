@@ -12,7 +12,7 @@
     <script src="logIn.js"></script>
 
     <!-- Logica predeterminada -->
-    <script src="../../Components/Scripts/default.js"></script>
+    <script src="../../Components/Scripts/default.js" defer></script>
 
     <!-- Enlace para mostrar contraseñas -->
     <script src="../../Components/Scripts/showPswd.js"></script>
@@ -30,17 +30,16 @@
 <body>
     <!-- Container -->
     <div class="container">
+        <a href="/" class="login-logo-div"><img src="/Frontend/Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>
         <h3 class="Trad2"></h3> 
         <!-- Contariner de restricciones -->
         <div class="warning-container">
-
             <div class="email-warning-content warning">
                 <div class="Trad3">
                     <p class="warning-title Trad4"></p>
                 </div>
                 <span class="material-symbols-rounded form-button-icon close-warning" id="close-warning-email">close</span>
             </div>
-
             <div class="pswd-warning-content warning">
                 <div class="Trad5">
                     <p class="warning-title Trad6"></p>
@@ -56,7 +55,7 @@
         </div>
         <!-- Contariner de restricciones -->
         <!-- Formulario -->
-        <form id="form" action="../../../Backend/Requests/consulta_sign_in.php" method="post">
+        <form id="form">
             <div class="form-div">
                 <span class="material-symbols-rounded form-icon">email</span>
                 <div class="label-input-div">
@@ -65,7 +64,7 @@
                 </div>
             </div>
             <div class="form-div">
-                <span class="material-symbols-rounded show-pswd-icon">lock</span>
+                <span class="material-symbols-rounded form-icon">lock</span>
                 <div class="label-input-div">
                     <label for="form-pswd" class="form-label Trad10"></label>
                     <div class="input-show-pswd-div">
@@ -76,12 +75,12 @@
                     </div>
                 </div>
             </div>
-            <button id="submit" class="submitBtn Trad11" type="submit"><span class="material-symbols-rounded form-button-icon">play_arrow</span></button>
+            <p id="submit" class="submitBtn Trad11"><span class="material-symbols-rounded form-button-icon">play_arrow</span></p>
         </form>
         <!-- Formulario -->
         <div class="login-bottom-info">
             <p class="notAMember Trad12"><a href="../SignUp/signUp.php" class="Trad13"></a></p>
-            <a class="forgotPaswd Trad14" href=""></a>
+            <a class="forgotPaswd Trad14" href="../ForgotPswd/forgotPswd.php"></a>
         </div>
     </div>
     <!-- Container -->

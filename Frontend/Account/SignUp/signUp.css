@@ -7,8 +7,7 @@
 /* BODY */
 
 .container{
-    padding: 3rem;
-    overflow-y: scroll;
+    padding:6rem 3rem;
     inset: 0;
     min-height: 100vh;
     height: 100%;
@@ -16,7 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 0.5rem;
     box-sizing: border-box;
     background-color: var(--color-verde-oscuro);
 }  
@@ -25,18 +24,36 @@ h3{
     color: var(--color-verde-claro);
     font-size: 30px;
     padding: 1rem;
+    text-transform: none;
 }
 
 form{
     display: flex;
     flex-direction: column;
     min-width: 30%;
-    min-height: 27rem;
+    min-height: 29rem;
     gap: 1rem;
 }
 
 form *{
     text-transform: uppercase;
+}
+
+.login-logo-div{
+    position: absolute;
+    height: 90px;
+    width: 130px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background: var(--color-verde-oscuro-2);
+    padding: 0.7rem 0.7rem;
+    border-radius: 0 0 20px 20px;
+}
+
+.login-logo{
+    object-fit: contain;
+    width:100%;
 }
 
 .form-div{
@@ -54,7 +71,7 @@ form *{
 .form-icon{
     color: var(--color-naranja);
     font-size: 22px;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
 }
 
 .form-icon:hover{
@@ -85,6 +102,7 @@ form *{
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    text-transform: uppercase;
 }
 
 .form-input{
@@ -108,6 +126,7 @@ form *{
     width: 70%;
     height: 3.7rem;
     border-radius: 20px;
+    margin-top: 2rem;
     outline: none;
     border: none;
     background-color: var(--color-naranja);
@@ -165,25 +184,6 @@ form *{
     transition: 0.5s all  ease-in-out;
 }
 
-.container p{
-    color: var(--color-verde-claro);
-    font-size: 14px;
-    padding: 0.5rem;
-    text-transform: initial;
-}
-
-.container p a{
-    color: var(--color-naranja);
-    font-size: 14px;
-    padding:0 0.5rem;
-    border-radius: 5px;
-}
-
-.container p a:hover{
-    background-color: var(--color-naranja);
-    color: var(--color-verde-oscuro);
-}
-
 .show-pswd{
     cursor: pointer;
     position: absolute;
@@ -205,9 +205,22 @@ form *{
     position: relative;
 }
 
-.alreadyAMember a{
+.alreadyAMember{
+    font-size: 14px;
+    color: var(--color-verde-claro);
+}
+
+.alreadyAMember > a{
+    color: var(--color-naranja);
     float: right;
     margin: 0 0.2rem;
+    border-radius: 5px;
+    padding:0 0.5rem;
+}
+
+.alreadyAMember > a:hover{
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
 }
 
 #requirements{
@@ -259,11 +272,17 @@ form *{
     }
 }
 @media screen and (max-width:900px) {
+    .container{
+        padding:6rem 1.5rem 2rem 1.5rem;
+    }
     .warning-container{
         width: 70%;
     }
     form{
-        width: 70%;
+        width: 80%;
+    }
+    .submitBtn{
+        margin-top: 1rem;
     }
 }
 @media screen and (max-width:700px) {

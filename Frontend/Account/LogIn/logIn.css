@@ -10,7 +10,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
     box-sizing: border-box;
     inset: 0;
     min-height: 100vh;
@@ -24,18 +23,36 @@ h3{
     padding: 1rem;
     font-size: 30px;
     color: var(--color-verde-claro);
+    text-transform: none;
 }
 
 form{
     display: flex;
     flex-direction: column;
     min-width: 30%;
-    height: 12rem;
+    min-height: 14rem;
     gap: 1rem;
 }
 
 form *{
     text-transform: uppercase;
+}
+
+.login-logo-div{
+    position: absolute;
+    height: 90px;
+    width: 130px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background: var(--color-verde-oscuro-2);
+    padding: 0.7rem 0.7rem;
+    border-radius: 0 0 20px 20px;
+}
+
+.login-logo{
+    object-fit: contain;
+    width:100%;
 }
 
 .form-div{
@@ -45,7 +62,7 @@ form *{
     align-items:end;
     box-sizing: border-box;
     width: 100%;
-    padding: 0.5rem;
+    padding:1rem 0.5rem;
     gap: 0.5rem;
     border-bottom: 1px #c3c3c36b solid;
 }  
@@ -84,6 +101,7 @@ form *{
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    text-transform: uppercase;
 }
 
 .form-input{
@@ -112,11 +130,14 @@ form *{
     align-self:center;
     width: 70%;
     height: 3.7rem;
+    margin-top: 2rem;
     border-radius: 20px;
     outline: none;
     border: none;
     background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
     font-weight: 700;
+    cursor: pointer;
 }
 
 .submitBtn::after{
@@ -164,25 +185,6 @@ form *{
     transition: 0.5s all  ease-in-out;
 }
 
-.container p{
-    color: var(--color-verde-claro);
-    font-size: 14px;
-    padding: 0.5rem;
-    text-transform: initial;
-}
-
-.container p a{
-    color: var(--color-naranja);
-    font-size: 14px;
-    padding:0 0.5rem;
-    border-radius: 5px;
-}
-
-.container p a:hover{
-    background-color: var(--color-naranja);
-    color: var(--color-verde-oscuro);
-}
-
 .show-pswd{
     cursor: pointer;
     position: absolute;
@@ -201,12 +203,26 @@ form *{
 
 .input-show-pswd-div{
     display: flex;
+    height: 100%;
     position: relative;
 }
 
-.notAMember a{
+.notAMember{
+    font-size: 14px;
+    color: var(--color-verde-claro);
+}
+
+.notAMember > a{
+    color: var(--color-naranja);
     float: right;
     margin: 0 0.2rem;
+    border-radius: 5px;
+    padding:0 0.5rem;
+}
+
+.notAMember > a:hover{
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
 }
 
 .forgotPaswd{

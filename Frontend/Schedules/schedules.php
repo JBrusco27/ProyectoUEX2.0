@@ -17,68 +17,74 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <!-- Logica predeterminada -->
-    <script src="../Components/Scripts/default.js"></script>
+    <script src="../Components/Scripts/default.js" defer></script>
 
     <!-- Logica de header -->
-    <script src="../Components/HeaderComp/header_comp.js"></script>
+    <script src="../Components/HeaderComp/header_comp.js" defer></script>
     
     <!-- Logica de footer -->
-    <script src="../Components/FooterComp/footer_comp.js"></script>
+    <script src="../Components/FooterComp/footer_comp.js" defer></script>
 
     <!-- Logica de menu -->
-    <script src="../Components/MenuComp/menu_comp.js"></script>
+    <script src="../Components/MenuComp/menu_comp.js" defer></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="../Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
     <link rel="stylesheet" href="../Components/FooterComp/footer_comp.css">
     <link rel="stylesheet" href="../Components/MenuComp/menu_comp.css">
+    <link rel="stylesheet" href="../Components/BannerComp/banner_comp.css">
 </head>
 <body>
 
     <!-- Sección configuración -->
     <?php include "../Components/ConfigComp/config_comp.php" ?>
+    
+    <!-- Sección perfil -->
+    <?php include "../Components/ProfileComp/profile_comp.php" ?>
 
     <!-- Sección menu mobile -->
     <?php include "../Components/MenuComp/menu_comp.php" ?>
-
     <!-- Container -->
     <section class="wrap-container" id="wrap-container">
         <!-- Header -->
         <?php include "../Components/HeaderComp/header_comp.php" ?>
-        <h3 class="page-title Trad2"></h3>
+        <!-- Banner -->
+        <?php include "../Components/BannerComp/banner_comp.php" ?>
+
         <div class="container">
             <div class="container-content">
                 <div class="title-description-div">
-                    <h2 class="title Trad21"></h2>
-                    <p class="title-description Trad22"></p>
+                    <h2 class="title Trad20"></h2>
+                    <p class="title-description Trad21"></p>
                 </div>
                 <!-- Formulario -->
                 <form action="">
                     <div class="schedules-form-div"> 
                         <div class="form-div">
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad3"></label>
+                                <label for="form-from-dep" class="form-label Trad2"></label>
                                 <select id="form-from-div" class="form-input" name="formFromDep">
-                                    <option disabled selected hidden class="Trad4"></option>
+                                    <option disabled selected hidden class="Trad3"></option>
+                                    <option class="Trad4"></option>
                                     <option class="Trad5"></option>
                                     <option class="Trad6"></option>
                                     <option class="Trad7"></option>
-                                    <option class="Trad8"></option>
                                 </select>
                             </div>
                             <div class="label-input-div">
-                                <label for="form-from-dep" class="form-label Trad9"></label>
+                                <label for="form-from-dep" class="form-label Trad8"></label>
                                 <select id="form-from-div" class="form-input" name="formFromDep">
-                                    <option disabled selected hidden class="Trad10"></option>
+                                    <option disabled selected hidden class="Trad9"></option>
+                                    <option class="Trad10"></option>
                                     <option class="Trad11"></option>
                                     <option class="Trad12"></option>
                                     <option class="Trad13"></option>
-                                    <option class="Trad14"></option>
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="submitBtn"><span class="material-symbols-rounded form-button-icon action-icon">play_arrow</span></button>
+                        <button type="submit" class="submitBtn"><span class="material-symbols-rounded form-button-icon action-icon">send</span></button>
                     </div>
                 </form>
                 <!-- Formulario -->
@@ -86,45 +92,45 @@
                     <div class="schedules-container">
                         <div class="departament-container">
                             <div class="departament">
-                                <h3 class="departament-title departament-orange dep-left Trad15"></h3>
-                                <p class="departament-title departament-complete-text dep-left Trad16"></p>
-                                <p class="dep-left Trad17"></p>
+                                <h3 class="departament-title departament-orange dep-left Trad14"></h3>
+                                <p class="departament-title departament-complete-text dep-left Trad15"></p>
+                                <p class="dep-left Trad16"></p>
                             </div>
                             <div class="departament">
-                                <h3 class="departament-title departament-orange dep-right Trad18"></h3>
-                                <p class="departament-title departament-complete-text dep-right Trad19"></p>
-                                <p class="dep-right Trad20"></p>
+                                <h3 class="departament-title departament-orange dep-right Trad17"></h3>
+                                <p class="departament-title departament-complete-text dep-right Trad18"></p>
+                                <p class="dep-right Trad19"></p>
                             </div>
                         </div>
                     </div>
                     <div class="">
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>11:00</p>
+                            <p>13:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>12:00</p>
+                            <p>14:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>13:00</p>
+                            <p>15:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>14:00</p>
+                            <p>16:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>15:00</p>
+                            <p>17:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>16:00</p>
+                            <p>18:00</p>
                         </div>
                         <div class="schedule">
-                            <p>1:00</p>
-                            <p>2:00</p>
+                            <p>17:00</p>
+                            <p>20:00</p>
                         </div>
                     </div>                             
                 </div>

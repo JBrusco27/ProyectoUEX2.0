@@ -1,0 +1,40 @@
+.container-banner{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-width: 70rem;
+    margin-top: calc(20vh - 70px);
+    display: flex;
+    justify-content: right;
+    animation-duration:25s;
+    animation-name: coso;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.container-banner > img{
+    height: 70px;
+    object-position:right;
+    object-fit: contain;
+    scale: -1 1;
+}
+.container-banner > p{
+    height: 70px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: right;
+}
+
+@keyframes coso{
+    from{
+        transform: translateX(-110%);
+    }
+    to{
+        transform: translateX(100vw);
+    }
+}

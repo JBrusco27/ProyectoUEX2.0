@@ -1,0 +1,25 @@
+/* DEFAULT */
+
+@import url('../../Components/defaultCssComp.css');
+
+/* DEFAULT */
+
+/* BODY */
+
+.container{
+    padding: 3rem;
+    inset: 0;
+    min-height: 100vh;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    background-color: var(--color-verde-oscuro);
+}
+
+p,h1{
+    color: var(--color-verde-claro);
+}

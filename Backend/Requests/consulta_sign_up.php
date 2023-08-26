@@ -2,9 +2,19 @@
 
 include_once "../connect.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+include __DIR__ . '/../../PHPMailer/PHPMailer.php';
+include __DIR__ . '/../../PHPMailer/Exception.php';
+include __DIR__ . '/../../PHPMailer/SMTP.php';
+
+$mail = new PHPMailer(true);
+
 try 
 {  
     // Obtener los valores del formulario de registro
+    $column_number = $_POST['columnNumber'];
     $nombre_usuario = $_POST['formName'];
     $password_usuario = $_POST['formPswd'];
     $password_usuario_confirm = $_POST['formConfPswd'];
@@ -58,27 +68,60 @@ try
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
     
     if ($resultado['count'] > 0) {
-        //$email_exists = true;
-        //echo json_encode(['email_exists' => $email_exists]);
-
-        // Solucion provisoria
-        header("Location: /Frontend/Account/SignUp/signUp.php");
+        $email_exists = true;
+        echo json_encode(["email_exists" => $email_exists]);
         exit;
     }else{
-        // Si el correo electrónico no existe, realizar la inserción en la base de datos
-        $email_exists = false;
-        $sql_insertar = "INSERT INTO usuario (ID_Rol, Nombre_Usu, Contraseña_Usu, Correo_Usu, Telefono_Usu) VALUES (1, :nombre, :password, :correo, :telefono)";
-        $stmt_insertar = $conn->prepare($sql_insertar);
-        $stmt_insertar->bindParam(':nombre', $nombre_usuario);
-        $stmt_insertar->bindParam(':password', $password_usuario_hashed);
-        $stmt_insertar->bindParam(':correo', $correo_usuario);
-        $stmt_insertar->bindParam(':telefono', $telefono_usuario, PDO::PARAM_STR);
-        
-        $stmt_insertar->execute();
-        
-        include "./consulta_sign_in.php";
+        // Crear codigo de verificación
+        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $codigo = '';
+        for ($i = 0; $i < 15; $i++) {
+            $codigo .= $caracteres[rand(0, strlen($caracteres) - 1)];
+        }
+            
+        $verifExpiry = time() + (1 * 60 * 60); // Calcula la fecha y hora de expiración en 1 hora
+        setcookie('codigo_verif_signup', $codigo, $verifExpiry, '/');
 
-}
+        try {
+        // Server settings
+        $mail->isSMTP();                                            // Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'viauycontact@gmail.com';                     // SMTP username
+        $mail->Password   = 'zenkzesdnsgkiuqy';                               // SMTP password
+        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        // Recipients
+        $mail->setFrom('viauycontact@gmail.com', 'Via uy');
+        $mail->addAddress($correo_usuario);     // Add a recipient
+        $mail->isHTML(true);    
+
+        //Enviar email segun idioma
+        switch($column_number){
+            case 0:
+                $mail->Subject = 'Create account | Viauy';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verify to create account</h1><p>Click the link below to create your Viauy account:</p><a href="http://localhost/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Create account</a></body></html>';
+                $mail->send();
+                break;
+            case 1:
+                $mail->Subject = 'Crear cuenta | Viauy';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verificar para crear cuenta</h1><p>Haz click en el link de abajo para crear tu cuenta de Viauy:</p><a href="http://localhost/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Crear cuenta</a></body></html>';
+                $mail->send();
+                break;
+            case 2:
+                $mail->Subject = 'Criar conta | Viauy';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verifique para criar conta</h1><p>Clique no link abaixo para criar sua conta Viauy:</p><a href="http://localhost/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
+                $mail->send();
+                break;
+        }
+            $email_sended = true;
+        } catch (Exception $e){
+            $email_sended = false;
+        }
+        $email_exists = false;
+        echo json_encode(["email_exists" => $email_exists, 'email_sended'=>$email_sended]);
+        exit;
+    }
 
 } 
 catch(PDOException $e) 

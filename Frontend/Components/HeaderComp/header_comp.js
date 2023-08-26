@@ -1,16 +1,11 @@
-document.addEventListener('DOMContentLoaded', ()=> {
-  
   let active = true;
   let active2 = true;
   const PREFERENCES_DROPDOWN_CONTENT = document.getElementById("preferences-dropdown-content");
   const PREFERENCES_DROPDOWN_CONTENT_VIEW = document.getElementById("preferences-dropdown-content-view");
   const PREFERENCES_DROPDOWN_CONTENT_ACTION = document.getElementById("preferences-dropdown-content-action");
 
-  // Ancho de pantalla
-  var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
   // Ocultar nombre de usuario segun ancho de pantalla
-    if(screenWidth < 700){
+    if(innerWidth < 700){
       document.querySelector('.preferences-dropdown-profile-name').style.display='none';
     }
   
@@ -18,20 +13,27 @@ document.addEventListener('DOMContentLoaded', ()=> {
   function togglePreferencesDropDown(){
     if (active) {
       PREFERENCES_DROPDOWN_CONTENT_ACTION.style.display = "inline-block";
-
-      document.querySelector(".arrow-icon").style.transform = "rotate(90deg)";
-      if(screenWidth < 700){
-        PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="35px 20px 20px 20px";
-        document.querySelector('.preferences-dropdown-profile-name').style.display='inline-block';
-      }
-      active = false;
-    } else {
-      PREFERENCES_DROPDOWN_CONTENT_ACTION.style.display = "none";
-      PREFERENCES_DROPDOWN_CONTENT.style.width = "";
-      PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="";
-      document.querySelector(".arrow-icon").style.transform = "rotate(0deg)";
-      if(screenWidth < 700){
-        document.querySelector('.preferences-dropdown-profile-name').style.display='none';
+      setTimeout(() => {
+        PREFERENCES_DROPDOWN_CONTENT_ACTION.style.opacity = "1";
+      }, 100);
+        document.querySelector(".arrow-icon").style.transform = "rotate(90deg)";
+        if(innerWidth < 700){
+          PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="35px 20px 20px 20px";
+          document.querySelector('.preferences-dropdown-profile-name').style.display='inline-block';
+        }else{
+          PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="33px 33px 20px 20px";
+        }
+        active = false;
+      } else {
+        PREFERENCES_DROPDOWN_CONTENT_ACTION.style.opacity = "0";
+        setTimeout(() => {
+          PREFERENCES_DROPDOWN_CONTENT_ACTION.style.display = "none";
+        }, 200);
+        PREFERENCES_DROPDOWN_CONTENT.style.width = "";
+        PREFERENCES_DROPDOWN_CONTENT.style.borderRadius="";
+        document.querySelector(".arrow-icon").style.transform = "rotate(0deg)";
+        if(innerWidth < 700){
+          document.querySelector('.preferences-dropdown-profile-name').style.display='none';
       }
       active = true;
     }
@@ -49,6 +51,20 @@ document.addEventListener('DOMContentLoaded', ()=> {
       active2 = true;
     }
   }
+
+  // se crea una animacion al menu de preferencias al hacer hover solo si el menu esta abierto
+  document.querySelector('.preferences-dropdown-content').addEventListener('mouseenter', ()=>{
+    if(active){
+      document.querySelector('.preferences-dropdown-content').style.transform="scaleX(107%)";
+      document.querySelector('.preferences-dropdown-content').style.transformOrigin="center";
+    }
+  });
+  document.querySelector('.preferences-dropdown-content').addEventListener('mouseleave', ()=>{
+    if(active){
+      document.querySelector('.preferences-dropdown-content').style.transform="scaleX(100%)";
+      document.querySelector('.preferences-dropdown-content').style.transformOrigin="";
+    }
+  });
 
   // [ FUNCTION ] Cerrar preferences dropdown al clickar fuera
   function closeMenuOutside(){
@@ -77,6 +93,23 @@ document.addEventListener('DOMContentLoaded', ()=> {
   document.getElementById("nav-close-icon").addEventListener('click', function() {
       toggleNavMenuMobile();
   });  
+
+
+    fetch('/Backend/user_cookie.php')
+    .then(function (response) {
+        // Verificar si la solicitud fue exitosa
+        if (response.ok) {
+        return response.json(); // Parsear la respuesta como JSON
+        }
+    })
+    .then(function (data) {
+        // Acceder a la variable log dentro del objeto data
+        let nombre = data.nombre_usuario;
+        document.querySelector('.user-name-span').innerHTML=nombre;
+    })
+    .catch(function (error) {
+        console.error('Error:', error);
+    });
 
 
   let opciones = {
@@ -108,6 +141,19 @@ document.addEventListener('DOMContentLoaded', ()=> {
     console.error('Error:', error);
   });
 
-});
 
+  let logoutButton = document.getElementById('header-logout-action');
 
+  // Agregar evento de clic al botón de cierre de sesión
+  logoutButton.addEventListener('click', function() 
+  {
+    fetch('../../../Backend/logout.php', opciones)
+    .then(function (response) {
+    })
+    .then(function (data) {
+      window.location.reload();
+    })
+    .catch(function (error) {
+      console.error('Error:', error);
+    });
+  });

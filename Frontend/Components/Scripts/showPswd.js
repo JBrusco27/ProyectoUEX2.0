@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         
     });
     
-    // Verificar si el elemento existe (Debido a no existencia en login.php)
+    // Verificar si el elemento 'show pswd 2' existe (Debido a que no existe en login.php)
     if(SHOW_PSWD_2){
         // Mostrar - Ocultar contraseña
         SHOW_PSWD_2.addEventListener('click', ()=>{

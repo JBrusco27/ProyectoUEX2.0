@@ -1,0 +1,276 @@
+/* DEFAULT */
+
+@import url('../../Components/defaultCssComp.css');
+
+/* DEFAULT */
+
+/* BODY */
+
+.container{
+    padding: 3rem;
+    overflow-y: scroll;
+    inset: 0;
+    min-height: 100vh;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    background-color: var(--color-verde-oscuro);
+}  
+
+h3{
+    color: var(--color-verde-claro);
+    font-size: 30px;
+    padding: 1rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    min-height: 12rem;
+    gap: 1rem;
+}
+
+form *{
+    text-transform: uppercase;
+}
+
+.form-div{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items:end;
+    gap: 0.5rem;
+    width: 100%;
+    border-bottom: 1px #c3c3c36b solid;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}  
+
+.form-icon{
+    color: var(--color-naranja);
+    font-size: 22px;
+    padding-bottom: 5px;
+}
+
+.form-icon:hover{
+    transform: rotate(10deg);
+}
+
+.label-input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.form-label{
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    height: 100%;
+    color: var(--color-verde-claro);
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    text-indent: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-transform: capitalize;
+}
+
+.form-input{
+    flex: 1;
+    text-indent: 1rem;
+    z-index: 200;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    width: 100%;
+    gap: 0;
+    outline: none;
+}
+
+.submitBtn{
+    align-self:center;
+    width: 70%;
+    height: 3.7rem;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: var(--color-naranja);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.submitBtn::after{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 1000%;
+    width: 100%;
+    transform: translateX(-120%) rotate(20deg);
+    transition: all .5s ease-in-out;
+}
+
+.submitBtn::before{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--color-naranja);
+    filter: brightness(1.1);
+    height: 300%;
+    width: 5%;
+    transform: translateX(-1200%) rotate(20deg);
+    transition: all .5s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.submitBtn:hover::after{
+    transform: translateX(-80%)rotate(20deg);
+}
+
+.submitBtn:hover::before{
+    transform: translateX(-380%)rotate(20deg);
+}
+
+.submitBtn:hover > .form-button-icon{
+    transform: translateX(1.9rem);
+}
+
+.submitBtn:hover{
+    text-indent: 2rem;
+}
+
+.form-button-icon{
+    color: var(--color-verde-oscuro);
+    font-size: 25px;
+    transition: 0.5s all  ease-in-out;
+}
+
+.show-pswd{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    z-index: 200;
+}
+
+.show-pswd-icon{
+    color: var(--color-naranja);
+    font-size: 20px;
+}
+
+.show-pswd-icon:hover{
+    filter: brightness(1.1);
+}
+
+.input-show-pswd-div{
+    display: flex;
+    position: relative;
+}
+
+.alreadyAMember{
+    font-size: 14px;
+    color: var(--color-verde-claro);
+}
+
+.alreadyAMember > a{
+    color: var(--color-naranja);
+    float: right;
+    margin: 0 0.2rem;
+    border-radius: 5px;
+    padding:0 0.5rem;
+}
+
+.alreadyAMember > a:hover{
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
+}
+
+#requirements{
+    display: none;
+}
+
+#form-name{
+    text-transform: capitalize !important;
+}
+
+.warning{
+    gap: 0.3rem;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--color-naranja);
+    opacity: 0;
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.3rem;
+    transition: all 0.3s linear;
+}
+
+.warning-container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.warning-title{
+    color: var(--color-verde-2) !important;  
+    font-weight: 700;
+    font-size: 16px !important;  
+}
+
+.form-button-icon{
+    cursor: pointer;
+}
+
+@media screen and (max-width:1300px) {
+    .warning-container{
+        width: 50%;
+    }
+    form{
+        width: 50%;
+    }
+}
+@media screen and (max-width:900px) {
+    .warning-container{
+        width: 70%;
+    }
+    form{
+        width: 70%;
+    }
+}
+@media screen and (max-width:700px) {
+    .warning-container{
+        width: 100%;
+    }
+    form{
+        width: 100%;
+    }
+}
+
+/* BODY */
