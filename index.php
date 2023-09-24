@@ -29,6 +29,14 @@
     
     <!-- Logica de menu -->
     <script src="./Frontend/Components/MenuComp/menu_comp.js" defer></script>
+
+    <!-- Logica de home -->
+    <script src="./Frontend/Home/home.js" defer></script>
+
+    <!-- Logica de booking -->
+    <script src="./Frontend/Components/BookingComp/booking_comp.js" defer></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <!-- Estilos ( dependencias ) -->
     <link rel="stylesheet" href="./Frontend/Components/ProfileComp/profile_comp.css">
@@ -37,8 +45,12 @@
     <link rel="stylesheet" href="./Frontend/Components/FooterComp/footer_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/MenuComp/menu_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/BannerComp/banner_comp.css">
+    <link rel="stylesheet" href="./Frontend/Components/BookingComp/booking_comp.css">
 </head>
 <body>
+    <!-- Reserva horarios -->
+    <?php include "./Frontend/Components/BookingComp/booking_comp.php" ?>
+
     <!-- Sección configuración -->
     <?php include "./Frontend/Components/ConfigComp/config_comp.php" ?>
 
@@ -61,115 +73,80 @@
                 <h2 class="Trad2"></h2>
                 <!-- Formulario -->
                 <form action="" class="home-form">
-                    <div class="form-input-container">
+                    <div class="form-input-container"/>
+                        <!--  -->
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">home</span>
                             <div class="label-input-div">
                                 <label for="form-from-div" class="form-label Trad3"></label>
-                            <select id="form-from-div" class="form-input" name="formFromDep">
-                                <option disabled selected hidden class="Trad4"></option>
-                                <option class="Trad5"></option>
-                                <option class="Trad6"></option>
-                                <option class="Trad7"></option>
-                                <option class="Trad8"></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-cont-div">
-                        <span class="material-symbols-rounded form-icon">home</span>
-                        <div class="label-input-div">
-                            <label for="form-from-div" class="form-label Trad9"></label>
-                            <select id="form-from-div" class="form-input" name="formFromDep">
-                                <option disabled selected hidden class="Trad10"></option>
-                                <option class="Trad11"></option>
-                                <option class="Trad12"></option>
-                                <option class="Trad13"></option>
-                                <option class="Trad14"></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-cont-div">
-                        <span class="material-symbols-rounded form-icon">home_pin</span>
-                        <div class="label-input-div">
-                            <label for="form-from-div" class="form-label Trad15"></label>
-                            <select id="form-from-div" class="form-input" name="formFromDep">
-                                <option disabled selected hidden class="Trad16"></option>
-                                <option class="Trad17"></option>
-                                <option class="Trad18"></option>
-                                <option class="Trad19"></option>
-                                <option class="Trad20"></option>
-                            </select>
+                                <select id="form-from-div" class="form-input" name="formFromDep" required>
+                                    <option disabled selected hidden class="Trad4" ></option>
+                                </select>
                             </div>
                         </div>
+                        <!--  -->
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">home_pin</span>
                             <div class="label-input-div">
-                                <label for="form-from-div" class="form-label Trad21"></label>
-                                <select id="form-from-div" class="form-input" name="formFromDep">
-                                    <option disabled selected hidden class="Trad22"></option>
-                                    <option class="Trad23"></option>
-                                    <option class="Trad24"></option>
-                                    <option class="Trad25"></option>
-                                    <option class="Trad26"></option>
+                                <label for="form-to-div" class="form-label Trad5"></label>
+                                <select id="form-to-div" class="form-input" name="formToDep" required>
+                                    <option disabled selected hidden class="Trad6"></option>
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="form-cont-div">
-                            <span class="material-symbols-rounded form-icon">calendar_month</span>
-                            <div class="label-input-div">
-                                <label for="form-from-div" class="form-label Trad27"></label>
-                                <input id="form-from-div" class="form-input" name="formFromDep" type="date">
-                            </div>
-                        </div>
-                        
-                        <div class="form-cont-div">
-                            <span class="material-symbols-rounded form-icon">calendar_month</span>
-                            <div class="label-input-div">
-                                <label for="form-from-div" class="form-label Trad28"></label>
-                                <input id="form-from-div" class="form-input" name="formFromDep" type="date">
-                            </div>
-                        </div>
+                        <!--  -->
                         <div class="form-cont-div">
                             <span class="material-symbols-rounded form-icon">airline_seat_recline_extra</span>
                             <div class="label-input-div">
-                                <label for="form-from-div" class="form-label Trad29"></label>
-                                <select id="form-from-div" class="form-input" name="formFromDep">
-                                    <option disabled selected>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                <label for="form-trav-div" class="form-label Trad9"></label>
+                                <input id="form-trav-div" class="form-input" type="number" min="1" max="5" value="1" name="formTravDep" required>
                             </div>
                         </div>
+                        <!--  -->
+                        <div class="form-cont-div">
+                            <span class="material-symbols-rounded form-icon">calendar_month</span>
+                            <div class="label-input-div">
+                                <label for="form-calIda-div" class="form-label Trad7"></label>
+                                <input id="form-calIda-div" class="form-input" name="formCalIdaDep" type="date" min='' required>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="form-cont-div" id="form-cont-div-calVenida">
+                            <span class="material-symbols-rounded form-icon">calendar_month</span>
+                            <div class="label-input-div">
+                                <label for="form-calVenida-div" class="form-label Trad8"></label>
+                                <input id="form-calVenida-div" class="form-input" name="formCalVenidaDep" type="date" min='' required>
+                            </div>
+                        </div>
+                        <!--  -->
                         <div class="form-cont-div form-cont-div-button">
                             <div class="label-input-div label-input-div-button">
-                                <input id="form-from-div" class="form-input-button Trad30" name="formFromDep" type="button" value="">
+                                <input id="form-ida-div" class="form-input-button Trad10" name="formIdaDep" type="button" value="1">
                             </div>
                             <div class="label-input-div label-input-div-button">
-                                <input id="form-from-div" class="form-input-button Trad31" name="formFromDep" type="button" value="">
+                                <input id="form-idavenida-div" class="form-input-button Trad11" name="formIdaVenidaDep" type="button" value="0  ">
                             </div>
                         </div>
+                        <!--  -->
                     </div>
-                    <button type="submit" class="submitBtn"><span class="Trad32"></span></button>
+                    <p class="submitBtn"><span class="Trad12"></span></p>
                 </form>
                 <!-- Formulario -->
                 <section class="section-benefits">
                     <div class="section-benefits-item">
                         <img class="section-image" src="./Frontend/Resources/Marketing/section-image-1.svg" alt="">
-                        <h3 class="section-subtitle Trad33"></h3>
-                        <p class="section-text Trad34"></p>
+                        <h3 class="section-subtitle Trad13"></h3>
+                        <p class="section-text Trad14"></p>
                     </div>
                     <div class="section-benefits-item">
                         <img class="section-image" src="./Frontend/Resources/Marketing/section-image-2.svg" alt="">
-                        <h3 class="section-subtitle Trad35"></h3>
-                        <p class="section-text Trad36"></p>
+                        <h3 class="section-subtitle Trad15"></h3>
+                        <p class="section-text Trad16"></p>
                     </div>
                     <div class="section-benefits-item">
                         <img class="section-image" src="./Frontend/Resources/Marketing/section-image-3.svg" alt="">
-                        <h3 class="section-subtitle Trad37"></h3>
-                        <p class="section-text Trad38"></p>
+                        <h3 class="section-subtitle Trad17"></h3>
+                        <p class="section-text Trad18"></p>
                     </div>
                 </section>
                 <!-- <section class="section-how-to-buy">

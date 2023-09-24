@@ -83,7 +83,7 @@ h2{
 
 .form-input-container{
     display: grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     border: 2px #c3c3c3 solid;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.315);
     border-radius: 8px;
@@ -167,7 +167,7 @@ h2{
     background-color: var(--color-naranja);
 }
 
-.form-input-button:focus{
+.form-input-buttonFocus{
     color: var(--color-verde-oscuro);
     background-color: var(--color-naranja);
 }
@@ -314,6 +314,17 @@ option{
     border-radius: 50px;
     background-color: var(--color-verde-oscuro);
     bottom: -4px;
+}
+
+.form-cont-div-calVenidaAfter{
+    position: relative;
+}
+
+.form-cont-div-calVenidaAfter::after{
+    content: "";
+    inset: 0;
+    background: var(--color-verde-oscuro);
+    position: absolute;
 }
 
 @media screen and (max-width:1300px){

@@ -1,7 +1,7 @@
 /* HEADER */
 
 header{
-    z-index: 10000;
+    z-index: 1000;
     position: relative;
     inset: 0;
     padding: 1.5rem 2%;

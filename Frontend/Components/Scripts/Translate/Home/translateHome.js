@@ -27,13 +27,14 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-columnNumber = localStorage.getItem('columnNumber');
 
 const defaultTranslate = () => {
-  if (columnNumber == undefined) {
+  if (columnNumber == '' || columnNumber == null) {
     localStorage.setItem('columnNumber', 1);
+    columnNumber = localStorage.getItem('columnNumber');
     translateFunc(columnNumber);
   } else {
+    columnNumber = localStorage.getItem('columnNumber');
     translateFunc(columnNumber);
   }
 };
@@ -44,8 +45,7 @@ document.getElementById('spanishTranslateAction').addEventListener('click', () =
   if (columnNumber == 1) {
     console.log('Language already set');
   } else {
-    localStorage.setItem('columnNumber', 1);
-    location.reload();
+    columnNumber = localStorage.getItem('columnNumber');
     translateFunc(columnNumber);
   }
 });

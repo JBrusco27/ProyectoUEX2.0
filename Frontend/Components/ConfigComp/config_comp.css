@@ -230,6 +230,12 @@
         rotate: 158deg;
     }
 }
+
+@media screen and (max-width:900px){
+    .config-content{
+        overflow-y: scroll;
+    }
+}
 @media screen and (max-width:600px) {
     .theme-content{
         grid-template-columns: repeat(1, 1fr);

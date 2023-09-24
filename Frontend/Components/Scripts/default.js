@@ -20,13 +20,6 @@ function hideLoader() {
   }
 }
 
-showLoader();
-window.addEventListener('load',()=>{
-  setTimeout(() => {
-    hideLoader();
-  }, 500);
-});
-
 
 // Cambiar el tema de la pagina
 function addTheme1(){

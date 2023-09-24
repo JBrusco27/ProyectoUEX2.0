@@ -27,6 +27,15 @@ const headTranslateFunc = (columnNumber) => {
   });
 };
 
+
 columnNumber = localStorage.getItem('columnNumber');
-headTranslateFunc(columnNumber).then(() => {
-});
+console.log(columnNumber)
+
+if(columnNumber != 0 || columnNumber != 1 || columnNumber != 2){
+  localStorage.setItem('columnNumber', 1);
+  columnNumber = localStorage.getItem('columnNumber');
+  console.log(columnNumber)
+  headTranslateFunc(columnNumber)
+}else{
+  headTranslateFunc(columnNumber)
+}

@@ -15,7 +15,7 @@
     <script src="signUp.js"></script>
 
     <!-- Logica predeterminada -->
-    <script src="../../Components/Scripts/default.j" defer></script>
+    <script src="../../Components/Scripts/default.js" defer></script>
     
     <!-- Enlace para mostrar contraseñas -->
     <script src="../../Components/Scripts/showPswd.js"></script>

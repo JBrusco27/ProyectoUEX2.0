@@ -87,14 +87,13 @@ html{
     overflow-x: hidden;
 }
 
-html::-webkit-scrollbar,.container::-webkit-scrollbar{
+html::-webkit-scrollbar,.container::-webkit-scrollbar,.booking-container::-webkit-scrollbar{
     background-color: var(--color-blanco);
     width: 8px;
 }
 
-html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb{
-    border-radius: 50px;
-    background-color: var(--color-verde-claro);
+html::-webkit-scrollbar-thumb,.container::-webkit-scrollbar-thumb,.booking-container::-webkit-scrollbar-thumb{
+    background-color: var(--color-verde-oscuro);
 }
 
 *{
@@ -192,23 +191,4 @@ input[type="button"],input[type="submit"],button,.submit,.submitBtn{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-@media screen and (max-width:900px) {
-    .page-title{
-        top: 16vh;
-        font-size: 30px;
-    }
-}
-@media screen and (max-height:900px) {
-    .page-title{
-        top: 14.8vh;
-        font-size: 30px;
-    }
-}
-@media screen and (max-height:700px) {
-    .page-title{
-        top: 13vh;
-        font-size: 30px;
-    }
 }
