@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             body: formData
           };
           
-          fetch('/Backend/Requests/consulta_changePswd.php', opciones)
+          fetch(raiz+'../Backend/Requests/consulta_changePswd.php', opciones)
           .then(function (response) {
             hideLoader();
             // Verificar si la solicitud fue exitosa

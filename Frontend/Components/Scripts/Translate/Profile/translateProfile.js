@@ -1,5 +1,5 @@
 const profileTranslateFunc = (columnNumber) => {
-    return fetch('/Frontend/Components/Scripts/Translate/Profile/languageProfile.csv')
+    return fetch(raiz+'/Frontend/Components/Scripts/Translate/Profile/languageProfile.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {

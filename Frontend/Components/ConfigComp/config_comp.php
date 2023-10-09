@@ -23,21 +23,21 @@
             <div class="language-content">
                 <div class="language-item" id="spanishTranslateAction">
                     <div class="language-item-content">
-                        <img src="/Frontend/Resources/Language/espana.png" class="language-img" alt="CountryImg">
+                        <img src="<?php echo $raiz; ?>Frontend/Resources/Language/espana.png" class="language-img" alt="CountryImg">
                         <p class="language-name configTrad3"></p>
                         <span class="material-symbols-outlined icon" id="spanishIcon">check</span>
                     </div>
                 </div>
                 <div class="language-item" id="englishTranslateAction">
                     <div class="language-item-content">
-                        <img src="/Frontend/Resources/Language/estados-unidos.png" class="language-img" alt="CountryImg">
+                        <img src="<?php echo $raiz; ?>Frontend/Resources/Language/estados-unidos.png" class="language-img" alt="CountryImg">
                         <p class="language-name configTrad4"></p>
                         <span class="material-symbols-outlined icon" id="englishIcon">check</span>
                     </div>
                 </div>
                 <div class="language-item" id="portugueseTranslateAction">
                     <div class="language-item-content">
-                        <img src="/Frontend/Resources/Language/brasil.png" class="language-img" alt="CountryImg">
+                        <img src="<?php echo $raiz; ?>Frontend/Resources/Language/brasil.png" class="language-img" alt="CountryImg">
                         <p class="language-name configTrad5"></p>
                         <span class="material-symbols-outlined icon" id="portugueseIcon">check</span>
                     </div>
@@ -51,4 +51,4 @@
 <!-- Config Container -->
 
 <!-- Enlace para traducir Config -->
-<script src="/Frontend/Components/Scripts/Translate/Config/translateConfig.js"></script>
+<script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/Config/translateConfig.js"></script>

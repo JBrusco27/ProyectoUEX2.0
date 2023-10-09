@@ -177,7 +177,14 @@
         <div class="booking-pago-seccion-bot">
             <div class="booking-pago-seccion-bot-title bookingTrad24"></div>
             <div class="booking-pago-seccion-bot-total" id='booking-pago-seccion-bot-total'></div>
+            <div class="booking-pago-seccion-bot-title bookingTrad25"></div>
+            <select class="booking-metodo-pago" id='booking-metodo-pago-select'>
+                <option class="bookingTrad26" value="Debito"></option>
+                <option class="bookingTrad27" value="Credito"></option>
+                <option class="bookingTrad28" value="Efectivo"></option>
+            </select>
         </div>
+        
         <div class="booking-cambiar-seccion">
             <button class="booking-cambiar-seccion-anterior" id='booking-pago-cambiar-seccion-anterior'><span class="material-symbols-outlined booking-lineas-icon">arrow_back</span></button>
             <button class="booking-cambiar-seccion-siguiente" id='booking-pago-cambiar-seccion-siguiente'><span class="material-symbols-rounded booking-lineas-icon">payments</span></button>
@@ -186,4 +193,4 @@
 </div>
 </div>
 <!-- Enlace para traducir Config -->
-<script src="/Frontend/Components/Scripts/Translate/Booking/translateBooking.js"></script>
+<script src="./Frontend/Components/Scripts/Translate/Booking/translateBooking.js"></script>

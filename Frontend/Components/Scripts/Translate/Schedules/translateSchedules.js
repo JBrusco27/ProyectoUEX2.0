@@ -1,5 +1,5 @@
 const translateFunc = (columnNumber) => {
-  return fetch('../Components/Scripts/Translate/Schedules/languageSchedules.csv')
+  return fetch(raiz+'/Frontend/Components/Scripts/Translate/Schedules/languageSchedules.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {
@@ -33,6 +33,7 @@ const defaultTranslate = () => {
   let columnNumber = localStorage.getItem('columnNumber');
   if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
+    location.reload();
     translateFunc(columnNumber);
   } else {
     translateFunc(columnNumber);

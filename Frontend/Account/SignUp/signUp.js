@@ -182,7 +182,7 @@
         };
 
         // Este fetch se hace para traer la variable email_exists que contiene la verficiacion de si el email ya existe o no
-        fetch('/Backend/Requests/consulta_sign_up.php', opciones)
+        fetch(raiz+'Backend/Requests/consulta_sign_up.php', opciones)
         .then(function (response) {
           hideLoader();
           if (response.ok) {

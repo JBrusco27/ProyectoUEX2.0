@@ -30,7 +30,7 @@
 <body>
     <!-- Container -->
     <div class="container">
-        <a href="/" class="login-logo-div"><img src="/Frontend/Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>
+        <a href="../../../index.php" class="login-logo-div"><img src="../../Resources/viauyLogoNoBack.png" class="login-logo" alt="logo"></a>
         <h3 class="Trad2"></h3> 
         <!-- Contariner de restricciones -->
         <div class="warning-container">

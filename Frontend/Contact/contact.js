@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     };
     
     // Este fetch se hace para traer la variable email_exists que contiene la verficiacion de si el email ya existe o no
-    fetch('/Backend/viauy_email.php', opciones)
+    showLoader()
+    fetch('../../Backend/viauy_email.php', opciones)
     .then(function (response) {
       if (response.ok) {
         // Se pasa la respuesta a formato JSON
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     })
     .then(function (data) {
+      hideLoader()
       let columnNumber = parseInt(localStorage.getItem('columnNumber'));
       switch(columnNumber){
         case 0:

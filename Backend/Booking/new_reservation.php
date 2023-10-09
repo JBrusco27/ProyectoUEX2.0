@@ -7,9 +7,9 @@ $horario_reserva = $_POST['horario_reserva'];
 $fecha = $_POST['fecha']; 
 $correo = $_SESSION['email_usuario']; 
 
+$metodo_pago = $_POST['metodo_pago'];
 $idhorario = $_POST['id_horario'];
 $num_asiento = $elementos = explode(',', $_POST['num_asiento']);;
-
 
 try {
     foreach($num_asiento as $num_asientoValue){
@@ -34,12 +34,13 @@ try {
     
     $stmt->execute();
     
-    $sql_existe = "INSERT INTO `existe` (`ID_Horario`, `ID_Reserva`, `Num_Asiento`) VALUES (:id_horario, :id_reserva, :num_asiento)";
+    $sql_existe = "INSERT INTO `existe` (`ID_Horario`, `ID_Reserva`, `Num_Asiento`) VALUES (:id_horario, :id_reserva, :num_asiento); INSERT INTO `medio_pago` (`ID_Pago`, `ID_Reserva`, `Nombre_Pago`) VALUES (NULL, :id_reserva, :Metodo_Pago)";
     
     $stmt_existe = $conn->prepare($sql_existe);
     $stmt_existe->bindParam(':id_horario', $idhorario, PDO::PARAM_INT);
     $stmt_existe->bindParam(':id_reserva', $new_id_reserva, PDO::PARAM_INT);
     $stmt_existe->bindParam(':num_asiento', $num_asientoValue, PDO::PARAM_INT);
+    $stmt_existe->bindParam(':Metodo_Pago', $metodo_pago, PDO::PARAM_STR);
 
     $stmt_existe->execute();
     
@@ -48,7 +49,6 @@ try {
     echo json_encode(['estado_compra' => true]);
 } catch (PDOException $e) {
     echo json_encode(['estado_compra' => false]);
-    echo "Error: " . $e->getMessage();
 }
 
 ?>

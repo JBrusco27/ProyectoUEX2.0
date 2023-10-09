@@ -43,11 +43,11 @@
                 <div class="profile-btn-section">
                     <div class="log-message">
                         <p class="profileTrad2"></p>
-                        <a href="/Frontend/Account/LogIn/logIn.php" class="log-message-account-btn profileTrad3"></a>
+                        <a href="<?php echo $raiz; ?>Frontend/Account/LogIn/logIn.php" class="log-message-account-btn profileTrad3"></a>
                     </div>
                     <div class="account-item">
                         <div class="account-item-content">
-                            <a href="/Frontend/Account/Change_Password/changePswd.php" class="account-btn profileTrad4"></a>
+                            <a href="<?php echo $raiz; ?>Frontend/Account/Change_Password/changePswd.php" class="account-btn profileTrad4"></a>
                             <button class="save-account-btn" disabled>Guardar</button>
                         </div>
                     </div>
@@ -60,4 +60,4 @@
 <!-- profile Container -->
 
 <!-- Enlace para traducir Config -->
-<script src="/Frontend/Components/Scripts/Translate/Profile/translateProfile.js"></script>
+<script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/Profile/translateProfile.js"></script>

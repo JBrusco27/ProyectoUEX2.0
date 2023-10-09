@@ -95,7 +95,7 @@
   });  
 
 
-    fetch('/Backend/user_cookie.php')
+    fetch(raiz+'Backend/user_cookie.php')
     .then(function (response) {
         // Verificar si la solicitud fue exitosa
         if (response.ok) {
@@ -119,7 +119,7 @@
   }
 };
 
-  fetch('../../Backend/log_status.php', opciones)
+  fetch(raiz+'Backend/log_status.php', opciones)
   .then(function (response) {
     // Verificar si la solicitud fue exitosa
     if (response.ok) {
@@ -147,7 +147,7 @@
   // Agregar evento de clic al botón de cierre de sesión
   logoutButton.addEventListener('click', function() 
   {
-    fetch('../../../Backend/logout.php', opciones)
+    fetch(raiz+'Backend/logout.php', opciones)
     .then(function (response) {
     })
     .then(function (data) {

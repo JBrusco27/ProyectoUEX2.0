@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
 
     const bookingTranslateFunc = (columnNumber) => {
-        return fetch('/Frontend/Components/Scripts/Translate/Booking/languageBooking.csv')
+        return fetch('./Frontend/Components/Scripts/Translate/Booking/languageBooking.csv')
         .then((response) => response.text())
         .then((csvData) => {
             const result = Papa.parse(csvData, {

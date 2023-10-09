@@ -1,5 +1,5 @@
 const translateFunc = (columnNumber) => {
-  return fetch('../../Components/Scripts/Translate/Change_Password/languageChangePswd.csv')
+  return fetch('../../../Frontend/Components/Scripts/Translate/Change_Password/languageChangePswd.csv')
     .then((response) => response.text())
     .then((csvData) => {
       const result = Papa.parse(csvData, {

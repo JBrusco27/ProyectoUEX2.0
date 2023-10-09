@@ -1,5 +1,5 @@
 const configTranslateFunc = (columnNumber) => {
-  return fetch('/Frontend/Components/Scripts/Translate/Config/languageConfig.csv')
+  return fetch(raiz+'/Frontend/Components/Scripts/Translate/Config/languageConfig.csv')
   .then((response) => response.text())
   .then((csvData) => {
     const result = Papa.parse(csvData, {

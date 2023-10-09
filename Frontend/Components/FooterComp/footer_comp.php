@@ -1,25 +1,25 @@
 <footer>
     <div class="footer-section-1">
         <div class="footer-logo-phone">
-            <img src="/Frontend/Resources/viauyLogoNoBack.png" alt="">
+            <img src="<?php echo $raiz; ?>Frontend/Resources/viauyLogoNoBack.png" alt="">
             <p class="footer-logo-company-phone" id="footer-logo-company-phone"><span class="material-symbols-rounded footer-icon">phone</span>1234 5678</p>
             <a class="footer-company-email" id="footer-company-email" href="mailto:viauycontact@gmail.com"><span class="material-symbols-rounded footer-icon">mail</span>viauycontact@gmail.com</a>
         </div>
         <p class="footer-company-phone" id="footer-company-phone"><span class="material-symbols-rounded footer-icon">phone</span>1234 5678</p>
         <section class="footer-signup-login-container" id="footer-signup-login-container">
-            <a class="footer-login-btn footerTrad1" id="footer-login" href="/Frontend/Account/LogIn/logIn.php"></a>
-            <a class="footer-signup-btn footerTrad2" id="footer-signUp" href="/Frontend/Account/SignUp/signUp.php"></a>
+            <a class="footer-login-btn footerTrad1" id="footer-login" href="<?php echo $raiz; ?>Frontend/Account/LogIn/logIn.php"></a>
+            <a class="footer-signup-btn footerTrad2" id="footer-signUp" href="<?php echo $raiz; ?>Frontend/Account/SignUp/signUp.php"></a>
         </section>
     </div>
     <hr class="footer-hr">
     <section class="footer-pages-container">
         <div>
-            <a class="footer-link footer-card-hov footerTrad3" href="/index.php"></a>
-            <a class="footer-link footer-card-hov footerTrad4" href="/Frontend/Contact/contact.php"></a>
+            <a class="footer-link footer-card-hov footerTrad3" href="<?php echo $raiz; ?>/index.php"></a>
+            <a class="footer-link footer-card-hov footerTrad4" href="<?php echo $raiz; ?>Frontend/Contact/contact.php"></a>
         </div>
         <div>
-            <a class="footer-link footer-card-hov footerTrad5" href="/Frontend/Schedules/schedules.php"></a>
-            <a class="footer-link footer-card-hov footerTrad6" href="/Frontend/AboutUs/aboutUs.php"></a>
+            <a class="footer-link footer-card-hov footerTrad5" href="<?php echo $raiz; ?>Frontend/Schedules/schedules.php"></a>
+            <a class="footer-link footer-card-hov footerTrad6" href="<?php echo $raiz; ?>Frontend/AboutUs/aboutUs.php"></a>
         </div>
     </section>
     <hr class="footer-hr">
@@ -37,5 +37,5 @@
             </div>
         </div>
     </div>
-    <script src="/Frontend/Components/Scripts/Translate/Footer/translateFooter.js"></script>
+    <script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/Footer/translateFooter.js"></script>
 </footer>

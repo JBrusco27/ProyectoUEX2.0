@@ -24,7 +24,7 @@
   document.getElementById('form-calIda-div').min = fechaActual;
 
 showLoader();
-fetch('/Backend/Booking/consulta_home.php', opciones)
+fetch('./Backend/Booking/consulta_home.php', opciones)
 .then( (response)=> {
     if(response.ok){
         return response.json();

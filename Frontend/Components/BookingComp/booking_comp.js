@@ -215,7 +215,7 @@ function controlarDisponibilidadAsientos(datosLinea){
       };
     
     showLoader();
-    fetch('/Backend/Booking/consulta_asientos.php', opciones)
+    fetch(raiz+'/Backend/Booking/consulta_asientos.php', opciones)
     .then((response)=>{
         if(response.ok){
             return response.json();
@@ -332,6 +332,7 @@ function lineSelected(datosLinea, consultaLineasData) {
         datosLinea.Sentido = consultaLineasData[positionLinea].Sentido
         datosLinea.Matricula_Unidad = consultaLineasData[positionLinea].Matricula_Unidad
         datosLinea.Duracion = consultaLineasData[positionLinea].Duracion
+        datosLinea.HoraSalidaLLegada = consultaLineasData[positionLinea].Hora_Salida
         console.log(datosLinea.Sentido)
         if(datosLinea.Sentido == 'Ida'){
             datosLinea.ID_Parada_Origen = document.getElementById('form-from-div').options[document.getElementById('form-from-div').selectedIndex].textContent;
@@ -350,11 +351,16 @@ function lineSelected(datosLinea, consultaLineasData) {
 function seccionPago(){
     let precioTotal = 0;
 
+     const horaSalidaDate = new Date(0)
+    let tiempoString = datosLineaIda.HoraSalidaLLegada;
+     let [horaSalida, minutosSalida] = tiempoString.split(':');
+    horaSalidaDate.setHours(parseInt(horaSalida)+parseInt(datosLineaIda.Duracion/60))
+    horaSalidaDate.setMinutes(parseInt(minutosSalida)+parseInt(datosLineaIda.Duracion%60))
 
     document.getElementById('booking-pago-cambiar-seccion-info-origen-title').textContent = datosLineaIda.ID_Parada_Origen;
     document.getElementById('booking-pago-cambiar-seccion-info-destino-title').textContent = datosLineaIda.ID_Parada_Destino;
     document.getElementById('booking-pago-seccion-top-cen-asiento').textContent = datosLineaIda.Num_Asiento.join(' | ');
-    document.getElementById('booking-pago-seccion-top-cen-date').innerHTML = datosLineaIda.HoraSalidaLLegada + ' | ' + datosLineaIda.calIdaInputValueDateFormat;
+    document.getElementById('booking-pago-seccion-top-cen-date').innerHTML = horaSalidaDate.getHours()+":"+((horaSalidaDate.getMinutes().toString().length == 1) ? "0" + horaSalidaDate.getMinutes() : horaSalidaDate.getMinutes()) + ' | ' + datosLineaIda.calIdaInputValueDateFormat;
 
     document.getElementById('booking-pago-cambiar-seccion-info-origen-titleAb').textContent = datosLineaIda.OrigenAb;
     document.getElementById('booking-pago-cambiar-seccion-info-destino-titleAb').textContent = datosLineaIda.DestinoAb;
@@ -374,7 +380,7 @@ function seccionPago(){
     };
 
     showLoader();
-    fetch('/Backend/Booking/consulta_pago.php', opciones)
+    fetch(raiz+'/Backend/Booking/consulta_pago.php', opciones)
     .then((response)=>{
         if(response.ok){
            return response.json();
@@ -391,11 +397,17 @@ function seccionPago(){
             document.querySelectorAll('.viaje-vuelta-title').forEach(element => {
                 element.style.display='flex';
             });
+
+            const horaSalidaDate = new Date(0)
+            let tiempoString = datosLineaVuelta.HoraSalidaLLegada;
+             let [horaSalida, minutosSalida] = tiempoString.split(':');
+            horaSalidaDate.setHours(parseInt(horaSalida)+parseInt(datosLineaVuelta.Duracion/60))
+            horaSalidaDate.setMinutes(parseInt(minutosSalida)+parseInt(datosLineaVuelta.Duracion%60))
     
             document.getElementById('booking-pago-cambiar-seccion-info-origen-title-vuelta').textContent = datosLineaVuelta.ID_Parada_Origen;
             document.getElementById('booking-pago-cambiar-seccion-info-destino-title-vuelta').textContent = datosLineaVuelta.ID_Parada_Destino;
             document.getElementById('booking-pago-seccion-cen-cen-asiento').textContent = datosLineaVuelta.Num_Asiento.join(' | ');
-            document.getElementById('booking-pago-seccion-cen-cen-date').innerHTML = datosLineaVuelta.HoraSalidaLLegada + ' | ' + datosLineaVuelta.calIdaInputValueDateFormat;
+            document.getElementById('booking-pago-seccion-cen-cen-date').innerHTML = horaSalidaDate.getHours()+":"+((horaSalidaDate.getMinutes().toString().length == 1) ? "0" + horaSalidaDate.getMinutes() : horaSalidaDate.getMinutes()) + ' | ' + datosLineaVuelta.calIdaInputValueDateFormat;
     
             document.getElementById('booking-pago-cambiar-seccion-info-origen-titleAb-vuelta').textContent = datosLineaVuelta.OrigenAb;
             document.getElementById('booking-pago-cambiar-seccion-info-destino-titleAb-vuelta').textContent = datosLineaVuelta.DestinoAb;
@@ -416,7 +428,7 @@ function seccionPago(){
             };
     
             showLoader();
-            fetch('/Backend/Booking/consulta_pago.php', opciones)
+            fetch(raiz+'/Backend/Booking/consulta_pago.php', opciones)
             .then((response)=>{
                 if(response.ok){
                    return response.json();
@@ -442,41 +454,96 @@ function seccionPago(){
 
 }
 
-function pagarBtn(){
-
-    document.getElementById('booking-pago-cambiar-seccion-siguiente').disabled=true;
-
-    function mostrarReservaCompletada(){
-        let columnNumber = localStorage.getItem('columnNumber');
+function mostrarReservaCompletada(valueBool){
+    let columnNumber = localStorage.getItem('columnNumber');
+    if(valueBool){
         switch ( parseInt(columnNumber)) {
             case 0:
-                swal("Reservation completed", "Thank you for booking at Viauy", "success")
-                .then((value) => {
-                    if (value) {
-                        window.location.reload();
+                Swal.fire({
+                    title: 'Reservation completed',
+                    text: 'Thank you for booking at Viauy',
+                    icon: 'success',
+                    allowOutsideClick: false // Evita que el cuadro de diálogo se cierre al hacer clic fuera de él
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
                     }
-                });
+                  });
                 break;
             case 1:
-                swal("Reserva completada", "Gracias por reservar en Viauy", "success")
-                .then((value) => {
-                    if (value) {
-                        window.location.reload();
+                Swal.fire({
+                    title: 'Reserva completada',
+                    text: 'Gracias por reservar en Viauy',
+                    icon: 'success',
+                    allowOutsideClick: false // Evita que el cuadro de diálogo se cierre al hacer clic fuera de él
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
                     }
-                });
+                  });
                 break;
             case 2:
-                swal("Reserva concluída", "Obrigado por reservar na Viauy", "success")      
-                .then((value) => {
-                    if (value) {
-                        window.location.reload();
+                Swal.fire({
+                    title: 'Reserva concluída',
+                    text: 'Obrigado por reservar na Viauy',
+                    icon: 'success',
+                    allowOutsideClick: false // Evita que el cuadro de diálogo se cierre al hacer clic fuera de él
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
                     }
-                });
+                  });
+                break;
+            default:
+                break;
+        }
+    }else{
+        switch ( parseInt(columnNumber)) {
+            case 0:
+                Swal.fire({
+                    title: 'Reservation Error',
+                    text: 'There was an error while processing your reservation. Please try again later.',
+                    icon: 'error',
+                    allowOutsideClick: false
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
+                    }
+                  });
+                break;
+            case 1:
+                Swal.fire({
+                    title: 'Error en la reserva', 
+                    text: 'Hubo un error al procesar tu reserva. Por favor, inténtalo de nuevo más tarde.',
+                    icon: 'error',
+                    allowOutsideClick: false
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
+                    }
+                  });
+                break;
+            case 2:
+                Swal.fire({
+                    title: 'Erro na reserva',
+                    text: 'Houve um erro ao processar a sua reserva. Por favor, tente novamente mais tarde.',
+                    icon: 'error',
+                    allowOutsideClick: false
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.reload();
+                    }
+                  });
                 break;
             default:
                 break;
         }
     }
+}
+
+function pagarBtn(){
+
+    document.getElementById('booking-pago-cambiar-seccion-siguiente').disabled=true;
     
     let dateReserva = new Date();
     let horarioReservaHours = String(dateReserva.getHours()).padStart(2, '0');
@@ -493,6 +560,8 @@ function pagarBtn(){
     formDataIda.append('fecha', `${fechaReservaYear}-${fechaReservaMonth}-${fechaReservaDate}`);
     formDataIda.append('id_horario', datosLineaIda.ID_Horario);
     formDataIda.append('num_asiento', datosLineaIda.Num_Asiento);
+    formDataIda.append('metodo_pago', document.getElementById('booking-metodo-pago-select').value);
+    console.log(document.getElementById('booking-metodo-pago-select').value)
     
     let formDataVuelta = new FormData;
     
@@ -500,6 +569,8 @@ function pagarBtn(){
     formDataVuelta.append('fecha', `${fechaReservaYear}-${fechaReservaMonth}-${fechaReservaDate}`);
     formDataVuelta.append('id_horario', datosLineaVuelta.ID_Horario);
     formDataVuelta.append('num_asiento', datosLineaVuelta.Num_Asiento);
+    formDataVuelta.append('metodo_pago', document.getElementById('booking-metodo-pago-select').value);
+
 
     let optionsIda = {
         method:'POST',
@@ -508,7 +579,7 @@ function pagarBtn(){
 
     // Fetch 1
     showLoader();
-    fetch('/Backend/Booking/new_reservation.php',optionsIda)
+    fetch(raiz+'/Backend/Booking/new_reservation.php',optionsIda)
     .then((response)=>{
         if(response.ok){
             return response.json();
@@ -530,7 +601,7 @@ function pagarBtn(){
 
                 // Fetch 2
                 showLoader();
-                fetch('/Backend/Booking/new_reservation.php',optionsVuelta)
+                fetch(raiz+'/Backend/Booking/new_reservation.php',optionsVuelta)
                 .then((response)=>{
                     if(response.ok){
                         return response.json();
@@ -543,7 +614,9 @@ function pagarBtn(){
                     hideLoader();
 
                     if(estadoReservaIda && estadoReservaVuelta){
-                        mostrarReservaCompletada();
+                        mostrarReservaCompletada(true);
+                    }else{
+                        mostrarReservaCompletada(false);
                     }
 
                 })
@@ -553,17 +626,14 @@ function pagarBtn(){
     
             }else{
                 if(estadoReservaIda){
-                    mostrarReservaCompletada();
+                    mostrarReservaCompletada(true);
+                }else{
+                    mostrarReservaCompletada(false);
                 }
             }
 
             console.log(estadoReservaIda)
             console.log(estadoReservaVuelta)
-
-
-
-
-
 
     })
     .catch((err)=>{
@@ -586,7 +656,7 @@ function findSeats(datosLinea){
 
     // Se hace fetch para la busqueda de lineas
     showLoader();
-    fetch('/Backend/Booking/consulta_asientos.php',  options)
+    fetch(raiz+'/Backend/Booking/consulta_asientos.php',  options)
     .then((response)=>{
         hideLoader();
         if(response.ok){
@@ -828,7 +898,7 @@ function searchRoutes(datosLinea){
 
     // Se hace fetch para la busqueda de lineas
     showLoader();
-    fetch('/Backend/Booking/consulta_lineas.php',  options)
+    fetch(raiz+'/Backend/Booking/consulta_lineas.php',  options)
     .then((response)=>{
         hideLoader();
         if(response.ok){
@@ -976,8 +1046,8 @@ function searchRoutes(datosLinea){
     const horaSalidaDate = new Date(0)
     horaSalidaDate.setHours(parseInt(horaSalida)+parseInt(lineasDisponibles[e].Duracion/60))
     horaSalidaDate.setMinutes(parseInt(minutosSalida)+parseInt(lineasDisponibles[e].Duracion%60))
-    datosLinea.HoraSalidaLLegada = lineasDisponibles[e].Hora_Salida + "&nbsp•&nbsp"+horaSalidaDate.getHours()+":"+horaSalidaDate.getMinutes();
-    destinoHora.innerHTML ="&nbsp•&nbsp"+horaSalidaDate.getHours()+":"+horaSalidaDate.getMinutes();
+    // datosLinea.HoraSalidaLLegada = lineasDisponibles[e].Hora_Salida;
+    destinoHora.innerHTML ="&nbsp•&nbsp"+horaSalidaDate.getHours()+":"+((horaSalidaDate.getMinutes().toString().length == 1) ? "0" + horaSalidaDate.getMinutes() : horaSalidaDate.getMinutes());
     
     
     hora.appendChild(origenHora);
@@ -1177,7 +1247,7 @@ document.getElementById('form-idavenida-div').addEventListener('focus', ()=>{
     document.getElementById('booking-pago-cambiar-seccion-siguiente').disabled=false;
 
 
-    fetch('/Backend/user_cookie.php')
+    fetch(raiz+'/Backend/user_cookie.php')
     .then((response)=>{
         if(response.ok){
             return response.json();
@@ -1185,7 +1255,7 @@ document.getElementById('form-idavenida-div').addEventListener('focus', ()=>{
     })
     .then((data)=>{
         if(!data.email_usuario){
-            return window.location.href='/Frontend/Account/LogIn/logIn.php';
+            return window.location.href='./Frontend/Account/LogIn/logIn.php';
         }else{
 
             // En caso de algun dato vacio no se dispara el formulario

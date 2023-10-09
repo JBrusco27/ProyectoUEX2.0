@@ -33,6 +33,7 @@ const defaultTranslate = () => {
   let columnNumber = localStorage.getItem('columnNumber');
   if (columnNumber == undefined) {
     localStorage.setItem('columnNumber', 1);
+    location.reload();
     translateFunc(columnNumber);
   } else {
     translateFunc(columnNumber);

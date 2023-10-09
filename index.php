@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
     
-    <?php $raiz = __DIR__; ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php $raiz2 = __DIR__?>
+    <?php $raiz = './'?>
+    <script>
+        const raiz = "<?php echo $raiz; ?>";
+    </script>
 
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="./Frontend/Home/home.css">

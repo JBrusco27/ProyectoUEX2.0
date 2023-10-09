@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
 
+    <?php $raiz = '../../'?>
+    <script>
+        const raiz = "<?php echo $raiz; ?>";
+    </script>
+
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="changePswd.css">
     
     <!-- Estilos ( dependencias ) -->
-    <link rel="stylesheet" href="/Frontend/Components/VerifyWasSend/verifyWasSend.css">
+    <link rel="stylesheet" href="../../Components/VerifyWasSend/verifyWasSend.css">
 
     <!-- Logica -->
     <script src="changePswd.js"></script>

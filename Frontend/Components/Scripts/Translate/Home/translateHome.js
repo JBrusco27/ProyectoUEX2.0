@@ -1,5 +1,5 @@
 const translateFunc = (columnNumber) => {
-  return fetch('/Frontend/Components/Scripts/Translate/Home/languagesHome.csv')
+  return fetch('./Frontend/Components/Scripts/Translate/Home/languagesHome.csv')
   .then((response) => response.text())
   .then((csvData) => {
     const result = Papa.parse(csvData, {
@@ -29,7 +29,7 @@ const mostrar_data = (array_resultado, columnNumber) => {
 
 
 const defaultTranslate = () => {
-  if (columnNumber == '' || columnNumber == null) {
+  if (parseInt(columnNumber) != 0 && parseInt(columnNumber) != 1 && parseInt(columnNumber) != 2 ) {
     localStorage.setItem('columnNumber', 1);
     columnNumber = localStorage.getItem('columnNumber');
     translateFunc(columnNumber);
@@ -45,7 +45,8 @@ document.getElementById('spanishTranslateAction').addEventListener('click', () =
   if (columnNumber == 1) {
     console.log('Language already set');
   } else {
-    columnNumber = localStorage.getItem('columnNumber');
+    localStorage.setItem('columnNumber', 1);
+    location.reload();
     translateFunc(columnNumber);
   }
 });

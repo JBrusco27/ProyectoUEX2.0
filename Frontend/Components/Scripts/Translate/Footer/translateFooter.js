@@ -1,5 +1,5 @@
 const footerTranslateFunc = (columnNumber) => {
-  return fetch('/Frontend/Components/Scripts/Translate/Footer/languageFooter.csv')
+  return fetch(raiz+'/Frontend/Components/Scripts/Translate/Footer/languageFooter.csv')
   .then((response) => response.text())
   .then((csvData) => {
     const result = Papa.parse(csvData, {

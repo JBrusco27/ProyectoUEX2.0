@@ -1,5 +1,5 @@
 const menuTranslateFunc = (columnNumber) => {
-  return fetch('/Frontend/Components/Scripts/Translate/Menu/languageMenu.csv')
+  return fetch(raiz+'/Frontend/Components/Scripts/Translate/Menu/languageMenu.csv')
   .then((response) => response.text())
   .then((csvData) => {
     const result = Papa.parse(csvData, {

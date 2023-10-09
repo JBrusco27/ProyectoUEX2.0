@@ -1,5 +1,5 @@
 const headTranslateFunc = (columnNumber) => {
-  return fetch('/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
+  return fetch(raiz+'/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
   .then((response) => response.text())
   .then((csvData) => {
     const result = Papa.parse(csvData, {
@@ -31,7 +31,7 @@ const headTranslateFunc = (columnNumber) => {
 columnNumber = localStorage.getItem('columnNumber');
 console.log(columnNumber)
 
-if(columnNumber != 0 || columnNumber != 1 || columnNumber != 2){
+if(parseInt(columnNumber) != 0 && parseInt(columnNumber) != 1 && parseInt(columnNumber) != 2){
   localStorage.setItem('columnNumber', 1);
   columnNumber = localStorage.getItem('columnNumber');
   console.log(columnNumber)

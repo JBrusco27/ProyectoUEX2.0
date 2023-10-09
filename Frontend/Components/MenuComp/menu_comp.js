@@ -29,7 +29,7 @@ document.getElementById("nav-close-icon").addEventListener('click', ()=> {
 });
 
 
-fetch('/Backend/user_cookie.php')
+fetch(raiz+'/Backend/user_cookie.php')
 .then(function (response) {
     // Verificar si la solicitud fue exitosa
     if (response.ok) {

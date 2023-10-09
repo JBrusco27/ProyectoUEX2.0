@@ -39,7 +39,7 @@ let opciones = {
 };
 
 // Se hace una solicitud a log_status para saber si hay un usuario logeado o no
-fetch('../../../Backend/log_status.php', opciones)
+fetch(raiz+'Backend/log_status.php', opciones)
 .then(function (response) {
   // Verificar si la solicitud fue exitosa
   if (response.ok) {
@@ -57,7 +57,7 @@ fetch('../../../Backend/log_status.php', opciones)
         document.querySelector('.profile-form')[i].disabled = false;
       }
       // Manejo del perfil y aparicion del boton de guardar
-      fetch('/Backend/user_cookie.php')
+      fetch(raiz+'Backend/user_cookie.php')
       .then(function (response) {
         // Verificar si la solicitud fue exitosa
         if (response.ok) {
@@ -121,7 +121,7 @@ document.querySelector('.save-account-btn').addEventListener('click', ()=>{
     body: formData
   };
   
-  fetch('../../../Backend/Requests/consulta_change_profile.php', opciones2)
+  fetch(raiz+'Backend/Requests/consulta_change_profile.php', opciones2)
   .then(function (response) {
     // Verificar si la solicitud fue exitosa
   if (response.ok) {

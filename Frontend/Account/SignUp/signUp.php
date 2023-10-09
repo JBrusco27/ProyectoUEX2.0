@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
 
+    <?php $raiz = '../../../'?>
+    <script>
+        const raiz = "<?php echo $raiz; ?>";
+    </script>
+
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="signUp.css">
 
     <!-- Estilos ( dependencias ) -->
-    <link rel="stylesheet" href="/Frontend/Components/VerifyWasSend/verifyWasSend.css">
+    <link rel="stylesheet" href="../../Components/VerifyWasSend/verifyWasSend.css">
     
     <!-- Logica de validación -->
     <script src="signUp.js"></script>
@@ -34,7 +39,7 @@
 <?php include "../../Components/VerifyWasSend/verifyWasSend.php" ?>
     <!-- Container -->
     <div class="container">
-        <a href="/" class="login-logo-div"><img src="/Frontend/Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>
+        <a href="../../../index.php" class="login-logo-div"><img src="../../Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>
         <h3 class="Trad2"></h3>
         <!-- Contariner de restricciones -->
         <div class="warning-container">   

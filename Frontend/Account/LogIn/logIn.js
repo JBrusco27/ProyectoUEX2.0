@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       body: formData
     };
     
-    fetch('/Backend/Requests/consulta_sign_in.php', opciones)
+    fetch('../../../Backend/Requests/consulta_sign_in.php', opciones)
     .then(function (response) {
       // Verificar si la solicitud fue exitosa
       hideLoader();
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           document.querySelector('.pswd-bd-valid-warning-content').style.opacity='0.8';
         }, 100);
       }else{
-        window.location.href="/index.php";
+        window.location.href="../../../index.php";
         document.querySelector('.pswd-bd-valid-warning-content').style.opacity='0';
         setTimeout(() => {
           document.querySelector('.pswd-bd-valid-warning-content').style.display = 'none';

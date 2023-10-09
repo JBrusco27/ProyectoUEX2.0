@@ -5,7 +5,7 @@ headers: {
 }
 };
 // Se hace una solicitud a log_status para saber si hay un usuario logeado o no
-fetch('../../Backend/log_status.php', opcionesFooter)
+fetch(raiz+'Backend/log_status.php', opcionesFooter)
 .then(function (response) {
     // Verificar si la solicitud fue exitosa
     if (response.ok) {
