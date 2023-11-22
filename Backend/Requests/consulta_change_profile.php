@@ -1,4 +1,5 @@
 <?php
+include_once "../app.php";
 include_once "../connect.php";
 session_start();
 

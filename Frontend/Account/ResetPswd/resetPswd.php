@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
+    
+    <?php $raiz = '../../../'?>
+    <script>
+        const raiz = "<?php echo $raiz; ?>";
+    </script>
 
     <!-- Enlace a estilos -->
     <link rel="stylesheet" href="resetPswd.css">
@@ -28,6 +33,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>
+    <!-- Cargando -->
+    <script src="../../Components/Scripts/loading.js"></script>
     <!-- Container -->
     <div class="container">
         <h3 class="Trad2"></h3>

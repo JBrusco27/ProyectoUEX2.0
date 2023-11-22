@@ -1,0 +1,357 @@
+.mytickets-container{
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-verde-oscuro);
+    box-shadow:var(--box-shadow-1);
+    z-index: 1000000;
+}
+
+
+.close-mytickets{
+    align-self:flex-start;
+    left: 0;
+    padding: 1.5rem;
+    border-radius: 0 0 50px 0;
+    background-color: var(--color-verde-oscuro);
+    position: absolute;
+    z-index: 999999;
+    box-shadow: var(--box-shadow-1);
+}
+
+.icon-close-mytickets{
+    padding: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 900;
+    border: 2px solid var(--color-verde-claro);
+    color: var(--color-verde-claro);
+    border-radius: 50px;
+}
+
+.mytickets-content{
+    background-color: var(--color-verde-oscuro-2);
+    overflow-y: hidden;
+    min-height: 100%;
+    height: fit-content;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 7.5rem 2rem;
+
+}
+
+
+.right-side-title{
+    color: var(--color-verde-claro);
+    margin-bottom: 1.5rem;
+}
+
+.select-reservation-to-info{
+    color: var(--color-verde-claro);
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    background-color: transparent;
+}
+
+
+.tickets-items-view-container{
+    width: 100%;   
+    display: flex;
+    gap: 2.5rem;
+    flex-direction: row;
+    height:100%;
+}
+
+.tickets-items-content {
+    height: 50%;
+    max-height: 100%;
+    border-radius: 20px;
+    overflow-y: scroll;
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--color-verde-oscuro);
+    padding: 1rem;
+}
+
+.tickets-items-content::-webkit-scrollbar{
+    background-color: var(--color-blanco);
+    width: 8px;
+}
+
+.tickets-items-content::-webkit-scrollbar-thumb{
+    background-color: var(--color-verde-oscuro);
+}
+
+.tickets-items-content > .booking-lineas-disponibles-item{
+    min-height: 14rem;
+}
+.tickets-items-content .booking-lineas-disponibles-item-top-content-center{
+    justify-content: end;
+}
+
+.tickets-view-content-cont{
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s linear;
+}
+
+.tickets-view-content{
+    border-radius: 20px;
+    flex:1;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.booking-lineas-disponibles-item-bot-center{
+    height: 80%;
+    border: 2px solid var(--color-naranja);
+    background-color: var(--color-verde-oscuro-2);
+    padding: 0.5rem 1rem;
+    box-shadow: var(--box-shadow-1);
+    border-radius: 10px 50px 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.booking-lineas-disponibles-item-bot-center-item{
+    background-color: var(--color-naranja);
+    font-size: 20px;
+    color: var(--color-verde-oscuro);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+}
+
+.booking-lineas-disponibles-item-bot-center-item{
+    background-color: var(--color-naranja);
+    font-size: 20px;
+    color: var(--color-verde-oscuro);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+}
+
+.booking-lineas-disponibles-item-bot-center-value{
+    color: var(--color-naranja);
+    font-size: 30px;
+}
+
+.tickets-view-content-cont > div:nth-child(1){
+    flex:0 0 68% !important;
+    padding: 2rem;
+    background-color: var(--color-blanco);
+}
+
+.tickets-view-content-cont > div:nth-child(3){
+    flex:0 0 27% !important;
+    padding: 2rem;
+    background-color: var(--color-blanco);
+}
+
+.tickets-view-content-separ{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex:0 0 5% !important;
+    background-color: var(--color-blanco);
+}
+
+.tickets-view-content-separ > div:nth-child(1){
+    background-color: var(--color-verde-oscuro-2);
+    border-radius: 0 100px 100px 0  ;
+    height: 2rem;
+    width: 1rem;
+}
+.tickets-view-content-separ > div:nth-child(3){
+    background-color: var(--color-verde-oscuro-2);
+    border-radius: 100px 0 0 100px;
+    height: 2rem;
+    width: 1rem;
+}
+
+.tickets-view-content-separ > hr{
+    height: 0.2rem;
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 10px,
+        var(--color-verde-oscuro-2) 10px,
+        var(--color-verde-oscuro-2) 20px
+      );
+    width: 100%;
+}
+
+.tickets-view-content-top{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px;
+    border-color: var(--color-verde-claro);
+}
+.tickets-view-content-top-top{
+    width: 100%;
+    flex: 1;
+    border-bottom: 2px;
+    border-bottom: var(--color-verde-claro);
+    border-bottom-style: solid;
+    display: flex;
+    gap: 0.8rem;
+    padding: 1rem;
+}
+
+.tickets-view-content-top-bot{
+    width: 100%;
+    flex: 1;
+    padding:2.7rem 1rem 0rem 1rem;  
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.tickets-view-content-top-top-left,.tickets-view-content-top-top-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tickets-view-content-top-top-left > img{
+    width: 7rem;
+    background-color: var(--color-verde-oscuro);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
+.tickets-view-content-top-top-left > h3{
+    font-weight: 700;
+    font-size: 19px;
+    text-transform: uppercase;
+    color: var(--color-verde-oscuro);
+}
+
+.tickets-view-content-top-top-left > h4{
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 1.6rem;
+    text-transform: uppercase;
+    color: var(--color-verde-oscuro);
+}
+
+.tickets-view-content-top-bot{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tickets-view-content-top-bot > div{
+    padding: 1rem;
+    text-align: center;
+}
+
+.tickets-view-content-top-bot > div > h3{
+    font-weight: 600;
+    font-size: 19px;
+    text-transform: uppercase;
+    color: #969696;
+}
+
+.tickets-view-content-top-bot > div > p{
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--color-verde-oscuro);
+}
+
+.tickets-view-content-bot-ticket-cont{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.tickets-view-content-top-top-right-btn{
+    width: 100%;
+    flex: 1;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.tickets-view-content-top-top-right-cancelarBtn{
+    background-color: var(--color-desaprobado);
+    color: var(--color-verde-claro);
+}
+
+.tickets-view-content-top-top-right-descargarBtn{
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
+}
+
+.booking-lineas-disponibles-item-top-content-left-fecha-hora{
+    background-color: var(--color-verde-oscuro-2);
+    border-radius:100px;
+    width: fit-content;
+    font-size: 17px;
+    padding: 0.2rem 0.7rem;
+    color: var(--color-naranja);
+}
+
+.booking-lineas-disponibles-item-top-content-center-estado-title{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #969696;
+}
+
+.booking-lineas-disponibles-item-top-content-center-estado-info-cancelado{
+    background-color: var(--color-desaprobado);
+    color: var(--color-verde-claro);
+    border-radius: 100px;
+}
+.booking-lineas-disponibles-item-top-content-center-estado-info-pendiente{
+    background-color: var(--color-pendiente);
+    color: var(--color-verde-oscuro-2);
+    border-radius: 100px;
+}
+
+.booking-lineas-disponibles-item-top-content-center-estado-info-confirmado{
+    background-color: var(--color-aprobado);
+    color: var(--color-verde-claro);
+    border-radius: 100px;
+}
+
+@media screen and (max-width:1500px) {
+    .tickets-items-view-container{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .mytickets-content{
+        padding: 7rem 0.4rem;
+    }
+}

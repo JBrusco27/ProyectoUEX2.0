@@ -4,6 +4,6 @@
     <p class="VerifyWasSend-Trad2"></p>
     <a class="verifyWasSend-submitBtn VerifyWasSend-Trad3" href="<?php echo $raiz; ?>Frontend/Account/LogIn/logIn.php"></a>
     
-    <script src="<?php echo $raiz; ?>../Frontend/Components/Scripts/Translate/VerifyWasSend/translateVerifyWasSend.js" ></script>
+    <script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/VerifyWasSend/translateVerifyWasSend.js" ></script>
 </div>
 <!-- Config Container -->

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php $raiz2 = __DIR__?>
@@ -25,7 +27,7 @@
     
     <!-- Logica predeterminada -->
     <script src="./Frontend/Components/Scripts/default.js" defer></script>
-    
+
     <!-- Logica de header -->
     <script src="./Frontend/Components/HeaderComp/header_comp.js" defer></script>
 
@@ -41,9 +43,13 @@
     <!-- Logica de booking -->
     <script src="./Frontend/Components/BookingComp/booking_comp.js" defer></script>
 
+    <!-- Logica de my tickets -->
+    <script src="./Frontend/Components/MyTicketsComp/mytickets_comp.js" defer></script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="./Frontend/Components/MyTicketsComp/mytickets_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/HeaderComp/header_comp.css">
@@ -52,12 +58,33 @@
     <link rel="stylesheet" href="./Frontend/Components/BannerComp/banner_comp.css">
     <link rel="stylesheet" href="./Frontend/Components/BookingComp/booking_comp.css">
 </head>
-<body>
+<body >
+    <!-- Cargando -->
+    <script src="./Frontend/Components/Scripts/loading.js"></script>
+
+    <!-- Admin -->
+    <?php 
+        $adminFile = './Frontend/components/Admin/adminInclude.php';
+        
+        if(isset($_SESSION['tipo_usuario'])){
+            $sessionValue = $_SESSION['tipo_usuario'];
+        }else{
+            $sessionValue = 1;
+        }
+
+        if(intval($sessionValue) == 2 || intval($sessionValue) == 3 ){
+            include $adminFile;
+        }
+     ?>
+
     <!-- Reserva horarios -->
     <?php include "./Frontend/Components/BookingComp/booking_comp.php" ?>
 
     <!-- Sección configuración -->
     <?php include "./Frontend/Components/ConfigComp/config_comp.php" ?>
+
+    <!-- Sección tickets -->
+    <?php include "./Frontend/Components/MyTicketsComp/mytickets_comp.php" ?>
 
     <!-- Sección perfil -->
     <?php include "./Frontend/Components/ProfileComp/profile_comp.php" ?>

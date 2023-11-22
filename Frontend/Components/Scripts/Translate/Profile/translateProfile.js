@@ -1,4 +1,4 @@
-const profileTranslateFunc = (columnNumber) => {
+const profileTranslateFunc = (columnNumberProf) => {
     return fetch(raiz+'/Frontend/Components/Scripts/Translate/Profile/languageProfile.csv')
     .then((response) => response.text())
     .then((csvData) => {
@@ -8,50 +8,32 @@ const profileTranslateFunc = (columnNumber) => {
         encoding: 'UTF-8',
         delimiter: ';'
       });
-      profile_mostrar_data(result.data, columnNumber);
+      profile_mostrar_data(result.data, columnNumberProf);
     })
     .catch((error) => {
       console.error('Error al cargar el archivo CSV:', error);
     });
   };
   
-  const profile_mostrar_data = (array_resultado, columnNumber) => {
+  const profile_mostrar_data = (array_resultado, columnNumberProf) => {
     let position = 0;
     array_resultado.forEach((e) => {
       position += 1;
       if (document.querySelector(`.profileTrad${position}`).tagName.toLowerCase() === "input") {
-      document.querySelector(`.profileTrad${position}`).value += e[columnNumber];
+      document.querySelector(`.profileTrad${position}`).value += e[columnNumberProf];
     } else {
-      document.querySelector(`.profileTrad${position}`).innerHTML += e[columnNumber];
+      document.querySelector(`.profileTrad${position}`).innerHTML += e[columnNumberProf];
     }
   });
   };
-  
-  columnNumber = localStorage.getItem('columnNumber');
-  profileTranslateFunc(columnNumber);
-  
-  const profileDefaultTranslate = () => {
-  let columnNumber = localStorage.getItem('columnNumber');
-  switch (parseInt(columnNumber)) {
-    case 0:
-      document.querySelector('#englishIcon').style.display='inline-block';
-      document.querySelector('#spanishIcon').style.display='none';
-      document.querySelector('#portugueseIcon').style.display='none';
-      break;
-      case 1:
-      document.querySelector('#spanishIcon').style.display='inline-block';
-      document.querySelector('#englishIcon').style.display='none';
-      document.querySelector('#portugueseIcon').style.display='none';
-      break;
-      case 2:
-      document.querySelector('#portugueseIcon').style.display='inline-block';
-      document.querySelector('#englishIcon').style.display='none';
-      document.querySelector('#spanishIcon').style.display='none';
-      break;
-      default:
-        break;
-      }
-    };
-    
-  profileDefaultTranslate();
-  
+
+  let columnNumberProf
+
+  if(localStorage.getItem('columnNumber') == null){
+    localStorage.setItem('columnNumber', 1);
+    columnNumberProf = localStorage.getItem('columnNumber')
+  }else{
+    columnNumberProf = localStorage.getItem('columnNumber');
+  }
+
+  profileTranslateFunc(columnNumberProf);

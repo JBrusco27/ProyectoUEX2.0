@@ -1,5 +1,6 @@
 <?php
 
+include_once "../app.php";
 include_once  "../connect.php";
 
 try{

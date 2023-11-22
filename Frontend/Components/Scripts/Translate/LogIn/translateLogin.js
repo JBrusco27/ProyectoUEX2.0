@@ -27,14 +27,13 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
-let columnNumber = localStorage.getItem('columnNumber');
+let columnNumber
 
-const defaultTranslate = () => {
-  if (columnNumber == undefined) {
-    localStorage.setItem('columnNumber', 1);
-    translateFunc(columnNumber);
-  } else {
-    translateFunc(columnNumber);
-  }
-};
-document.addEventListener('DOMContentLoaded', defaultTranslate);
+if(localStorage.getItem('columnNumber') == null){
+  localStorage.setItem('columnNumber', 1);
+  columnNumber = localStorage.getItem('columnNumber')
+}else{
+  columnNumber = localStorage.getItem('columnNumber');
+}
+
+translateFunc(columnNumber);

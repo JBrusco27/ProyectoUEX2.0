@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Trad1"></title>
 
-    <?php $raiz = '../../'?>
+    <?php $raiz = '../../../'?>
     <script>
         const raiz = "<?php echo $raiz; ?>";
     </script>
@@ -36,8 +36,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>
-    <?php include "../../Components/VerifyWasSend/verifyWasSend.php" ?>
-
+    <!-- Cargando -->
+    <script src="../../Components/Scripts/loading.js"></script>
+    <?php include "../../Components/VerifyWasSend/verifyWasSend.php"?>
      <!-- Container -->
      <div class="container">
         <h3 class="Trad2"></h3> 

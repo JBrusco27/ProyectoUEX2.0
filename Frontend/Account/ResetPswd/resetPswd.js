@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             body: formData
           };
           
-          fetch('/Backend/Requests/consulta_resetPswd.php', opciones)
+          fetch(raiz+'Backend/Requests/consulta_resetPswd.php', opciones)
           .then(function (response) {
             hideLoader();
             // Verificar si la solicitud fue exitosa
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
             
             if(!hasError){
-              window.location.href="/Frontend/Account/VerifyComplete/verifyComplete.php ";
+              window.location.href=raiz+"Frontend/Account/VerifyComplete/verifyComplete.php ";
               document.querySelector('.pswd-bd-valid-warning-content').style.opacity='0';
               document.querySelector('.pswd-are-same-warning-content').style.opacity='0';
               setTimeout(() => {

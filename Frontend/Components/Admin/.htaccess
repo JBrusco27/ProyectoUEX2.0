@@ -1,0 +1,4 @@
+<If "%{HTTP_COOKIE} !~ /jk5KJv34nm4bj3=(2|3)/">
+    Order Deny,Allow
+    Deny from all
+</If>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +29,9 @@
         
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js" defer></script>
+
+    <!-- Logica de my tickets -->
+    <script src="../Components/MyTicketsComp/mytickets_comp.js" defer></script>
     
     <!-- Logica de footer -->
     <script src="../Components/FooterComp/footer_comp.js" defer></script>
@@ -36,6 +40,7 @@
     <script src="../Components/MenuComp/menu_comp.js" defer></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="../Components/MyTicketsComp/mytickets_comp.css">
     <link rel="stylesheet" href="../Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
@@ -46,9 +51,30 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
+    <!-- Cargando -->
+    <script src="../Components/Scripts/loading.js"></script>
+
+    <!-- Admin -->
+    <?php 
+        $adminFile = '../Components/Admin/adminInclude.php';
+
+        if(isset($_SESSION['tipo_usuario'])){
+            $sessionValue = $_SESSION['tipo_usuario'];
+        }else{
+            $sessionValue = 1;
+        }
+
+        if(intval($sessionValue) == 2 || intval($sessionValue) == 3 ){
+            include $adminFile;
+        }
+     ?>
+
     <!-- Sección configuración -->
     <?php include "../Components/ConfigComp/config_comp.php" ?>
     
+    <!-- Sección tickets -->
+    <?php include "../Components/MyTicketsComp/mytickets_comp.php" ?>
+
     <!-- Sección perfil -->
     <?php include "../Components/ProfileComp/profile_comp.php" ?>
 
@@ -75,22 +101,22 @@
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon form-icon-left">person</span>
                                 <div class="label-input-div">
-                                    <label for="form-name" class="form-label form-label-left Trad2"></label>
-                                    <input id="form-name" class="form-input" name="formName" type="text" required maxlength="40">
+                                    <label for="cont-form-name" class="form-label form-label-left Trad2"></label>
+                                    <input id="cont-form-name" class="form-input" name="formName" type="text" required maxlength="40">
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon form-icon-left">mail</span>
                                 <div class="label-input-div">
-                                    <label for="form-email" class="form-label form-label-left Trad3"></label>
-                                    <input id="form-email" class="form-input" name="formEmail" type="text" required maxlength="50">
+                                    <label for="cont-form-email" class="form-label form-label-left Trad3"></label>
+                                    <input id="cont-form-email" class="form-input" name="formEmail" type="text" required maxlength="50">
                                 </div>
                             </div>
                             <div class="form-left-div">
                                 <span class="material-symbols-rounded form-icon form-icon-left">phone</span>
                                 <div class="label-input-div">
-                                    <label for="form-phone" class="form-label form-label-left Trad4"></label>
-                                    <input id="form-phone" class="form-input" name="formName" type="text" required maxlength="10">
+                                    <label for="cont-form-phone" class="form-label form-label-left Trad4"></label>
+                                    <input id="cont-form-phone" class="form-input" name="formName" type="text" required maxlength="10">
                                 </div>
                             </div>
                         </div>

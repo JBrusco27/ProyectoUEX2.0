@@ -1,4 +1,4 @@
-const headTranslateFunc = (columnNumber) => {
+const headTranslateFunc = (columnNumberHead) => {
   return fetch(raiz+'/Frontend/Components/Scripts/Translate/Header/languageHeader.csv')
   .then((response) => response.text())
   .then((csvData) => {
@@ -8,34 +8,32 @@ const headTranslateFunc = (columnNumber) => {
       encoding: 'UTF-8',
       delimiter: ';'
     });
-    head_mostrar_data(result.data, columnNumber);
+    head_mostrar_data(result.data, columnNumberHead);
   })
   .catch((error) => {
     console.error('Error al cargar el archivo CSV:', error);
   });
 };
   
-  const head_mostrar_data = (array_resultado, columnNumber) => {
+  const head_mostrar_data = (array_resultado, columnNumberHead) => {
     let position = 0;
     array_resultado.forEach((e) => {
       position += 1;
       if (document.querySelector(`.HeadTrad${position}`).tagName.toLowerCase() === "input") {
-        document.querySelector(`.HeadTrad${position}`).value += e[columnNumber];
+        document.querySelector(`.HeadTrad${position}`).value += e[columnNumberHead];
       } else {
-        document.querySelector(`.HeadTrad${position}`).innerHTML += e[columnNumber];
+        document.querySelector(`.HeadTrad${position}`).innerHTML += e[columnNumberHead];
     }
   });
 };
 
+let columnNumberHead
 
-columnNumber = localStorage.getItem('columnNumber');
-console.log(columnNumber)
-
-if(parseInt(columnNumber) != 0 && parseInt(columnNumber) != 1 && parseInt(columnNumber) != 2){
+if(localStorage.getItem('columnNumber') == null){
   localStorage.setItem('columnNumber', 1);
-  columnNumber = localStorage.getItem('columnNumber');
-  console.log(columnNumber)
-  headTranslateFunc(columnNumber)
+  columnNumberHead = localStorage.getItem('columnNumber')
 }else{
-  headTranslateFunc(columnNumber)
+  columnNumberHead = localStorage.getItem('columnNumber');
 }
+
+headTranslateFunc(columnNumberHead)

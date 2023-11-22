@@ -8,7 +8,7 @@
     }
     let tipPosition = 0;
     
-    document.querySelector(`.container-banner`).addEventListener('click', ()=>{
+    document.querySelector(`.container-banner > img`).addEventListener('click', ()=>{
         tipPosition+=1;
         BannerText1.style.display = "none";
         switch(tipPosition){

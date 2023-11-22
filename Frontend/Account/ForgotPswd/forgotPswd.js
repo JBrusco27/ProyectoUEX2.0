@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       body: formData
     };
     
-    fetch('/Backend/Requests/consulta_forgotPswd.php?columnNumber='+columnNumber, opciones)
+    fetch(raiz+'Backend/Requests/consulta_forgotPswd.php?columnNumber='+columnNumber, opciones)
     .then(function (response) {
       // Verificar si la solicitud fue exitosa
       hideLoader();

@@ -27,45 +27,13 @@ const mostrar_data = (array_resultado, columnNumber) => {
   });
 };
 
- columnNumber = localStorage.getItem('columnNumber');
+let columnNumber
 
-const defaultTranslate = () => {
-  if (columnNumber == undefined) {
-    localStorage.setItem('columnNumber', 1);
-    translateFunc(columnNumber);
-  } else {
-    translateFunc(columnNumber);
-  }
-};
+if(localStorage.getItem('columnNumber') == null){
+  localStorage.setItem('columnNumber', 1);
+  columnNumber = localStorage.getItem('columnNumber')
+}else{
+  columnNumber = localStorage.getItem('columnNumber');
+}
 
-document.addEventListener('DOMContentLoaded', defaultTranslate);
-
-document.getElementById('spanishTranslateAction').addEventListener('click', () => {
-  if (columnNumber == 1) {
-    console.log('Language already set');
-  } else {
-    localStorage.setItem('columnNumber', 1);
-    location.reload();
-    translateFunc(columnNumber);
-  }
-});
-
-document.getElementById('englishTranslateAction').addEventListener('click', () => {
-  if (columnNumber == 0) {
-    console.log('Language already set');
-  } else {
-    localStorage.setItem('columnNumber', 0);
-    location.reload();
-    translateFunc(columnNumber);
-  }
-});
-
-document.getElementById('portugueseTranslateAction').addEventListener('click', () => {
-  if (columnNumber == 2) {
-    console.log('Language already set');
-  } else {
-    localStorage.setItem('columnNumber', 2);
-    location.reload();
-    translateFunc(columnNumber);
-  }
-});
+translateFunc(columnNumber);

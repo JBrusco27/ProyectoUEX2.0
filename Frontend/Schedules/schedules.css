@@ -92,7 +92,7 @@
     padding: 0.3rem 0;
 }
 
-form{
+.container form{
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@ form{
     text-indent: 4px;
 }
 
-option{
+.container option{
     background-color: var(--color-verde-oscuro);
     border: none;
     outline: none;
@@ -326,7 +326,7 @@ option{
         padding: 8%;
     }
 
-    form{
+    .container form{
         width: 100%;
     }
 

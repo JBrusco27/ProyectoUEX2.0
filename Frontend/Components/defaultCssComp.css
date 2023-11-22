@@ -3,6 +3,7 @@
 :root{
     --color-azul:#396ba8;
     --color-aprobado:#39a83b;
+    --color-pendiente:#F4DC36;
     --color-desaprobado:#a83939;
     --color-verde-oscuro-2:#293b3a;
     --color-verde-oscuro:#425C5A;
@@ -16,8 +17,9 @@
 }
 
 :root.theme2{
-    --color-verde-aprobado:#39a83b;
-    --color-verde-desaprobado:#a83939;
+    --color-aprobado:#39a83b;
+    --color-pendiente:#F4DC36;
+    --color-desaprobado:#a83939;
     --color-verde-oscuro-2: #331D2C; 
     --color-verde-oscuro: #3F2E3E;
     --color-verde-claro: #e0d9c8;
@@ -30,8 +32,9 @@
 }
 
 :root.theme3{
-    --color-verde-aprobado:#39a83b;
-    --color-verde-desaprobado:#a83939;
+    --color-aprobado:#39a83b;
+    --color-pendiente:#F4DC36;
+    --color-desaprobado:#a83939;
     --color-verde-oscuro: #581818; 
     --color-verde-oscuro-2: #310B0B;
     --color-verde-claro: #e0d9c8;
@@ -44,6 +47,9 @@
 }
 
 :root.theme4{
+    --color-aprobado:#39a83b;
+    --color-pendiente:#F4DC36;
+    --color-desaprobado:#a83939;
     --color-verde-oscuro: #434f9d; 
     --color-verde-oscuro-2: #252e65;
     --color-verde-claro: #e0d9c8;
@@ -56,6 +62,9 @@
 }
 
 :root.theme5{
+    --color-aprobado:#39a83b;
+    --color-pendiente:#F4DC36;
+    --color-desaprobado:#a83939;
     --color-verde-oscuro: #a76324; 
     --color-verde-oscuro-2: #804309;
     --color-verde-claro: #e0d9c8;

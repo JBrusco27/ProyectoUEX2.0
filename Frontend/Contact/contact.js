@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
   
-  const name = document.getElementById('form-name');
-  const phone = document.getElementById('form-phone');
-  const email = document.getElementById('form-email');
-  const labelName = document.querySelector(`label[for="form-name"]`);
-  const labelPhone = document.querySelector(`label[for="form-phone"]`);
-  const labelEmail = document.querySelector(`label[for="form-email"]`);
+  const name = document.getElementById('cont-form-name');
+  const phone = document.getElementById('cont-form-phone');
+  const email = document.getElementById('cont-form-email');
+  const labelName = document.querySelector(`label[for="cont-form-name"]`);
+  const labelPhone = document.querySelector(`label[for="cont-form-phone"]`);
+  const labelEmail = document.querySelector(`label[for="cont-form-email"]`);
   
   handleInputFocus(name, labelName);
   handleInputFocus(phone, labelPhone);
@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   document.getElementById('submit').addEventListener('click', ()=>{
     
-    let userPhone = document.getElementById('form-phone');
-    let userEmail = document.getElementById('form-email');
-    let userName = document.getElementById('form-name');
+    let userPhone = document.getElementById('cont-form-phone');
+    let userEmail = document.getElementById('cont-form-email');
+    let userName = document.getElementById('cont-form-name');
     let userMessage = document.getElementById('form-message');
     
     let formData = new FormData();

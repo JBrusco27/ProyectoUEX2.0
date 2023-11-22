@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     //Verificar datos y mostrar restricciones
     document.getElementById('submit').addEventListener('click', () =>{
       const newPswd = document.getElementById('form-confPswd').value;
-      let pswdTest = new RegExp('^[a-zA-Z0-9!@#$%^&*()-=+]{8,30}$');
+      let pswdTest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,30}$/;
       
       let hasError = false; // Variable para detección de errores
         
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             body: formData
           };
           
-          fetch(raiz+'../Backend/Requests/consulta_changePswd.php', opciones)
+          fetch(raiz+'Backend/Requests/consulta_changePswd.php', opciones)
           .then(function (response) {
             hideLoader();
             // Verificar si la solicitud fue exitosa

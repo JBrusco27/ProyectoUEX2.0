@@ -1,0 +1,740 @@
+.admin-container{
+    overflow: hidden;
+    position: fixed;
+    height: 0;
+    width: 100%;
+    inset: 0;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-verde-oscuro-2);
+    box-shadow: var(--box-shadow-1);
+    z-index: 999999;
+    transition: all .5s ease-in-out;
+}
+
+.admin-container::-webkit-scrollbar{
+    background-color: var(--color-blanco);
+    width: 8px;
+}
+
+.admin-container::-webkit-scrollbar-thumb{
+    background-color: var(--color-verde-oscuro);
+}
+
+.admin-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem   ;
+}
+
+.admin-container > header{
+    right: 0;
+    left: 0;
+    height: fit-content;
+    display: flex;
+    background-color: var(--color-verde-oscuro);
+    border-radius: 100px;
+    margin: 2rem;
+}
+
+.admin-container > header > nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.admin-container > header > nav > div{
+    color: var(--color-verde-claro);
+    cursor: pointer;
+}
+
+#close-admin-cont{
+    width: 100%;
+    height: fit-content;
+    padding: 1rem 0;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-verde-oscuro);
+}
+
+#close-admin-cont > p{
+    border-radius: 100px;
+    background-color: var(--color-verde-oscuro-2);
+    font-size: 27px;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-naranja);
+    cursor: default;
+}
+
+#close-admin-cont > p:hover{
+    background-color: transparent;
+    border: 2px solid var(--color-verde-oscuro-2);
+    cursor: pointer;
+}
+
+.component{
+    display: none;
+    justify-content: space-around;
+    align-items: start;
+    flex-grow: 1;
+    padding: 0 4rem;
+    gap: 2rem;  
+    margin-bottom: 2rem;
+}
+
+.gestion-lineas,.gestion-viajes,.gestion-usuarios,.gestion-admins,.gestion-inicio{
+    flex: 1;
+}
+
+#component-inicio{
+    display: flex;
+}
+
+.admin-container h1{
+    font-size: 20px;
+    color: var(--color-verde-claro) ;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.admin-container form .form-div{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items:end;
+    box-sizing: border-box;
+    width: 100%;
+    padding:1rem 0.5rem;
+    gap: 0.5rem;
+    border-bottom: 1px #c3c3c36b solid;
+}  
+
+.admin-container form .form-icon{
+    padding-bottom: 5px;
+    color: var(--color-naranja);
+    font-size: 22px;
+}
+
+.admin-container form .form-icon:hover{
+    transform: rotate(10deg);
+}
+
+.admin-container form .label-input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.admin-container form .form-label{
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    height: 100%;
+    color: var(--color-verde-claro);
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    line-height: 16px;
+    width: 100%;
+    text-indent: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-transform: uppercase;
+}
+
+.admin-container form .form-input{
+    flex: 1;
+    text-indent: 1rem;
+    z-index: 200;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 16px;
+    width: 100%;
+    cursor: text;
+    gap: 0;
+    outline: none;
+}
+
+.admin-container form .form-tramo-label{
+    color: var(--color-verde-claro);
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.admin-container form .form-parada-label{
+    color: var(--color-verde-claro);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.admin-container form .form-tramos-div{
+    position: relative;
+    background-color: var(--color-verde-oscuro);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: scroll;
+    min-height: 60px;
+    max-height: 20rem;
+}
+
+.admin-container form .form-tramo{
+    width: 100%;
+    height:fit-content;
+    border-radius: 10px;
+    background-color: var(--color-verde-oscuro-2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 10px;
+}
+
+.admin-container form .form-parada-input{
+    border-radius: 6px;
+    color: var(--color-verde-claro);
+    text-indent: 0.4rem;
+    height: 40px;
+    background-color: var(--color-verde-oscuro);
+}
+
+
+.admin-container form .form-tramos-div::-webkit-scrollbar{
+    background-color: var(--color-blanco);
+    width: 8px;
+}
+
+.admin-container form .form-tramos-div::-webkit-scrollbar-thumb{
+    background-color: var(--color-verde-oscuro);
+}
+
+.btn-nuevo-tramo{
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 100px;
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
+    place-self: center;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.4rem;
+}
+
+.form-tramo-remove{
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    overflow: hidden;
+    border-radius: 100px;
+    background-color: var(--color-verde-oscuro);
+    color: var(--color-naranja);
+    border: 2px var(--color-naranja) solid;
+    place-self: end;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 0.4rem;
+}
+
+.hover-remove-tramo{
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
+    border: none;
+}
+
+.admin-submitBtn{
+    width: 100% !important;
+    font-size: 20px;
+    background-color: var(--color-naranja);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-submitBtn-delete{
+    width: 100% !important;
+    font-size: 20px;
+    background-color: rgb(218, 58, 58);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.editar-linea form .editar-linea-content{
+    height: fit-content;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-verde-oscuro);
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+} 
+
+.editar-linea form .ediar-linea-admin-form-linea, .gestionar-clientes-admin-cont{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--color-verde-oscuro-2);
+    gap: 1rem;
+}
+
+.editar-linea form .ediar-linea-admin-form-linea label, .form-parada-label{
+    color: var(--color-verde-claro);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.editar-linea form .ediar-linea-admin-form-linea input{
+    border-radius: 6px;
+    color: var(--color-verde-claro);
+    text-indent: 0.4rem;
+    letter-spacing: 0.1rem;
+    padding: 1rem;
+    background-color: var(--color-verde-oscuro-2);
+}
+
+.editar-linea-admin-form-open, .gestionar-clientes-admin-form-open, .gestionar-admins-admin-form-open{
+    height: fit-content;
+    padding: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    background-color: var(--color-verde-oscuro);
+    cursor: pointer;
+}
+
+.editar-linea-admin-form-open *,.gestionar-clientes-admin-form-open *,.gestionar-admins-admin-form-open *{
+    color: var(--color-verde-claro);
+    font-size: 20px;
+}
+
+.editar-linea-admin-form-abrir-linea-content,.gestionar-cliente-admin-form-abrir-cliente-content{
+    height: fit-content;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 1rem   ;
+}
+
+.editar-linea-admin-form-abrir-linea-content-child,.gestionar-cliente-admin-form-abrir-cliente-content-child{
+    height: fit-content;
+    padding: 1rem;
+    justify-content: space-between;
+    display: flex;
+    background-color: var(--color-verde-oscuro);
+    cursor: pointer;
+    color: var(--color-verde-claro);
+    margin-left: 1rem;
+}
+
+.editar-linea-admin-form-abrir-linea-content-child *,.gestionar-cliente-admin-form-abrir-cliente-content-child *{
+    color: var(--color-verde-claro);
+}
+.datos-generales-content{
+    display: none;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+.editar-linea-admin-form-input{
+    background-color: var(--color-verde-oscuro) !important;
+    border-radius: 0 !important;
+}
+
+.form-linea-label{
+    margin-bottom: 0.5rem;
+}
+
+.editar-linea-admin-save-btn:disabled{
+    padding: 0.7rem 1rem;
+    background-color: var(--color-verde-oscuro);
+    border: 2px var(--color-naranja) solid;
+    color: var(--color-naranja);
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+    border-radius: 8px;
+    cursor: default;
+}
+.editar-linea-admin-save-btn{
+    padding: 0.7rem 1rem;
+    background-color: var(--color-naranja);
+    color: var(--color-verde-oscuro);
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+    border-radius: 8px;
+}
+
+.editar-linea-admin-delete-btn{
+    padding: 0.7rem 1rem;
+    background-color: rgb(218, 58, 58);
+    color: var(--color-verde-oscuro);
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+    border-radius: 8px;
+}
+
+.editar-linea-trayecto-xd{
+    height: fit-content;
+    display: none;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.editar-linea-form-tramo{
+    background-color: var(--color-verde-oscuro);
+    padding: 1rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    border-radius: 10px;
+}
+
+
+.editar-linea-admin-save-btn:enabled:hover{
+    filter: brightness(0.8);
+}
+
+.form-tramo-label{
+    font-size: 20px !important;
+    margin-bottom: 0.6rem;
+}
+
+.editar-linea-form-parada-input{
+    margin-bottom: 0.5rem ;
+    background-color: var(--color-verde-oscuro-2) !important;
+}
+
+.select-crear-viaje{
+    background-color: var(--color-verde-oscuro-2);
+    color: var(--color-verde-claro);
+}
+
+.select-crear-viaje option{
+    color: var(--color-verde-claro);
+}
+
+.form-label-noaction{
+    color: var(--color-verde-claro);
+    font-weight: 600;
+}
+
+.gestion-viajes-container{
+    height: fit-content;
+    background-color: var(--color-verde-oscuro);
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gestion-viajes-viaje-input-cont{
+    display: flex;
+    flex-direction:column ;
+    background-color: var(--color-verde-oscuro-2);
+    padding: 0.5rem;
+}
+
+.select-gestionar-viaje{
+    background-color: var(--color-verde-oscuro);
+    padding: 0.6rem;
+    color: var(--color-verde-claro);
+}
+
+.gestion-viajes-viaje{
+    display: none;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.datos-generales-action-viaje{
+    padding: 0.6rem;
+    color: var(--color-verde-claro);
+    background-color: var(--color-verde-oscuro-2);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.datos-generales-action-viaje > span{
+    color: var(--color-verde-claro);
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gestion-viajes-viaje-input-fecha-hora-container{
+    display: flex;
+    gap: 1rem;
+    background-color: var(--color-verde-oscuro-2);
+    padding: 0.5rem;
+}
+
+.gestion-viajes-viaje-input-cont-fecha{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fecha-gestionar-viaje{
+    width: 100%;
+    padding: 0.6rem;
+    color: var(--color-verde-claro);
+    background-color: var(--color-verde-oscuro);
+}
+
+.gestion-viajes-viaje-save-delete-cont{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.crear-linea-tramo-data-cont{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
+    padding: 0.4rem;
+    margin-top: 0.7rem;
+    background-color: var(--color-verde-oscuro);
+    gap: 0.4rem;
+}
+
+.crear-linea-tramo-data{
+    background-color: var(--color-verde-oscuro-2);
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--color-verde-claro);
+    font-weight: 700;
+}
+
+.abrir-reserva-esp-container{
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    background-color: var(--color-verde-oscuro  );
+    margin-left: 2.5rem;
+
+}
+
+.abrir-reserva-esp-datos{
+    color: var(--color-verde-claro);
+    padding: 1rem;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    gap: 0.2rem;
+}
+
+.abrir-reserva-esp-editables{
+    color: var(--color-verde-claro);
+    padding: 1rem;
+    height: fit-content;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    gap: 1rem;
+}
+
+.abrir-reserva-esp-datos > div , .abrir-reserva-esp-editables > div{
+    background-color: var(--color-verde-oscuro-2);
+    flex:1;
+    padding:0.5rem;
+    height: fit-content;
+    border-radius: 15px;
+    justify-content: space-between;
+    display:flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+
+.abrir-reserva-esp-datos > div > input, .abrir-reserva-esp-editables > div > input, .abrir-reserva-esp-datos > div > input, .abrir-reserva-esp-editables > div > select{
+    border-radius: 12px;
+    background-color: var(--color-verde-oscuro);
+    color: var(--color-verde-claro);
+    padding: 1rem;
+    font-size: 18px;
+}
+
+.abrir-reserva-esp-datos > div > label, .abrir-reserva-esp-editables > div > label{
+    color: var(--color-verde-claro);
+    font-weight: 700;
+    font-size: 19px;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.gestionar-reserva-eliminar-btn,.gestionar-generales-eliminar-btn-client,.gestionar-generales-eliminar-btn-admin{
+    padding: 0.7rem 1rem;
+    background-color: rgb(218, 58, 58);
+    color: var(--color-verde-oscuro);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.gestionar-reserva-guardar-btn,.gestionar-generales-guardar-btn,.gestionar-generales-guardar-btn-admin{
+    padding: 0.7rem 1rem;
+    background-color: var(--color-naranja)  ;
+    color: var(--color-verde-oscuro);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont{
+    background: var(--color-verde-oscuro);
+    margin-left: 2.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction:column;
+    gap: 1rem;
+}
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont > div{
+    background: var(--color-verde-oscuro);
+    display: flex;
+    flex-direction:row;
+    gap: 0.5rem;
+}
+
+
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont > div > div{
+    background-color: var(--color-verde-oscuro-2);
+    flex: 1;
+    padding: 0.5rem;
+    height: fit-content;
+    border-radius: 15px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont > div > div  > input{
+    border-radius: 12px;
+    background-color: var(--color-verde-oscuro);
+    color: var(--color-verde-claro);
+    padding: 1rem;
+    font-size: 18px;
+}
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont > div > div > label{
+    color: var(--color-verde-claro);
+    font-weight: 700;
+    font-size: 19px;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont-btns{
+    display: flex;
+    justify-content: right;
+}
+
+
+@media screen and (max-width:1300px) {
+    .gestion-lineas, .gestion-viajes, .gestion-usuarios, .gestion-admins{
+        width: 100%;
+    }
+
+    .component{
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .gestionar-cliente-admin-form-abrir-cliente-content-child-datos-cont > div{
+        flex-direction: column;
+    }
+
+    .gestionar-clientes-admin-cont{
+        padding: 1rem 0;
+    }
+    
+    .gestion-inicio{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+    .admin-container > header > nav{
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .admin-container > header > nav > div {
+        color: var(--color-verde-claro);
+        cursor: pointer;
+        background-color: var(--color-verde-oscuro-2);
+        padding: 0.5rem;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+
+    .admin-container > header {
+        right: 0;
+        left: auto;
+        height: fit-content;
+        display: flex;
+        background-color: var(--color-verde-oscuro);
+        border-radius: 20px;
+        place-self: center;
+        width: fit-content;
+        margin: 2rem;
+    }
+
+    .editar-linea-admin-save-btn, .editar-linea-admin-delete-btn {
+        width: 100%;
+    }
+
+    .crear-linea-tramo-data-cont {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        padding: 0.4rem;
+        margin-top: 0.7rem;
+        background-color: var(--color-verde-oscuro);
+        gap: 0.4rem;
+    }
+
+    .gestion-inicio{
+        width: 100%;
+    }
+}

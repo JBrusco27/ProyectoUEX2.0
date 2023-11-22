@@ -1,4 +1,6 @@
 <?php 
+
+    include_once "../../../Backend/app.php";
     include '../../../Backend/connect.php';
     
     if(isset($_COOKIE['codigo_verif'])){
@@ -57,8 +59,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
+    <!-- Cargando -->
+    <script src="../../Components/Scripts/loading.js"></script>
     <div class="container">
-        <img height="100px" src="/Frontend/Resources/viauyLogoNoBack.png" alt="">
+        <img height="100px" src="../../Resources/viauyLogoNoBack.png" alt="">
         <h1 class="Trad2"></h1>
         <p class="Trad3"></p>
     </div>

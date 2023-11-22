@@ -1,5 +1,6 @@
 <?php
 
+include_once "../app.php";
 include_once  "../connect.php";
 
 $parada_origen = $_POST['parada_origen'];

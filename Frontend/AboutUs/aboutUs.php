@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,9 @@
     
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js" defer></script>
+
+    <!-- Logica de my tickets -->
+    <script src="../Components/MyTicketsComp/mytickets_comp.js" defer></script>
         
     <!-- Logica de footer -->
     <script src="../Components/FooterComp/footer_comp.js" defer></script>
@@ -33,6 +37,7 @@
     <script src="../Components/MenuComp/menu_comp.js" defer></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="../Components/MyTicketsComp/mytickets_comp.css">
     <link rel="stylesheet" href="../Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
@@ -41,8 +46,29 @@
     <link rel="stylesheet" href="../Components/BannerComp/banner_comp.css">
 </head>
 <body>
+    <!-- Cargando -->
+    <script src="../Components/Scripts/loading.js"></script>
+
+    <!-- Admin -->
+    <?php 
+        $adminFile = '../components/Admin/adminInclude.php';
+
+        if(isset($_SESSION['tipo_usuario'])){
+            $sessionValue = $_SESSION['tipo_usuario'];
+        }else{
+            $sessionValue = 1;
+        }
+
+        if(intval($sessionValue) == 2 || intval($sessionValue) == 3 ){
+            include $adminFile;
+        }
+     ?>
+
     <!-- Sección configuración -->
     <?php include "../Components/ConfigComp/config_comp.php" ?>
+
+    <!-- Sección tickets -->
+    <?php include "../Components/MyTicketsComp/mytickets_comp.php" ?>
     
     <!-- Sección perfil -->
     <?php include "../Components/ProfileComp/profile_comp.php" ?>   
@@ -77,16 +103,6 @@
                     <p class="company-text Trad11"></p>
                     <p class="company-text Trad12"></p>
                     <p class="company-text Trad13"></p>
-                </div>
-                <div class="goals-about inclined-container">
-                    <h3 class="Trad14 title"></h3>
-                    <p class="company-text Trad15"></p>
-                    <p class="company-text Trad16"></p>
-                    <p class="company-text Trad17"></p>
-                    <p class="company-text Trad18"></p>
-                    <p class="company-text Trad19"></p>
-                    <p class="company-text Trad20"></p>
-                    <p class="company-text Trad21"></p>
                 </div>
             </div>
             <!-- Footer -->

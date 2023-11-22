@@ -10,10 +10,12 @@
 
 .config-container{
     overflow: hidden;
+    overflow-y: scroll;
     position: fixed;
     height: 100%;
     width: 0;
     right: 0;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -36,7 +36,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body>
-<?php include "../../Components/VerifyWasSend/verifyWasSend.php" ?>
+    <!-- Cargando -->
+    <script src="../../Components/Scripts/loading.js"></script>
+    <?php include "../../Components/VerifyWasSend/verifyWasSend.php" ?>
     <!-- Container -->
     <div class="container">
         <a href="../../../index.php" class="login-logo-div"><img src="../../Resources/viauyLogoNoBack.png" href='/' class="login-logo" alt="logo"></a>

@@ -94,7 +94,6 @@
       toggleNavMenuMobile();
   });  
 
-
     fetch(raiz+'Backend/user_cookie.php')
     .then(function (response) {
         // Verificar si la solicitud fue exitosa
@@ -103,9 +102,50 @@
         }
     })
     .then(function (data) {
+      function crearSeccionAdmin(){
+        var divElement = document.createElement("div");
+        divElement.id = "header-admin-action";
+        
+        var spanElement = document.createElement("span");
+        spanElement.classList.add("material-symbols-rounded", "action-icon");
+        spanElement.textContent = "shield_person";           
+        divElement.appendChild(spanElement);
+        
+        var textNode = document.createTextNode("Admin Tools");
+        divElement.appendChild(textNode);
+        
+        var parentElement = document.getElementById("preferences-dropdown-content-action");
+        parentElement.insertBefore(divElement, parentElement.lastElementChild);
+
+        let adminActive = true
+        document.getElementById('header-admin-action').addEventListener('click', () =>{
+          if(adminActive){
+            document.querySelector('.admin-container').style.height= "100%"
+            adminActive = false
+          }else{
+            document.querySelector('.admin-container').style.height= "0"
+            adminActive = true
+          }
+        })
+
+        document.querySelector('.gestion-salir-nav').addEventListener('click', ()=>{
+          document.querySelector('.admin-container').style.height="0"
+          adminActive = true
+       })
+
+      }
+
+      
         // Acceder a la variable log dentro del objeto data
         let nombre = data.nombre_usuario;
         document.querySelector('.user-name-span').innerHTML=nombre;
+        if(data.tipo_usuario == 1){
+          console.log('es user' + data.tipo_usuario)
+        }else if (data.tipo_usuario == 2 || data.tipo_usuario == 3) {
+          crearSeccionAdmin()
+        }else{
+          alert('Tipo de usuario no valido')
+        }
     })
     .catch(function (error) {
         console.error('Error:', error);

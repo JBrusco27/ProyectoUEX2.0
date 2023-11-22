@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,9 @@
 
     <!-- Logica de header -->
     <script src="../Components/HeaderComp/header_comp.js" defer></script>
+
+    <!-- Logica de my tickets -->
+    <script src="../Components/MyTicketsComp/mytickets_comp.js" defer></script>
     
     <!-- Logica de footer -->
     <script src="../Components/FooterComp/footer_comp.js" defer></script>
@@ -34,6 +38,7 @@
     <script src="../Components/MenuComp/menu_comp.js" defer></script>
     
     <!-- Estilos ( dependencias ) -->
+    <link rel="stylesheet" href="../Components/MyTicketsComp/mytickets_comp.css">
     <link rel="stylesheet" href="../Components/ProfileComp/profile_comp.css">
     <link rel="stylesheet" href="../Components/ConfigComp/config_comp.css">
     <link rel="stylesheet" href="../Components/HeaderComp/header_comp.css">
@@ -42,10 +47,31 @@
     <link rel="stylesheet" href="../Components/BannerComp/banner_comp.css">
 </head>
 <body>
+<body>
+    <!-- Cargando -->
+    <script src="../Components/Scripts/loading.js"></script>
+
+        <!-- Admin -->
+        <?php 
+        $adminFile = '../Components/Admin/adminInclude.php';
+
+        if(isset($_SESSION['tipo_usuario'])){
+            $sessionValue = $_SESSION['tipo_usuario'];
+        }else{
+            $sessionValue = 1;
+        }
+
+        if(intval($sessionValue) == 2 || intval($sessionValue) == 3 ){
+            include $adminFile;
+        }
+     ?>
 
     <!-- Sección configuración -->
     <?php include "../Components/ConfigComp/config_comp.php" ?>
     
+    <!-- Sección tickets -->
+    <?php include "../Components/MyTicketsComp/mytickets_comp.php" ?>
+
     <!-- Sección perfil -->
     <?php include "../Components/ProfileComp/profile_comp.php" ?>
 

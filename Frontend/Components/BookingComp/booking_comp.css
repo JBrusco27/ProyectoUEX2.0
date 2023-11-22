@@ -767,7 +767,7 @@
     .booking-asiento-seccion-info-seleccion{
         gap: 2rem;
         flex-direction: row-reverse;
-        width: 80%;
+        width: 100%;
         justify-content: space-between;
     }
     

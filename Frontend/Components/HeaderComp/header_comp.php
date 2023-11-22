@@ -32,7 +32,7 @@
                 <div class="HeadTrad8" id="header-config-action"><span class="material-symbols-rounded action-icon">brush</span></div>
                 <a href="<?php echo $raiz; ?>Frontend/Account/LogIn/logIn.php" id="header-login-action"><div class="HeadTrad9 a-preferences-item"><span class="material-symbols-rounded action-icon">login</span></div></a> 
                 <div class="HeadTrad10" id="header-logout-action"><span class="material-symbols-rounded action-icon">power_settings_new</span></div>
-            </div>
+            </div>  
         </div>
     </section>
     <!-- Menu de preferencias y usuario -->

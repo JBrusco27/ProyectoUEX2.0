@@ -1,26 +1,4 @@
 
-// Función para crear y mostrar la pantalla de carga
- function showLoader() {
-  if( document.querySelector('.loader')){
-
-  }else{
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    document.body.appendChild(loader);
-  }
-}
-  
-// Función para ocultar la pantalla de carga y mostrar el contenido principal
-function hideLoader() {
-  const loader = document.querySelector('.loader');
-  
-  if (loader) {
-      loader.style.display = 'none';
-      loader.remove();
-  }
-}
-
-
 // Cambiar el tema de la pagina
 function addTheme1(){
   localStorage.setItem('localTheme', 1);

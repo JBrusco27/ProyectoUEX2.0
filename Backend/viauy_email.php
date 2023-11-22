@@ -1,5 +1,7 @@
 <?php
 
+include_once "./app.php";
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -18,17 +20,17 @@ $email_sended = false;
 
 try{
     
-    // Server settings
+    // Configuracion del envio del email
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'viauycontact@gmail.com'; // Email emisor
-    $mail->Password   = 'zenkzesdnsgkiuqy'; // Contraseña de aplicacion del emisor
-    $mail->SMTPSecure = 'tls';
-    $mail->Port       = 587; // Puerto TCP al que se conecta para el envio
-    $mail->setFrom('viauycontact@gmail.com', $user_name); // Email emisor
-    $mail->addAddress('viauycontact@gmail.com'); // Email receptor
-    $mail->isHTML(true);    
+    $mail->Host = $_ENV['SMTP_HOST'];
+    $mail->SMTPAuth   = $_ENV['SMTP_AUTH'];
+    $mail->Username   = $_ENV['SMTP_USERNAME'];
+    $mail->Password = $_ENV['SMTP_PASSWORD'];
+    $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
+    $mail->Port = $_ENV['SMTP_PORT'];
+    $mail->setFrom($_ENV['SMTP_FROM_EMAIL'], $user_name);
+    $mail->addAddress($_ENV['SMTP_USERNAME']);
+    $mail->isHTML(true);
     $mail->Subject = 'Contact message from '.$user_email.' | '.$user_phone;
     $mail->Body = '<html><head><style></style></head><body>'.$user_message.'</body></body></html>';
     $mail->send();

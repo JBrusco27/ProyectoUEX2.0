@@ -151,7 +151,7 @@ async function cambiarPagoSeccionAnterior() {
         setTimeout(() => {
             document.querySelector('.booking-pago-seccion').style.display = "none";
             document.querySelector('.booking-pago-seccion').style.transform = "translateX(0%)";
-            removeSeats();
+            // removeSeats();/////////////////////////////////////
         }, 700);
     } catch (error) {
         console.error("Error en findSeats:", error);
@@ -348,8 +348,10 @@ function lineSelected(datosLinea, consultaLineasData) {
 
 }
 
+let precioTotal = 0;
 function seccionPago(){
-    let precioTotal = 0;
+
+    precioTotal = 0
 
      const horaSalidaDate = new Date(0)
     let tiempoString = datosLineaIda.HoraSalidaLLegada;
@@ -560,6 +562,7 @@ function pagarBtn(){
     formDataIda.append('fecha', `${fechaReservaYear}-${fechaReservaMonth}-${fechaReservaDate}`);
     formDataIda.append('id_horario', datosLineaIda.ID_Horario);
     formDataIda.append('num_asiento', datosLineaIda.Num_Asiento);
+    formDataIda.append('precio', precioTotal);
     formDataIda.append('metodo_pago', document.getElementById('booking-metodo-pago-select').value);
     console.log(document.getElementById('booking-metodo-pago-select').value)
     
@@ -570,6 +573,7 @@ function pagarBtn(){
     formDataVuelta.append('id_horario', datosLineaVuelta.ID_Horario);
     formDataVuelta.append('num_asiento', datosLineaVuelta.Num_Asiento);
     formDataVuelta.append('metodo_pago', document.getElementById('booking-metodo-pago-select').value);
+    formDataVuelta.append('precio', precioTotal);
 
 
     let optionsIda = {
@@ -609,7 +613,7 @@ function pagarBtn(){
                 })
                 .then((data)=>{
                     // Data 2
-                    console.log('esado de reserva de vuelta cambio a: ' + data.estado_compra)
+                    console.log('estado de reserva de vuelta cambio a: ' + data.estado_compra)
                     estadoReservaVuelta = data.estado_compra;
                     hideLoader();
 
@@ -844,7 +848,7 @@ function searchRoutes(datosLinea){
     }
 
     var año = fechaIdaInput.getFullYear() ;
-    var mes = fechaIdaInput.getMonth(); // Los meses en JavaScript van de 0 a 11, así que sumamos 1
+    var mes = fechaIdaInput.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, así que sumamos 1
     var dia = fechaIdaInput.getDate() + 1;
 
     // Asegurarnos de que el mes y el día tengan siempre dos dígitos
@@ -956,8 +960,8 @@ function searchRoutes(datosLinea){
         case 0:
             fechaTitle.textContent = 'Date';
             break;
-            case 1:
-                fechaTitle.textContent = 'Fecha';
+        case 1:
+            fechaTitle.textContent = 'Fecha';
             break;
         case 2:
             fechaTitle.textContent = 'Data';
@@ -1047,7 +1051,7 @@ function searchRoutes(datosLinea){
     horaSalidaDate.setHours(parseInt(horaSalida)+parseInt(lineasDisponibles[e].Duracion/60))
     horaSalidaDate.setMinutes(parseInt(minutosSalida)+parseInt(lineasDisponibles[e].Duracion%60))
     // datosLinea.HoraSalidaLLegada = lineasDisponibles[e].Hora_Salida;
-    destinoHora.innerHTML ="&nbsp•&nbsp"+horaSalidaDate.getHours()+":"+((horaSalidaDate.getMinutes().toString().length == 1) ? "0" + horaSalidaDate.getMinutes() : horaSalidaDate.getMinutes());
+    destinoHora.innerHTML ="&nbsp•&nbsp"+horaSalidaDate.getHours()+":"+((horaSalidaDate.getMinutes().toString().length <= 1) ? "0" + horaSalidaDate.getMinutes() : horaSalidaDate.getMinutes());
     
     
     hora.appendChild(origenHora);
@@ -1291,7 +1295,7 @@ document.getElementById('form-idavenida-div').addEventListener('focus', ()=>{
         
     })
     .catch((arr)=>{
-        console.error(err)
+        console.error(arr)
     });
 
 });

@@ -1,5 +1,5 @@
 const translateFunc = (columnNumber) => {
-    return fetch('./Frontend/Components/Scripts/Translate/Reset_Pswd/languageResetPswd.csv')
+    return fetch(raiz+'Frontend/Components/Scripts/Translate/Reset_Pswd/languageResetPswd.csv')
       .then((response) => response.text())
       .then((csvData) => {
         const result = Papa.parse(csvData, {
@@ -27,14 +27,13 @@ const translateFunc = (columnNumber) => {
     });
   };
   
-  let columnNumber = localStorage.getItem('columnNumber');
+  let columnNumber
+
+  if(localStorage.getItem('columnNumber') == null){
+    localStorage.setItem('columnNumber', 1);
+    columnNumber = localStorage.getItem('columnNumber')
+  }else{
+    columnNumber = localStorage.getItem('columnNumber');
+  }
   
-  const defaultTranslate = () => {
-    if (columnNumber == undefined) {
-      localStorage.setItem('columnNumber', 1);
-      translateFunc(columnNumber);
-    } else {
-      translateFunc(columnNumber);
-    }
-  };
-  document.addEventListener('DOMContentLoaded', defaultTranslate);
+  translateFunc(columnNumber);

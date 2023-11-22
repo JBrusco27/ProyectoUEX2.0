@@ -1,4 +1,5 @@
 <?php
+include_once "../app.php";
 include_once "../connect.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -54,34 +55,35 @@ try {
             $verifExpiry = time() + (1 * 60 * 60); // Calcula la fecha y hora de expiración en 1 hora
             setcookie('codigo_verif', $codigo, $verifExpiry, '/');
 
+
                 try {
                 // Configuracion del envio del email
-                $mail->isSMTP();// Enviar usando SMTP
-                $mail->Host       = 'smtp.gmail.com';
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'viauycontact@gmail.com'; // Email emisor
-                $mail->Password   = 'zenkzesdnsgkiuqy'; // Contraseña de aplicacion del emisor
-                $mail->SMTPSecure = 'tls';
-                $mail->Port       = 587; // Puerto TCP al que se conecta para el envio
-                $mail->setFrom('viauycontact@gmail.com', 'Via uy'); // Email emisor
-                $mail->addAddress($correo_usuario); // Email receptor
+                $mail->isSMTP();
+                $mail->Host = $_ENV['SMTP_HOST'];
+                $mail->SMTPAuth   = $_ENV['SMTP_AUTH'];
+                $mail->Username   = $_ENV['SMTP_USERNAME'];
+                $mail->Password = $_ENV['SMTP_PASSWORD'];
+                $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
+                $mail->Port = $_ENV['SMTP_PORT'];
+                $mail->setFrom($_ENV['SMTP_FROM_EMAIL'], $_ENV['SMTP_FROM_NAME']);
+                $mail->addAddress($correo_usuario);
                 $mail->isHTML(true);
 
                 //Enviar email segun el idioma
                 switch($column_number){
                     case 0:
                         $mail->Subject = 'Change password | Viauy';
-                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verify to change password</h1><p>Click the link below to change your Viauy password:</p><a href="https://viauyprueba.000webhostapp/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
+                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verify to change password</h1><p>Click the link below to change your Viauy password:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
                         $mail->send();
                         break;
                     case 1:
                         $mail->Subject = 'Cambiar contraseña | Viauy';
-                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verificar para cambiar la contraseña</h1><p>Haz click en el link de abajo para cambiar tu contraseña de Viauy:</p><a href="https://viauyprueba.000webhostapp.com/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
+                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verificar para cambiar la contraseña</h1><p>Haz click en el link de abajo para cambiar tu contraseña de Viauy:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
                         $mail->send();
                         break;
                     case 2:
                         $mail->Subject = 'Alterar a senha | Viauy';
-                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verifique para alterar a senha </h1><p>Clique no link abaixo para alterar sua senha Viauy:</p><a href="https://viauyprueba.000webhostapp.com/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
+                        $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verifique para alterar a senha </h1><p>Clique no link abaixo para alterar sua senha Viauy:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code='.$codigo.'&pswd_hash='.$password_usuario_hashed.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
                         $mail->send();
                         break;
                 }

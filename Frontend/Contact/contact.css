@@ -77,7 +77,7 @@
     margin:0 0 6rem 0 ;
 }
 
-form{
+.container form{
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -93,9 +93,10 @@ form{
     flex-direction: row;
 }
 
-form div{
-    width:50%;
+.form-top > div{
+    flex: 1;
 }
+
 
 .form-left-div{
     flex: 1;
@@ -371,13 +372,13 @@ form div{
 }
 
 @media screen and (max-width:1300px){
-    form{
+    .container form{
         width: 90%;
     }
 }
 
 @media screen and (max-width:1050px){
-    form{
+    .container form{
         flex-direction: column;
         align-items: center;
     }
@@ -402,7 +403,7 @@ form div{
         height: 100%;
     }
 
-    form div{
+    .container form div{
         width: 100%;
     }
 }
@@ -430,12 +431,5 @@ form div{
     }
 
 }
-
-@media screen and (max-width:700px){
-
-}
-
-
-
 
 /* BODY */

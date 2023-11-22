@@ -1,5 +1,6 @@
 <?php
 
+include_once "../app.php";
 include_once "../connect.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -83,34 +84,33 @@ try
         setcookie('codigo_verif_signup', $codigo, $verifExpiry, '/');
 
         try {
-        // Server settings
-        $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'viauycontact@gmail.com';                     // SMTP username
-        $mail->Password   = 'zenkzesdnsgkiuqy';                               // SMTP password
-        $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-        // Recipients
-        $mail->setFrom('viauycontact@gmail.com', 'Via uy');
-        $mail->addAddress($correo_usuario);     // Add a recipient
-        $mail->isHTML(true);    
+        // Configuracion del envio del email
+        $mail->isSMTP();
+        $mail->Host = $_ENV['SMTP_HOST'];
+        $mail->SMTPAuth   = $_ENV['SMTP_AUTH'];
+        $mail->Username   = $_ENV['SMTP_USERNAME'];
+        $mail->Password = $_ENV['SMTP_PASSWORD'];
+        $mail->SMTPSecure = $_ENV['SMTP_SECURE'];
+        $mail->Port = $_ENV['SMTP_PORT'];
+        $mail->setFrom($_ENV['SMTP_FROM_EMAIL'], $_ENV['SMTP_FROM_NAME']);
+        $mail->addAddress($correo_usuario);
+        $mail->isHTML(true);
 
         //Enviar email segun idioma
         switch($column_number){
             case 0:
                 $mail->Subject = 'Create account | Viauy';
-                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verify to create account</h1><p>Click the link below to create your Viauy account:</p><a href="https://viauyprueba.000webhostapp/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Create account</a></body></html>';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verify to create account</h1><p>Click the link below to create your Viauy account:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Create account</a></body></html>';
                 $mail->send();
                 break;
             case 1:
                 $mail->Subject = 'Crear cuenta | Viauy';
-                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verificar para crear cuenta</h1><p>Haz click en el link de abajo para crear tu cuenta de Viauy:</p><a href="https://viauyprueba.000webhostapp/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Crear cuenta</a></body></html>';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verificar para crear cuenta</h1><p>Haz click en el link de abajo para crear tu cuenta de Viauy:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Crear cuenta</a></body></html>';
                 $mail->send();
                 break;
             case 2:
                 $mail->Subject = 'Criar conta | Viauy';
-                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verifique para criar conta</h1><p>Clique no link abaixo para criar sua conta Viauy:</p><a href="https://viauyprueba.000webhostapp/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
+                $mail->Body = '<html><head><style>.em-container{text-align:center; height:200px;} .em-container *{margin:40px; color:black;} </style></head><body class="em-container"><h1 style="color: black;">Verifique para criar conta</h1><p>Clique no link abaixo para criar sua conta Viauy:</p><a href="'.$_ENV['WEB_HOST'].$_ENV['ROOT_PATH'].'/Frontend/Account/VerifyComplete/verifyComplete.php?verif_code_signup='.$codigo.'&password_signup='.$password_usuario_hashed.'&nombre_signup='.$nombre_usuario.'&correo_signup='.$correo_usuario.'&telefono_signup='.$telefono_usuario.'" style="background-color:black; border-radius:10px; color:white; padding:15px 30px; text-decoration:none; margin:25px; cursor:pointer;">Reset Password</a></body></html>';
                 $mail->send();
                 break;
         }
