@@ -301,6 +301,7 @@ document.getElementById('create-admin-submit').addEventListener('click', (event)
     })
     .then(function (data) {
         // Se accede a la variable email_exists de data para hacer la verificacion.
+        console.log(data.email_exists)
         if(data.email_exists){
         alert('Ese email ya existe')
     }else{

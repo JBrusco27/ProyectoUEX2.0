@@ -851,6 +851,10 @@ function searchRoutes(datosLinea){
     var mes = fechaIdaInput.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, así que sumamos 1
     var dia = fechaIdaInput.getDate() + 1;
 
+    var añoV = fechaVueltaInput.getFullYear() ;
+    var mesV = fechaVueltaInput.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, así que sumamos 1
+    var diaV = fechaVueltaInput.getDate() + 1;
+
     // Asegurarnos de que el mes y el día tengan siempre dos dígitos
     if (mes < 10) {
         mes = "0" + (mes + 1);
@@ -859,27 +863,61 @@ function searchRoutes(datosLinea){
     if (dia < 10) {
         dia = "0" + dia;
     }
+    // Asegurarnos de que el mes y el día tengan siempre dos dígitos
+    if (mesV < 10) {
+        mesV = "0" + (mesV + 1);
+    }
+
+    if (diaV < 10) {
+        diaV = "0" + diaV;
+    }
 
     // Crear la cadena en formato "yyyy-mm-dd"
     let fechaIdaInputFormated = año + "-" + mes + "-" + dia;
+    let fechaVueltaInputFormated = añoV + "-" + mesV + "-" + diaV;
 
-    // Se le agregan valores a las fechas en la pare superior de la reserva
-    const diasParaMostrar = [-2,-1,0,1,2];
-    for (let i = -2; i < diasParaMostrar.length; i++) {
-        const date = new Date()
-        date.setDate(fechaIdaInput.getDate() + diasParaMostrar[i]);
-        
-        const dayValue = nombresDias[date.getDay()];
-        const dateValue = date.getDate() + 1;
-        const elementId = `booking-fechaIda-item-${i === 2 ? 'today' : i === 0 ? 'dby' : i === 1 ? 'yesterday' : i === 3 ? 'tomorrow' : 'tat'}`;
+    if(datosLinea.Dir_Viaje == 'Ida'){
+        // Se le agregan valores a las fechas en la pare superior de la reserva
+        const diasParaMostrar = [-2,-1,0,1,2];
+        for (let i = -2; i < diasParaMostrar.length; i++) {
+            const date = new Date()
+            date.setDate(fechaIdaInput.getDate() + diasParaMostrar[i]);
+            
+            const dayValue = nombresDias[date.getDay()];
+            const dateValue = date.getDate() + 1;
+            const elementId = `booking-fechaIda-item-${i === 2 ? 'today' : i === 0 ? 'dby' : i === 1 ? 'yesterday' : i === 3 ? 'tomorrow' : 'tat'}`;
 
-        document.getElementById(`${elementId}-day`).innerHTML = dayValue;
-        document.getElementById(`${elementId}-date`).innerHTML = dateValue;
+            document.getElementById(`${elementId}-day`).innerHTML = dayValue;
+            document.getElementById(`${elementId}-date`).innerHTML = dateValue;
+        }
+
+    }else if(datosLinea.Dir_Viaje == 'Vuelta'){
+        // Se le agregan valores a las fechas en la pare superior de la reserva
+        const diasParaMostrar = [-2,-1,0,1,2];
+        for (let i = -2; i < diasParaMostrar.length; i++) {
+            const date = new Date()
+            date.setDate(fechaVueltaInput.getDate() + diasParaMostrar[i]);
+            
+            const dayValue = nombresDias[date.getDay()];
+            const dateValue = date.getDate() + 1;
+            const elementId = `booking-fechaIda-item-${i === 2 ? 'today' : i === 0 ? 'dby' : i === 1 ? 'yesterday' : i === 3 ? 'tomorrow' : 'tat'}`;
+
+            document.getElementById(`${elementId}-day`).innerHTML = dayValue;
+            document.getElementById(`${elementId}-date`).innerHTML = dateValue;
+        }
+
     }
 
-    // Se le agregan valores al origen y edstino en la visual de la reserva
-    document.getElementById('booking-lineas-departamento-origen').textContent = document.getElementById('form-from-div').options[document.getElementById('form-from-div').selectedIndex].textContent;
-    document.getElementById('booking-lineas-departamento-destino').textContent = document.getElementById('form-to-div').options[document.getElementById('form-to-div').selectedIndex].textContent;
+    if(datosLinea.Dir_Viaje == 'Ida'){
+        // Se le agregan valores al origen y edstino en la visual de la reserva
+        document.getElementById('booking-lineas-departamento-origen').textContent = document.getElementById('form-from-div').options[document.getElementById('form-from-div').selectedIndex].textContent;
+        document.getElementById('booking-lineas-departamento-destino').textContent = document.getElementById('form-to-div').options[document.getElementById('form-to-div').selectedIndex].textContent;
+    }else if(datosLinea.Dir_Viaje == 'Vuelta'){
+        // Se le agregan valores al origen y edstino en la visual de la reserva
+        document.getElementById('booking-lineas-departamento-destino').textContent = document.getElementById('form-from-div').options[document.getElementById('form-from-div').selectedIndex].textContent;
+        document.getElementById('booking-lineas-departamento-origen').textContent = document.getElementById('form-to-div').options[document.getElementById('form-to-div').selectedIndex].textContent;
+    }
+
 
     // Preparamos el fetch
     let formData = new FormData();
@@ -887,7 +925,7 @@ function searchRoutes(datosLinea){
         formData.append('fromValue', toInputValue);
         formData.append('toValue', fromInputValue);
         formData.append('Sentido', 'Vuelta');
-        formData.append('calIdaValue', fechaIdaInputFormated);
+        formData.append('calIdaValue', fechaVueltaInputFormated);
     }else if(datosLinea.Dir_Viaje == 'Ida'){
         formData.append('fromValue', fromInputValue);
         formData.append('toValue', toInputValue);
@@ -986,9 +1024,15 @@ function searchRoutes(datosLinea){
                     routeMonth === 8 ? 'SEP' :
                     routeMonth === 9 ? 'OCT' :
                     routeMonth === 10 ? 'NOV' : 'DEC';
-                    diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
-                    fecha.appendChild(document.createTextNode(mesAbreviado0+" "+ diaMasUno));
-                    datosLinea.calIdaInputValueDateFormat = mesAbreviado0+" "+ diaMasUno;
+                    if(datosLinea.Dir_Viaje == 'Ida'){
+                        diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado0+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado0+" "+ diaMasUno;
+                    }else if(datosLinea.Dir_Viaje == 'Vuelta'){
+                        diaMasUno = parseInt(fechaVueltaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado0+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado0+" "+ diaMasUno;
+                    }
                     break;
                 case 1:
                     const mesAbreviado1 = routeMonth === 0 ? 'ENE' :
@@ -1002,9 +1046,15 @@ function searchRoutes(datosLinea){
                     routeMonth === 8 ? 'SEP' :
                     routeMonth === 9 ? 'OCT' :
                     routeMonth === 10 ? 'NOV' : 'DIC';
-                    diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
-                    fecha.appendChild(document.createTextNode(mesAbreviado1+" "+ diaMasUno));
-                    datosLinea.calIdaInputValueDateFormat = mesAbreviado1+" "+ diaMasUno;
+                    if(datosLinea.Dir_Viaje == 'Ida'){
+                        diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado1+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado1+" "+ diaMasUno;
+                    }else if(datosLinea.Dir_Viaje == 'Vuelta'){
+                        diaMasUno = parseInt(fechaVueltaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado1+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado1+" "+ diaMasUno;
+                    }
                     break;
             case 2:
                     const mesAbreviado2 = routeMonth === 0 ? 'JAN' :
@@ -1018,9 +1068,15 @@ function searchRoutes(datosLinea){
                     routeMonth === 8 ? 'SET' :
                     routeMonth === 9 ? 'OUT' :
                     routeMonth === 10 ? 'NOV' : 'DEZ';
-                    diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
-                    fecha.appendChild(document.createTextNode(mesAbreviado2+" "+ diaMasUno));
-                    datosLinea.calIdaInputValueDateFormat = mesAbreviado2+" "+ diaMasUno;
+                    if(datosLinea.Dir_Viaje == 'Ida'){
+                        diaMasUno = parseInt(fechaIdaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado2+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado2+" "+ diaMasUno;
+                    }else if(datosLinea.Dir_Viaje == 'Vuelta'){
+                        diaMasUno = parseInt(fechaVueltaInput.getDate()) + 1;
+                        fecha.appendChild(document.createTextNode(mesAbreviado2+" "+ diaMasUno));
+                        datosLinea.calIdaInputValueDateFormat = mesAbreviado2+" "+ diaMasUno;
+                    }
                     break;
                 default:
                     break;
@@ -1183,6 +1239,7 @@ let fromInputValue;
 let toInputValue;
 let calIdaInputValue;
 let fechaIdaInput;
+let fechaVueltaInput;
 
 // Importante | Se guarda linea seleccionada por el usuario en la ida
 
@@ -1271,7 +1328,9 @@ document.getElementById('form-idavenida-div').addEventListener('focus', ()=>{
             fromInputValue = document.getElementById('form-from-div').value;
             toInputValue = document.getElementById('form-to-div').value;
             calIdaInputValue = document.getElementById('form-calIda-div').value;
+            calVueltaInputValue = document.getElementById('form-calVenida-div').value;
             fechaIdaInput = new Date(calIdaInputValue);
+            fechaVueltaInput = new Date(calVueltaInputValue);
 
             ///////////////////////
             searchRoutes(datosLineaIda);////////

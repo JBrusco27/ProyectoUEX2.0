@@ -134,7 +134,7 @@ document.querySelector('.icon-close-mytickets').addEventListener('click', () => 
         origenTitle.classList.add("booking-lineas-disponibles-item-top-content-left-origen-title", "booking-departament-title");
         origenTitle.textContent = nomLinea;
         
-        let origenText = document.createTextNode("Montevideo");
+        let origenText = document.createTextNode(ticketInfo[t].origenLinea);
         origen.appendChild(origenTitle);
         origen.appendChild(origenText);
         
@@ -193,12 +193,44 @@ document.querySelector('.icon-close-mytickets').addEventListener('click', () => 
         }
         
         let estadoInfoD = document.createElement("p");
-        estadoInfoD.textContent = estadoReserva
         if(estadoReserva == 'Pendiente'){
+            switch (columnNumberMyTick) {
+                case 0:
+                    estadoInfoD.textContent = "Pending";
+                    break;
+                case 1:
+                    estadoInfoD.textContent = "Pendiente";                
+                    break;
+                case 2:
+                    estadoInfoD.textContent = "Pendente";     
+                    break;
+            }
             estadoInfoD.classList.add("booking-lineas-disponibles-item-top-content-center-estado-info","booking-lineas-disponibles-item-top-content-center-estado-info-pendiente");
         }else if (estadoReserva == 'Confirmado') {
+            switch (columnNumberMyTick) {
+                case 0:
+                    estadoInfoD.textContent = "Confirmed";
+                    break;
+                case 1:
+                    estadoInfoD.textContent = "Confirmado";                
+                    break;
+                case 2:
+                    estadoInfoD.textContent = "Confirmado";     
+                    break;
+            }
             estadoInfoD.classList.add("booking-lineas-disponibles-item-top-content-center-estado-info","booking-lineas-disponibles-item-top-content-center-estado-info-confirmado"); 
         }else if (estadoReserva == 'Cancelado') {
+            switch (columnNumberMyTick) {
+                case 0:
+                    estadoInfoD.textContent = "Cancelled";
+                    break;
+                case 1:
+                    estadoInfoD.textContent = "Cancelado";                
+                    break;
+                case 2:
+                    estadoInfoD.textContent = "Cancelado";     
+                    break;
+            }
             estadoInfoD.classList.add("booking-lineas-disponibles-item-top-content-center-estado-info","booking-lineas-disponibles-item-top-content-center-estado-info-cancelado"); 
         }
 
@@ -221,7 +253,7 @@ document.querySelector('.icon-close-mytickets').addEventListener('click', () => 
         destinoTitle.classList.add("booking-lineas-disponibles-item-top-content-right-destino-title", "booking-departament-title");
         destinoTitle.textContent = nomLinea;
         
-        let destinoText = document.createTextNode("Punta del Este");
+        let destinoText = document.createTextNode(ticketInfo[t].destinoLinea);
         destino.appendChild(destinoTitle);
         destino.appendChild(destinoText);
         

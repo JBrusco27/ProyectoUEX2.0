@@ -66,13 +66,13 @@ try
     $stmt_verificar->execute();
     
     $resultado = $stmt_verificar->fetch(PDO::FETCH_ASSOC);
-    $email = true;
+    $email_exists = true;
     if ($resultado['count'] > 0) {
         $email_exists = true;
         echo json_encode(["email_exists" => $email_exists]);
         exit;
     }else{
-        $email = false;
+        $email_exists = false;
         $sql_insertar = "INSERT INTO usuario (ID_Rol, Nombre_Usu, Contraseña_Usu, Correo_Usu, Telefono_Usu) VALUES (2, :nombre, :password, :correo, :telefono)";
         $stmt_insertar = $conn->prepare($sql_insertar);
         $stmt_insertar->bindParam(':nombre', $nombre_usuario);

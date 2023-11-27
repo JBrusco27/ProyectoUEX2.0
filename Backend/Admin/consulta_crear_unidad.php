@@ -19,19 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_linea->bindParam(1, $matricula, PDO::PARAM_STR);
     $stmt_linea->bindParam(2, $new_id_linea, PDO::PARAM_INT);
 
+ $secreo = 0;
     if ($stmt_linea->execute()) {
         
         for ($i = 1; $i < $cantAsientos + 1; $i++){
-        echo $matricula;
-        echo $i;
         $sql_insert_asiento = "INSERT INTO asiento (Num_Asiento, Matricula_Unidad) VALUES (?, ?)";
         $stmt_asiento = $conn->prepare($sql_insert_asiento);
         $stmt_asiento->bindParam(1, $i, PDO::PARAM_INT);
         $stmt_asiento->bindParam(2, $matricula, PDO::PARAM_STR);
         
-
         if($stmt_asiento->execute()){
-            echo json_encode(true);
+            if ($secreo = 0){
+                echo json_encode(true);
+                $secreo++;
+            }
         }
 
         }

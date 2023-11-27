@@ -7,7 +7,7 @@
             <h3 class="menu-nav-user-name"></h3>
         </div>
         <nav class="menu-nav-container">
-            <div class="menu-nav-content" id="menu-nav-home"><span class="material-symbols-rounded menu-nav-icon">home</span><a href="index.php" class="menuTrad2"></a></div>
+            <div class="menu-nav-content" id="menu-nav-home"><span class="material-symbols-rounded menu-nav-icon">home</span><a href="<?php echo $raiz; ?>index.php" class="menuTrad2"></a></div>
             <div class="menu-nav-content" id="menu-nav-contact"><span class="material-symbols-rounded menu-nav-icon">phone</span><a href="<?php echo $raiz; ?>Frontend/Contact/contact.php" class="menuTrad3"></a></div>
             <div class="menu-nav-content" id="menu-nav-schedules"><span class="material-symbols-rounded menu-nav-icon">calendar_month</span><a href="<?php echo $raiz; ?>Frontend/Schedules/schedules.php" class="menuTrad4"></a></div>
             <div class="menu-nav-content" id="menu-nav-schedules"><span class="material-symbols-rounded menu-nav-icon">groups</span><a href="<?php echo $raiz; ?>Frontend/AboutUs/aboutUs.php" class="menuTrad5"></a></div>

@@ -809,7 +809,8 @@ function hoverRemovesEdLi(){
       event.stopImmediatePropagation()
       const cantTramosPorLinea = formTramosDiv.children.length;
       const posicionPadre = parseInt(element.parentNode.id[(parseInt(element.parentNode.id.indexOf('tramo')) + 5 )]);
-      for (let i = posicionPadre; i < cantTramosPorLinea; i++) {
+      for (let i = posicionPadre; i < cantTramosPorLinea + 1; i++) {
+          console.log(i)
         document.getElementById(`admin-linea-remove-tramo${i}-${element.getAttribute('nomlinea')}`).classList.add('hover-remove-tramo')
         document.getElementById(`admin-linea-tramo${i}-${element.getAttribute('nomlinea')}`).style.background='var(--color-desaprobado)'
       }
@@ -822,7 +823,7 @@ function hoverRemovesEdLi(){
       const cantTramosPorLinea = formTramosDiv.children.length;
       const posicionPadre = parseInt(element.parentNode.id[(parseInt(element.parentNode.id.indexOf('tramo')) + 5 )]);
       
-      for (let i = posicionPadre; i < cantTramosPorLinea; i++) {
+      for (let i = posicionPadre; i < cantTramosPorLinea + 1; i++) {
         document.getElementById(`admin-linea-remove-tramo${i}-${element.getAttribute('nomlinea')}`).classList.remove('hover-remove-tramo')
         document.getElementById(`admin-linea-tramo${i}-${element.getAttribute('nomlinea')}`).style.background=''
 
@@ -926,6 +927,7 @@ document.getElementById('admin-submit-crear-linea').addEventListener('click', ()
           method: 'POST'
       };
 
+      showLoader();
       fetch(raiz+'/Backend/Admin/consulta_crear_linea.php', option)
       .then((response) => {
           return response.json().then(data => ({
@@ -934,8 +936,10 @@ document.getElementById('admin-submit-crear-linea').addEventListener('click', ()
           }));
       })
       .then((result) => {
+          hideLoader();
           if (result.status === 200) {
             alert('La linea se ha creado correctamente')
+            window.location.reload()
           } else {
             alert('Ha ocurrido un error')
           }
@@ -963,7 +967,7 @@ function guardarLinea() {
         let tramoDatosUpdate = [];
 
     
-        for (let b = 1; b < Array.from(document.getElementById(`editar-linea-tramo-${element.id}`).childNodes).length; b++) {
+        for (let b = 1; b < Array.from(document.getElementById(`editar-linea-tramo-${element.id}`).childNodes).length+ 1; b++) {
           
           let tramoUpdate = []
           tramoUpdate.push(document.getElementById(`editar-linea-parada-linea1-tramo${b}-${element.id}`).value)
@@ -1005,6 +1009,7 @@ function guardarLinea() {
             method: 'POST'
         };
     
+        showLoader();
         fetch(raiz+'/Backend/Admin/consulta_editar_linea.php', option)
         .then((response) => {
             return response.json().then(data => ({
@@ -1013,9 +1018,10 @@ function guardarLinea() {
             }));
         })
         .then((result) => {
+            hideLoader();
             if (result.status === 200) {
                 alert('La linea se ha editado correctamente')
-                window.location.reload()
+                // window.location.reload()
             } else {
                 alert('Ha ocurrido un error')
                 console.error('Respuesta con error:', result.status, result.data);

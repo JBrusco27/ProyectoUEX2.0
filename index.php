@@ -64,13 +64,14 @@
 
     <!-- Admin -->
     <?php 
-        $adminFile = './Frontend/components/Admin/adminInclude.php';
-        
+        $adminFile = './Frontend/Components/Admin/adminInclude.php';
+
         if(isset($_SESSION['tipo_usuario'])){
             $sessionValue = $_SESSION['tipo_usuario'];
         }else{
             $sessionValue = 1;
         }
+
 
         if(intval($sessionValue) == 2 || intval($sessionValue) == 3 ){
             include $adminFile;

@@ -43,6 +43,7 @@ function crearParada(){
             method: 'post'
         };
         
+        showLoader();
         fetch(raiz+'/Backend/Admin/consulta_crear_parada.php', option)
             .then((response) => {
             return response.json().then(data => ({
@@ -52,6 +53,7 @@ function crearParada(){
             })
             .then((result) => {
             if (result.status === 200) {  
+                hideLoader();
                 if(result.data){
                     alert('La parada se ha creado correctamente')
                 }else{
@@ -82,6 +84,7 @@ function crearUnidad() {
                 method: 'post'
             };
             
+            showLoader();
             fetch(raiz+'/Backend/Admin/consulta_crear_unidad.php', option)
                 .then((response) => {
                 return response.json().then(data => ({
@@ -91,6 +94,7 @@ function crearUnidad() {
                 })
                 .then((result) => {
                 if (result.status === 200) {  
+                    hideLoader();
                     if(result.data){
                         alert('La unidad se ha creado correctamente')
                     }else{

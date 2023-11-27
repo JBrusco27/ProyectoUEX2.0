@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 });
 
 // Lógica para dar formato al número de teléfono
-let phoneInput = document.getElementById('form-phone');
+let phoneInput = document.getElementById('cont-form-phone');
 phoneInput.addEventListener('input', () => {
   const putSpaces = /\d{6}/g;
   phoneInput.value = phoneInput.value.replace(putSpaces, match => {

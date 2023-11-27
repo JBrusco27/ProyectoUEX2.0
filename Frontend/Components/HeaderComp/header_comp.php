@@ -1,5 +1,5 @@
 <!-- Enlace para traducir header -->
-<script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/Header/translateHeader.js"></script>
+<script src="<?php echo $raiz; ?>Frontend/Components/Scripts/Translate/Header/translateHeader.js" defer></script>
 
 <!-- Logica de configuración -->
 <script src="<?php echo $raiz; ?>Frontend/Components/ConfigComp/config_comp.js"></script>
