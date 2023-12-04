@@ -377,7 +377,8 @@ function eliminarReserva() {
                 .then((result) => {
                   if (result.status === 200) {
                     if(result.data){
-                        alert('El viaje se ha creado correctamente')
+                        alert('La reserva se ha eliminado correctamente')
+                        window.location.reload();
                     }else{
                         alert('Ha ocurrido un error')
                     }
